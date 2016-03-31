@@ -3,11 +3,49 @@ body{
 	background-repeat: no-repeat;
 	background-size: 100%;
 	font-family: Arial;
+	width: 80%;
+	height: 50em;
+	margin: auto;
 }
 #header{
-	padding: 3em 0;
+	padding: 1em 0;
+	height: 5em;
 }
 
 #menu{
-	
+	float: left;
+	margin: 1em;
+	width: 20%;
+	height: 15em;
+	border: 0.1em solid black;
+}
+
+#map{
+	float: right;
+	width: 70%;
+	height: 15em;
+	margin: 1em;
+	border: 0.1em solid red;
+}
+
+#checklist{
+	margin-left: 80%;
+	margin-right: 2em;
+	margin-top: 1em;
+	width: 20%;
+	height: 15em;
+	border: 0.1em solid blue;
+}
+
+#detail{
+	width: 90%;
+	height: 10em;
+	margin: auto;
+	border: 0.1em solid green;
+}
+
+footer{
+	margin: auto;
+	width: 80%;
+	background-color: gray;
 }
