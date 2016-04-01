@@ -1,51 +1,144 @@
+/*form{
+	margin: 0;
+}*/
+
 body{
 	background-color: #ffffff;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	font-family: Arial;
 	width: 80%;
-	height: 50em;
+	height: 60em;
 	margin: auto;
 }
 #header{
 	padding: 1em 0;
 	height: 5em;
+	border: 0.1em solid yellow;
 }
 
 #menu{
 	float: left;
-	margin: 1em;
+	margin: 1em 0;
 	width: 20%;
-	height: 15em;
+	height: 35em;
 	border: 0.1em solid black;
+	background: rgba(0, 0, 255, 0.5);
 }
 
 #map{
+	z-index: -1;
 	float: right;
-	width: 70%;
-	height: 15em;
-	margin: 1em;
+	width: 75%;
+	height: 35em;
+	margin: 1em 0;
 	border: 0.1em solid red;
+	background: rgba(255, 255, 0, 1);
 }
 
+/*================check list===================*/
 #checklist{
-	margin-left: 80%;
-	margin-right: 2em;
-	margin-top: 1em;
-	width: 20%;
-	height: 15em;
+	float: right;
+	position: absolute;
+	z-index: 3;
+	margin-top: 3em;
+	margin-left: 60%;
+	margin-bottom: 5em;
+	width: 17%;
+	height: 30em;
 	border: 0.1em solid blue;
+	background: transparent;
 }
+#checklist_title, #checklist_subtitle{
+	height: 5.7%;
+	width: 100%;
+	float: left;
+	background: rgba(156, 156, 156, 0.5);
+}
+#min_max{
+	border: solid 0.1em;
+	width: 10%;
+	height: 100%;
+	float: right;
+	cursor: pointer;
+}
+#button{
+	width: 11%;
+	height: 100%;
+	float: right;
+	cursor: pointer;
+	border-radius: 1em;
+}
+#button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+#f1_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+#f2_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+
+#f1_button, #f2_button{
+	width: 11%;
+	height: 100%;
+	float: left;
+	cursor: pointer;
+	border-radius: 1em;
+}
+
+#checklist_content{
+	/*margin-top: -1.5em;*/
+	height: 95%;
+	overflow: auto;
+	background-color: white;
+	float: right;
+}
+#checklist_content p{
+	padding: 1em 0;
+	position: relative;
+	float: left;
+}
+#service_category, #ward{
+	/*margin-top: -1.5em;*/
+	width: 80%;
+	height: auto;
+	float: left;
+	margin-left: 13%;
+	background-color: white;
+	position: relative;
+	display: block;
+}
+#service_category form {
+	font-size: 11;
+}
+#ward form {
+	font-size: 11;
+}
+
+
+/*=============================================*/
 
 #detail{
+	float: left;
 	width: 90%;
 	height: 10em;
-	margin: auto;
+	margin: 0 5% 1% 5%;
 	border: 0.1em solid green;
 }
 
 footer{
+	float: left;
 	margin: auto;
-	width: 80%;
+	width: 100%;
 	background-color: gray;
 }
