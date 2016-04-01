@@ -1,8 +1,10 @@
-function check_all() {
-    var aa = document.querySelectorAll("input[type=checkbox]");
+function check_all(elemSublist) {
+    var aa = document.querySelectorAll($(elemSublist);
     for (var i = 0; i < aa.length; i++){
         aa[i].checked = true;
     }
 };
 
-$("#filter1").click(function())
+$("#filter1").click(function(){
+	check_all()
+});
