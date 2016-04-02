@@ -1,3 +1,15 @@
+<?php session_start(); 
+	include_once './dataset/read_data.php';
+	//$db_connected=false;
+	//if($is_connected = mysql_query("SELECT lab_type FROM labs WHERE lab_type='1';")){
+	//	$db_connected=true;
+	//}
+
+?>
+
+
+
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>311 Web Explore</title>
@@ -24,7 +36,7 @@
 				<form>
 					<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
 				</form>
-				<div id = "checklist_subtitle">
+				<div class = "checklist_subtitle">
 					<button type = "button" class id = "f1_button">
 						<img  id = "max_f1" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
@@ -50,7 +62,7 @@
 					</form>
 				</div>
 				
-				<div id = "checklist_subtitle">
+				<div class = "checklist_subtitle">
 					<button type = "button" class id = "f2_button">
 						<img  id = "max_f2" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
@@ -75,7 +87,58 @@
 						<input type="checkbox" class = "filter2" name="ward" value="ward12">WARD 12<br>
 					</form>
 				</div>
-				
+
+				<div class = "checklist_subtitle">
+					<button type = "button" class id = "f3_button">
+						<img  id = "max_f3" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
+					</button>
+					<form>
+						<input type="checkbox" onchange="check_subs(this)" class = "filter3" name="filter" value="neighbourhood">Neighbourhood<br>
+					</form>
+					<!--<div id = "min_max">-</div>-->
+				</div>
+				<div id = "neighbourhood">
+					<form action="" method="">
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Alberta_Avenue">Alberta Avenue<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Aldergrove">Aldergrove<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Allendale">Allendale<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Balwin">Balwin<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Baturyn">Baturyn<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Beacon_Heights">Beacon Heights<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Beaumaris">Beaumaris<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Bellevue">Bellevue<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Belmead">Belmead<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Belmont">Belmont<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Belvedere">Belvedere<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Beverly_Heights">Beverly Heights<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Bonnie_Doon">Bonnie Doon<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Boyle_Street">Boyle Street<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Britannia_Yongstown">Britannia Yongstown<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Caernarvon">Caernarvon<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Calder">Calder<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Callingwood_North">Callingwood North<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Capilano">Capilano<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Central_Mcdougall">Central Mcdougall<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Crestwood">Crestwood<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Cumberland">Cumberland<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Delton">Delton<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Delwood">Delwood<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Downtown">Downtown<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Duggan">Duggan<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Dunluce">Dunluce<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Eastwood">Eastwood<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Elmwood">Elmwood<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Evansdale">Evansdale<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Forest_Heights">Forest Heights<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Garneau">Garneau<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Glastonbury">Glastonbury<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Glengarry">Glengarry<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Glenora">Glenora<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Glenwood">Glenwood<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Greenfield">Greenfield<br>
+						<input type="checkbox" class = "filter3" name="neighbourhood" value="Grovenor">Grovenor<br>
+					</form>
+				</div>
 				<p>here is something inside the check list box</p>
 			</div>
 		</div>
@@ -85,7 +148,7 @@
 		<footer>
 			<h1>This is the section for footer</h1>
 			<div id = "quick_link">
-				<h1>Qhick link goes here</h1>
+				<h1>Quick link goes here</h1>
 				<a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 dataset</a>
 			</div>
 			<p>copyright goes here</p>
@@ -95,6 +158,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
 	<script type="text/javascript" src="js/check_all.js"></script>
+	<script type="text/javascript" src="js/get_check_result.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 </html>
