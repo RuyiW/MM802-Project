@@ -37,7 +37,7 @@ for ($a = 0; $a < $data_length; $a++){
 	$latitude = $row[18];
 	$longtitude = $row[19];
 	$location_x = $row[20][1];
-	$location_y = $row[21][2];
+	$location_y = $row[20][2];
 	
 	// echo $row[22][0];
 	// echo "<br>";
@@ -49,11 +49,10 @@ for ($a = 0; $a < $data_length; $a++){
 	// echo "<br>";
 	// echo $row[22][4];
 	// echo "<br>";
-	$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, request_status, status_detail, service_category, business_unit, 
-		neighbourhood,	community_league, ward, address, latitude, longtitude, location_x, location_y, ticket_source, calendar_year, count, posse_number, transit_ref_number)
-	VALUES ( '" . $ticket_num . "', '" . $date_created . "', '" . $date_closed . "', '" . $request_status . "', '" . $status_detail . "', '" . $service_category
-	 . "', '" . $business_unit . "', '" . $neighbourhood . "', '" . $community_league . "', '" . $ward . "', '" . $address . "', '" . $latitude . "', '" . 
-	 $longtitude . "', '" . $location_x . "', '" . $location_y . "', '" . $ticket_source . "', '" . $calendar_year . "', '" . $count . "', '" . $posse_number . "', '" . $transit_ref_number . "')";
+	$sql = "INSERT INTO Bylaw (year, month_number, month, report_period, neighbourhood, neighbourhood_id, complaint, 
+		initiated_by,	status, count, latitude, longtitude, location_x, location_y)
+	VALUES ( '" . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
+	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 
 	if (mysqli_query($conn, $sql)) {
     	//echo "New record created successfully";
