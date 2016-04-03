@@ -61,10 +61,10 @@
 
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
-				    	if($row["service_category"] == null){
-				    		echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
-				    	}
-				    	else{
+				    	if($row["service_category"] != null){
+				    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+				    	//}
+				    	//else{
 				    	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". $row["service_category"] . ">" . $row["service_category"] . "<br>";
 				        //echo "service_category: " . $row["service_category"] . "<br>";
 				    	}
@@ -121,10 +121,10 @@
 
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
-				    	if($row["ward"] == null){
-				    		echo "<input type='checkbox' class = 'filter2' name='ward' value=". null . ">" . "N/A" . "<br>";
-				    	}
-				    	else{
+				    	if($row["ward"] != null){
+				    	//	echo "<input type='checkbox' class = 'filter2' name='ward' value=". null . ">" . "N/A" . "<br>";
+				    	//}
+				    	//else{
 				    	echo "<input type='checkbox' class = 'filter2' name='ward' value=". $row["ward"] . ">" . $row["ward"] . "<br>";
 				        //echo "service_category: " . $row["service_category"] . "<br>";
 				    	}
@@ -182,10 +182,10 @@
 
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
-				    	if($row["neighbourhood"] == null){
-				    		echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". null . ">" . "N/A" . "<br>";
-				    	}
-				    	else{
+				    	if($row["neighbourhood"] != null){
+				    	//	echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". null . ">" . "N/A" . "<br>";
+				    	//}
+				    	//else{
 				    		echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". $row["neighbourhood"] . ">" . $row["neighbourhood"] . "<br>";
 				    	}
 				        //echo "service_category: " . $row["service_category"] . "<br>";

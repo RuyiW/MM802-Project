@@ -21,3 +21,20 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 	posse_number VARCHAR(13),
 	transit_ref_number INT(10)
 )
+
+CREATE TABLE IF NOT EXISTS Bylaw (
+	year YEAR(4),
+	month_number int(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	neighbourhood VARCHAR(20),
+	neighbourhood_id int(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	status VARCHAR(20),
+	count int(3),
+	latitude FLOAT(20, 15),
+	longtitude FLOAT(20, 15),
+	location_x FLOAT(20, 15),
+	location_y FLOAT(20, 15),
+)
