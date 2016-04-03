@@ -38,3 +38,23 @@ CREATE TABLE IF NOT EXISTS Bylaw (
 	location_x FLOAT(20, 15),
 	location_y FLOAT(20, 15)
 );
+
+CREATE TABLE IF NOT EXISTS Neighbourhood_Centroid (
+	neighbourhood_id INT(4),
+	neighbourhood VARCHAR(20),
+	latitude FLOAT(20, 15),
+	longtitude FLOAT(20, 15),
+	location_x FLOAT(20, 15),
+	location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS Ward_Boundaries (
+	ward VARCHAR(7),
+	area_km2 FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS Neighbourhood_Boundaries (
+	neighbourhood VARCHAR(20),
+	neighbourhood_id INT(4),
+	area_km2 FLOAT(20, 15)
+);
