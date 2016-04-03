@@ -269,6 +269,7 @@
 
 	</body>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
 	<script type="text/javascript" src="js/check_all.js"></script>
 	<script type="text/javascript" src="js/get_check_result.js"></script>
