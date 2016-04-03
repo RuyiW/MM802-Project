@@ -27,13 +27,12 @@ body{
 }
 
 #map{
-	z-index: -1;
 	float: right;
 	width: 75%;
 	height: 35em;
 	margin: 1em 0;
 	border: 0.1em solid red;
-	background: rgba(255, 255, 0, 1);
+	/*background: rgba(255, 255, 0, 1);*/
 }
 
 /*================check list===================*/
@@ -45,26 +44,28 @@ body{
 	margin-left: 60%;
 	margin-bottom: 5em;
 	width: 17%;
-	height: 30em;
+	height: auto;
+	max-height: 30em;
 	border: 0.1em solid blue;
 	background: transparent;
+
 }
-#checklist_title, #checklist_subtitle{
-	height: 5.7%;
+#checklist_title, .checklist_subtitle{
+	height: auto;
 	width: 100%;
 	float: left;
 	background: rgba(156, 156, 156, 0.5);
 }
-#min_max{
+/*#min_max{
 	border: solid 0.1em;
 	width: 10%;
 	height: 100%;
 	float: right;
 	cursor: pointer;
-}
+}*/
 #button{
-	width: 11%;
-	height: 100%;
+	width: 2em;
+	height: 2em;
 	float: right;
 	cursor: pointer;
 	border-radius: 1em;
@@ -87,10 +88,16 @@ body{
 	margin-left: -0.6em;
 	margin-top: -0.2em;
 }
+#f3_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
 
-#f1_button, #f2_button{
-	width: 11%;
-	height: 100%;
+#f1_button, #f2_button, #f3_button{
+	width: 2em;
+	height: 2em;
 	float: left;
 	cursor: pointer;
 	border-radius: 1em;
@@ -98,7 +105,7 @@ body{
 
 #checklist_content{
 	/*margin-top: -1.5em;*/
-	height: 95%;
+	max-height: 25em;
 	overflow: auto;
 	background-color: white;
 	float: right;
@@ -108,7 +115,7 @@ body{
 	position: relative;
 	float: left;
 }
-#service_category, #ward{
+#service_category, #ward, #neighbourhood{
 	/*margin-top: -1.5em;*/
 	width: 80%;
 	height: auto;
@@ -122,6 +129,9 @@ body{
 	font-size: 11;
 }
 #ward form {
+	font-size: 11;
+}
+#neighbourhood form{
 	font-size: 11;
 }
 

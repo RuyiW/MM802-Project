@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Determine Click Position on click of a table cell</title>
+<!--CSS -->
+<style>
+    tr{
+        cursor:pointer;
+        background: -moz-linear-gradient(top, #ffffff, #D1E3E9);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#D1E3E9));
+        text-align:center;
+    }
+ 
+    tr:hover{
+        background: -moz-linear-gradient(top, #249ee4, #057cc0);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#249ee4), to(#057cc0));
+    }
+ 
+    tr:active
+    {
+        background: -moz-linear-gradient(top, #057cc0, #249ee4);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#057cc0), to(#249ee4));
+    }
+ 
+    #result{
+        font-weight:bold;
+        font-size:16pt;
+    }
+</style>
+<!--JAVASCRIPT -->
+        <style>
+            #popup{
+                display: none;
+                border: 1px solid black;
+            }
+
+            .cell-which-triggers-popup{
+                cursor: pointer;    
+            }
+
+            .cell-which-triggers-popup:hover{
+                background-color: yellow;    
+            }
+        </style>
+
+</head>
+<body>
+   <div id="popup" class="dialog">
+            <a href="#close"></a>
+            <p></p>            
+        </div>
+  <div id="dialog-html-placeholder" class="hide"></div>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css"/>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<!-- load the d3.js library -->    
+<script src="http://d3js.org/d3.v3.min.js?v=3.2.8"></script>
+ <script  src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
+ <script src = "jquery-ui.js"></script>
+<script>
+
+// Get the data
+
+d3.csv("Data.csv", function(data) {
+  var datasetCsv;
+    csv = data.filter(function(d) {
+        
+        if(d["Request Status"] == "Open")
+        {
+
+             return d["Request Status"]=="Open";
+        }
+        
+    });
+
+   // console.log(csv);
+
+// The table generation function
+function tabulate(csv, columns) {
+    var table = d3.select("body").append("table")
+            .attr("style", "margin-left: 250px", "margin-bottom:50px"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+         .attr("id","tablerow")
+            .text(function(column) { return column; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(csv)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+        .attr("style", "font-family: Courier") // sets the font style
+        .attr("style", "fill: blue") // sets the font style
+        .attr("class", "DatasetTable")
+        .attr("id", "results")
+            .html(function(d) { return d.value; });
+    
+    return table;
+}
+
+
+// render the table
+ var peopleTable = tabulate(csv, ["Ticket Number", "Request Status" ]);
+ datasetCsv = csv
+ var val;
+ var your_variable;
+
+function displayContent(val){
+  
+  //console.log(val);
+ // d3.text(datasetCsv, function(datasetText){
+    csv1 = datasetCsv.filter(function(d) {
+        
+        if(d["Ticket Number"] == val)
+        {
+
+             return d["Ticket Number"]==val;
+        }
+        
+    });
+   // console.log(csv1);
+   //var peopleTable = tabulate(csv1, ["Ticket Number", "Request Status" ,"Service Details"]);
+  your_variable = csv1;
+  //var close = {update: "updated"};
+  //howPopup(close) ;
+    showPopup(your_variable) ;
+   //  function openPopup() {
+   //  var popup = window.open("", "", "width=640,height=480,resizeable,scrollbars");
+   // // table = document.getElementById("data");
+   // // popup.document.write(peopleTable.outerHTML);
+   // // popup.document.close();
+    //    $(document).ready(function () {
+    //     var OpenWindow = window.open('test.html','_blank','width=335,height=330,resizable=1');
+    //     $(OpenWindow.document.body).append();
+    // });
+}
+
+    function showPopup(your_variable){
+       console.log("I am in pop up");
+        $("#popup").dialog({
+            width: 500,
+            //height: 300,
+            //width: 'auto',
+            height: 'auto',
+            open: function(){
+                //whatIsThis = $(your_variable[0]).html(your_variable["Ticket Number"]);
+
+                
+                var acc = [];
+                //var accNew = [];
+                $.each(your_variable[0], function(index, value) {
+                  acc.push(index + ': ' + value);
+                });
+                var accNew = JSON.stringify(acc);
+                //console.log(acc);
+                //alert(accNew.split(',').join("\r\n"));
+                //var peopleTable = tabulate(csv1, ["Ticket Number", "Request Status" ,"Service Details", "Neighbourhood", "Address"]);
+                whatIsThis = $(this).html(accNew.split(',').join("<br>"));
+                //whatIsThis = $(this).html(peopleTable[0]);
+                console.log(peopleTable[0]);
+
+                //return your_variable;
+            }
+        });
+    }
+ $(document).ready(function(){
+        // var table = $('#example').DataTable();
+    $('td').click(function() {     
+            
+         
+          var colIndex = parseInt($(this).parent().children().index($(this)));
+          var rowIndex = parseInt($(this).parent().parent().children().index($(this).parent()));
+          // var texto = $('table tr:nth-child(2) td:nth-child(1)').text()
+         var rowContent = [];
+         rowContent = datasetCsv[rowIndex];
+         val = rowContent["Ticket Number"]
+        // alert("Service Details = " + rowContent["Service Details"]);
+      //  console.log(rowContent) 
+        // alert(val) 
+
+         displayContent(val);
+
+    });
+  });
+
+});
+
+
+</script>
+</body>
+</html>

@@ -55,3 +55,11 @@ $(document).ready(function(){
 
 	});
 });
+
+$(document).ready(function(){
+	$("#neighbourhood").hide();
+	$("#f3_button").click(function(){
+		activateMaxMin($(this),$("#max_f3"),$("#neighbourhood"));
+
+	});
+});
