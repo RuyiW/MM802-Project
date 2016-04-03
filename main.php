@@ -1,13 +1,17 @@
 <?php session_start(); 
-	include_once './dataset/read_data.php';
-	//$db_connected=false;
-	//if($is_connected = mysql_query("SELECT lab_type FROM labs WHERE lab_type='1';")){
-	//	$db_connected=true;
-	//}
+	//include_once './dataset/read_data.php';
+	$host="localhost";
+	$db_user="root";
+	$db_pass="";
+	$db_name="db_relations";
 
+	// Create connection
+	$conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
+	// Check connection
+	if (!$conn) {
+	    die("Connection failed: " . mysqli_connect_error());
+	}
 ?>
-
-
 
 <!DOCTYPE HTML>
 <html>
@@ -33,18 +37,49 @@
 				<!--<div id = "min_max">-</div>-->
 			</div>
 			<div id = "checklist_content">
+
 				<form>
 					<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
 				</form>
-				<div class = "checklist_subtitle">
+				<?php
+				//echo "something before if";
+				$sql = "SELECT DISTINCT service_category FROM 311_explorer ORDER BY service_category;";
+				$result = $conn->query($sql);
+
+				if ($result->num_rows > 0) {
+					echo "<div class = 'checklist_subtitle'>
+					<button type = 'button' class id = 'f1_button'>
+						<img  id = 'max_f1' style = 'width: 2em; height: 2em;'' src='./img/plus-78.png'>
+					</button>
+					<form>
+						<input type='checkbox' onchange='check_subs(this)' class = 'filter1' name='filter' value='service_category'>Service Category<br>
+					</form>
+					</div>
+					<div id = 'service_category'>
+					<form action='' method=''>";
+
+
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". $row["service_category"] . ">" . $row["service_category"] . "<br>";
+				        //echo "service_category: " . $row["service_category"] . "<br>";
+				    }
+				    echo "</form>
+				</div>";
+				} else {
+				    //echo "0 results";
+				}
+
+				?>
+				<!--<div class = "checklist_subtitle">
 					<button type = "button" class id = "f1_button">
 						<img  id = "max_f1" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
 					<form>
 						<input type="checkbox" onchange="check_subs(this)" class = "filter1" name="filter" value="service_category">Service Category<br>
 					</form>
-					<!--<div id = "min_max">-</div>-->
-				</div>
+					<div id = "min_max">-</div>-->
+				<!--</div>
 				<div id = "service_category">
 					<form action="" method="">
 						<input type="checkbox" class = "filter1" name="service_category" value="dead_animal">Dead Animal Removal<br>
@@ -60,17 +95,47 @@
 						<input type="checkbox" class = "filter1" name="service_category" value="tree">Tree Maintenance<br>
 						<input type="checkbox" class = "filter1" name="service_category" value="vandalism_graffiti">Vandalism/Graffiti<br>
 					</form>
-				</div>
-				
-				<div class = "checklist_subtitle">
+				</div>-->
+				<?php
+				//echo "something before if";
+				$sql = "SELECT DISTINCT ward FROM 311_explorer ORDER BY ward;";
+				$result = $conn->query($sql);
+
+				if ($result->num_rows > 0) {
+					echo "<div class = 'checklist_subtitle'>
+					<button type = 'button' class id = 'f2_button'>
+						<img  id = 'max_f2' style = 'width: 2em; height: 2em;'' src='./img/plus-78.png'>
+					</button>
+					<form>
+						<input type='checkbox' onchange='check_subs(this)' class = 'filter2' name='filter' value='ward'>Ward<br>
+					</form>
+					</div>
+					<div id = 'ward'>
+					<form action='' method=''>";
+
+
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	echo "<input type='checkbox' class = 'filter2' name='ward' value=". $row["ward"] . ">" . $row["ward"] . "<br>";
+				        //echo "service_category: " . $row["service_category"] . "<br>";
+				    }
+				    echo "</form>
+				</div>";
+				} else {
+				    //echo "0 results";
+				}
+
+				?>
+
+				<!--<div class = "checklist_subtitle">
 					<button type = "button" class id = "f2_button">
 						<img  id = "max_f2" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
 					<form>
 						<input type="checkbox" onchange="check_subs(this)" class = "filter2" name="filter" value="ward">Ward<br>
 					</form>
-					<!--<div id = "min_max">-</div>-->
-				</div>
+					<div id = "min_max">-</div>-->
+				<!--</div>
 				<div id = "ward">
 					<form action="" method="">
 						<input type="checkbox" class = "filter2" name="ward" value="ward01">WARD 01<br>
@@ -86,16 +151,47 @@
 						<input type="checkbox" class = "filter2" name="ward" value="ward11">WARD 11<br>
 						<input type="checkbox" class = "filter2" name="ward" value="ward12">WARD 12<br>
 					</form>
-				</div>
+				</div>-->
+				<?php
+				//echo "something before if";
+				$sql = "SELECT DISTINCT neighbourhood FROM 311_explorer ORDER BY neighbourhood;";
+				$result = $conn->query($sql);
 
-				<div class = "checklist_subtitle">
+				if ($result->num_rows > 0) {
+					echo "<div class = 'checklist_subtitle'>
+					<button type = 'button' class id = 'f3_button'>
+						<img  id = 'max_f3' style = 'width: 2em; height: 2em;'' src='./img/plus-78.png'>
+					</button>
+					<form>
+						<input type='checkbox' onchange='check_subs(this)' class = 'filter3' name='filter' value='neighbourhood'>Neighbourhood<br>
+					</form>
+					</div>
+					<div id = 'neighbourhood'>
+					<form action='' method=''>";
+
+
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". $row["neighbourhood"] . ">" . $row["neighbourhood"] . "<br>";
+				        //echo "service_category: " . $row["service_category"] . "<br>";
+				    }
+				    echo "</form>
+				</div>";
+				} else {
+				    //echo "0 results";
+				}
+
+				?>
+
+				<!--<div class = "checklist_subtitle">
 					<button type = "button" class id = "f3_button">
 						<img  id = "max_f3" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
 					<form>
 						<input type="checkbox" onchange="check_subs(this)" class = "filter3" name="filter" value="neighbourhood">Neighbourhood<br>
 					</form>
-					<!--<div id = "min_max">-</div>-->
+					<div id = "min_max">-</div>-->
+				<!--
 				</div>
 				<div id = "neighbourhood">
 					<form action="" method="">
@@ -139,6 +235,7 @@
 						<input type="checkbox" class = "filter3" name="neighbourhood" value="Grovenor">Grovenor<br>
 					</form>
 				</div>
+				-->
 				<p>here is something inside the check list box</p>
 			</div>
 		</div>

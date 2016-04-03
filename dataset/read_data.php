@@ -1,5 +1,6 @@
 <?php
-$str = file_get_contents("./dataset/311Explorer.json");
+$str = file_get_contents("311Explorer.json");
+//./dataset/311Explorer.json
 $json = json_decode($str, true);
 //echo '<pre>' . print_r($json, true) . '</pre>';
 //echo "this is what I got:";
@@ -11,6 +12,7 @@ $host="localhost";
 $db_user="root";
 $db_pass="";
 $db_name="db_relations";
+
 // Create connection
 $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 // Check connection
@@ -69,9 +71,9 @@ for ($a = 0; $a < $data_length; $a++){
 	//echo "<br>";
 }
 
-//echo "numbers: ". $a;
+echo "numbers: ". $a;
 
-
+$conn->close();
 
 
 ?>
