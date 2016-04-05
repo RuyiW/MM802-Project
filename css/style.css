@@ -106,8 +106,14 @@ body{
 	margin-left: -0.6em;
 	margin-top: -0.2em;
 }
+#f4_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
 
-#f1_button, #f2_button, #f3_button{
+#f1_button, #f2_button, #f3_button, #f4_button{
 	width: 2em;
 	height: 2em;
 	float: left;
@@ -127,7 +133,7 @@ body{
 	position: relative;
 	float: left;
 }
-#service_category, #ward, #neighbourhood{
+#service_category, #ward, #neighbourhood, #request_status{
 	/*margin-top: -1.5em;*/
 	width: 80%;
 	height: auto;
@@ -144,6 +150,9 @@ body{
 	font-size: 11;
 }
 #neighbourhood form{
+	font-size: 11;
+}
+#request_status form{
 	font-size: 11;
 }
 

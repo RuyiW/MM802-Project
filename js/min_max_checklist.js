@@ -63,3 +63,11 @@ $(document).ready(function(){
 
 	});
 });
+
+$(document).ready(function(){
+	$("#request_status").hide();
+	$("#f4_button").click(function(){
+		activateMaxMin($(this),$("#max_f4"),$("#request_status"));
+
+	});
+});

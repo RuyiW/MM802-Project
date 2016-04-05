@@ -60,6 +60,101 @@ CREATE TABLE IF NOT EXISTS Bylaw (
 -- 	area_km2 FLOAT(20, 15)
 -- );
 
+CREATE TABLE IF NOT EXISTS 311_ward (
+	ticket_number bigint(10), 
+	date_created TIMESTAMP,
+	date_closed TIMESTAMP,
+	311_request_status VARCHAR(5) NOT NULL,
+	311_status_detail VARCHAR(20),
+	service_category VARCHAR(20),
+	service_details VARCHAR(30),
+	business_unit VARCHAR(50),
+	311_neighbourhood VARCHAR(20),
+	community_league VARCHAR(60),
+	311_ward VARCHAR(7),
+	address VARCHAR(60),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
+	311_location_x FLOAT(20, 15),
+	311_location_y FLOAT(20, 15),
+	ticket_source VARCHAR(15),
+	calendar_year YEAR(4),
+	311_count INT(1),
+	posse_number VARCHAR(13),
+	transit_ref_number INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS 311_neighbourhood (
+	ticket_number bigint(10), 
+	date_created TIMESTAMP,
+	date_closed TIMESTAMP,
+	311_request_status VARCHAR(5) NOT NULL,
+	311_status_detail VARCHAR(20),
+	service_category VARCHAR(20),
+	service_details VARCHAR(30),
+	business_unit VARCHAR(50),
+	311_neighbourhood VARCHAR(20),
+	community_league VARCHAR(60),
+	311_ward VARCHAR(7),
+	address VARCHAR(60),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
+	311_location_x FLOAT(20, 15),
+	311_location_y FLOAT(20, 15),
+	ticket_source VARCHAR(15),
+	calendar_year YEAR(4),
+	311_count INT(1),
+	posse_number VARCHAR(13),
+	transit_ref_number INT(10)
+);
+CREATE TABLE IF NOT EXISTS service_category (
+	ticket_number bigint(10), 
+	date_created TIMESTAMP,
+	date_closed TIMESTAMP,
+	311_request_status VARCHAR(5) NOT NULL,
+	311_status_detail VARCHAR(20),
+	service_category VARCHAR(20),
+	service_details VARCHAR(30),
+	business_unit VARCHAR(50),
+	311_neighbourhood VARCHAR(20),
+	community_league VARCHAR(60),
+	311_ward VARCHAR(7),
+	address VARCHAR(60),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
+	311_location_x FLOAT(20, 15),
+	311_location_y FLOAT(20, 15),
+	ticket_source VARCHAR(15),
+	calendar_year YEAR(4),
+	311_count INT(1),
+	posse_number VARCHAR(13),
+	transit_ref_number INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS 311_request_status (
+	ticket_number bigint(10), 
+	date_created TIMESTAMP,
+	date_closed TIMESTAMP,
+	311_request_status VARCHAR(5) NOT NULL,
+	311_status_detail VARCHAR(20),
+	service_category VARCHAR(20),
+	service_details VARCHAR(30),
+	business_unit VARCHAR(50),
+	311_neighbourhood VARCHAR(20),
+	community_league VARCHAR(60),
+	311_ward VARCHAR(7),
+	address VARCHAR(60),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
+	311_location_x FLOAT(20, 15),
+	311_location_y FLOAT(20, 15),
+	ticket_source VARCHAR(15),
+	calendar_year YEAR(4),
+	311_count INT(1),
+	posse_number VARCHAR(13),
+	transit_ref_number INT(10)
+);
+
 CREATE TABLE IF NOT EXISTS checked_result (
 	ticket_number bigint(10), 
 	date_created TIMESTAMP,

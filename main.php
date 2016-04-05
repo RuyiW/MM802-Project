@@ -157,7 +157,48 @@
 					</div>\n";
 					} else {
 					    //echo "0 results";
-					}?>
+					}
+
+					$sql = "SELECT DISTINCT 311_request_status FROM 311_Explorer ORDER BY 311_request_status;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f4_button'>
+							<img  id = 'max_f4' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						<form>
+							<input type='checkbox' onchange='check_subs(this)' class = 'filter4' name='filter' value='311_request_status'>Request Status<br>
+						</form>
+						</div>
+						<div id = 'request_status'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["311_request_status"] != null){
+
+					    		$the_row = $row["311_request_status"];
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_311_request_status('<?php echo $the_row; ?>', this)" class = 'filter4' name='311_request_status' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+					?>
 
 					
 

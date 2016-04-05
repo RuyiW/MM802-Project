@@ -39,3 +39,17 @@ function store_311_neighbourhood(neighbourhood, ele) {
 		$('#testing_div').load('dataset/store_311_neighbourhood.php?neighbourhood=' + neighbourhood + '&checked=0');
 	}
 }
+
+function store_311_request_status(request_status, ele) {
+    console.log(request_status);
+    //var res = service_category.replace("+", "");
+    request_status = encodeURI(request_status);
+    console.log(request_status);
+    if(ele.checked){
+	    $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=1');
+	    console.log("inside function store_311_request_status");
+	}
+	else{
+		$('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+	}
+}
