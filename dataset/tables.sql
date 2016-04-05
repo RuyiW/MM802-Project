@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 );
 
 CREATE TABLE IF NOT EXISTS Bylaw (
-
+	complaint_number int(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
 	month VARCHAR(10),
@@ -177,6 +177,7 @@ CREATE TABLE IF NOT EXISTS checked_result (
 	311_count INT(1),
 	posse_number VARCHAR(13),
 	transit_ref_number INT(10),
+	complaint_number INT(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
 	month VARCHAR(10),
@@ -193,3 +194,7 @@ CREATE TABLE IF NOT EXISTS checked_result (
 	bylaw_location_y FLOAT(20, 15)
 );
 
+CREATE TABLE IF NOT EXISTS match_result (
+	matched_ticket_number bigint(10),
+	complaint_number INT(3)
+);

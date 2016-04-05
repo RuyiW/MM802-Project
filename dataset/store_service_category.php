@@ -70,7 +70,7 @@ if($checked == '1'){
 			    	echo "\n";
 				}
 
-				//$join_sql = "INNER JOIN "
+				//$join_sql = "SELECT * FROM service_category INNER JOIN 311_ward"
 			}
 		}
 	}

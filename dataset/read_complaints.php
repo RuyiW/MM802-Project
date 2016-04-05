@@ -25,6 +25,7 @@ mysql_query("set names utf8;");
 $short_length = 100;
 for ($a = 0; $a < $short_length; $a++){
 	$row = $data[$a];
+	$complaint_number = $a + 1;
 	$year = $row[8];
 	$month_number = $row[9];
 	$month = $row[10];
@@ -51,10 +52,10 @@ for ($a = 0; $a < $short_length; $a++){
 	// echo $row[22][4];
 	// echo "<br>";
 
-	$sql = "INSERT INTO Bylaw (bylaw_year, month_number, month, report_period, bylaw_neighbourhood, bylaw_neighbourhood_id, complaint, 
+	$sql = "INSERT INTO Bylaw (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, bylaw_neighbourhood_id, complaint, 
 		initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y)
 
-	VALUES ( '" . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
+	VALUES ( '" . $complaint_number . ", " . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
 	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 
 	if (mysqli_query($conn, $sql)) {
