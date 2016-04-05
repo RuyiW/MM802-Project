@@ -19,166 +19,171 @@
 	<head>
 		<title>311 Web Explore</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" media="all">
-
-
-		<div id = "header">
-			<h1>Maybe add a logo image here</h1>
-		</div>
 	</head>
 	<body>
-		<div id = "menu">
-			<h1>This is the section for possible menu</h1>
+		<div id = "header">
+			<img src="./img/logo.png">
 		</div>
-		<div id = "map"></div>
-		<div id = "checklist">
-			<div id = "checklist_title">
-				<button type = "button" class id = "button">
-					<img  id = "max" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
-				</button>
-				<!--<div id = "min_max">-</div>-->
-			</div>
-			<div id = "checklist_content">
-
-				<form>
-					<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
-				</form>
-				<?php
-				//echo "something before if";
-
-				$sql = "SELECT DISTINCT service_category FROM 311_Explorer ORDER BY service_category;";
-				$result = $conn->query($sql);
-
-				if ($result->num_rows > 0) {
-					echo "
-					<div class = 'checklist_subtitle'>
-					<button type = 'button' class id = 'f1_button'>
-						<img  id = 'max_f1' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
-
+		<div class = "wrap">
+			<!-- <div id = "menu">
+				<h1>This is the section for possible menu</h1>
+			</div> -->
+			<div id = "map"></div>
+			<div id = "checklist">
+				<div id = "checklist_title">
+					<button type = "button" class id = "button">
+						<img  id = "max" style = "width: 2em; height: 2em;" src="./img/plus-78.png">
 					</button>
+					<!--<div id = "min_max">-</div>-->
+				</div>
+				<div id = "checklist_content">
+
 					<form>
-						<input type='checkbox' onchange='check_subs(this)' class = 'filter1' name='filter' value='service_category'>Service Category<br>
+						<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
 					</form>
+					<?php
+					//echo "something before if";
+
+					$sql = "SELECT DISTINCT service_category FROM 311_Explorer ORDER BY service_category;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f1_button'>
+							<img  id = 'max_f1' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						<form>
+							<input type='checkbox' onchange='check_subs(this)' class = 'filter1' name='filter' value='service_category'>Service Category<br>
+						</form>
+						</div>
+						<div id = 'service_category'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["service_category"] != null){
+
+					    		$the_row = $row["service_category"];
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_service_category('<?php echo $the_row; ?>', this)" class = 'filter1' name='service_category' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+
+					//echo "something before if";
+					$sql = "SELECT DISTINCT 311_ward FROM 311_Explorer ORDER BY 311_ward;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f2_button'>
+							<img  id = 'max_f2' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+						</button>
+						<form>
+							<input type='checkbox' onchange='check_subs(this)' class = 'filter2' name='filter' value='ward'>Ward<br>
+						</form>
+						</div>
+						<div id = 'ward'>
+						<form class = 'checklist_form' action='' method=''> \n";
+					    // output data of each row			    
+					    while(($row = $result->fetch_assoc())) {
+					    	if($row["311_ward"] != null){
+					    		$the_row = $row["311_ward"];
+					    		//$the_row = str_replace(' ', '', $row["ward"]);//remove the space in string
+					    	//	echo "<input type='checkbox' class = 'filter2' name='ward' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{\
+					    		?>
+					    	<input type="checkbox" onchange = "store_ward('<?php echo $the_row; ?>', this)" class = 'filter2' name = 'ward' value = '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    	
+					    }
+					    echo "</form>\n";
+					    echo "</div>\n";
+					} else {
+					    //echo "0 results";
+					}
+					//echo "something before if";
+					$sql = "SELECT DISTINCT 311_neighbourhood FROM 311_explorer ORDER BY 311_neighbourhood;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "<div class = 'checklist_subtitle'>
+
+						<button type = 'button' class id = 'f3_button'>
+							<img  id = 'max_f3' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+						</button>
+						<form>
+							<input type='checkbox' onchange='check_subs(this)' class = 'filter3' name='filter' value='neighbourhood'>Neighbourhood<br>
+						</form>
+						</div>
+						<div id = 'neighbourhood'>
+						<form class = 'checklist_form' action='' method='post'>";
+					    // output data of each row
+					    
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["311_neighbourhood"] != null){
+					    		$the_row = $row["311_neighbourhood"];
+					    	//	echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    		<input type='checkbox' onchange = "store_311_neighbourhood('<?php echo $the_row; ?>', this)" class = 'filter3' name='neighbourhood' value= '<?php echo $the_row;?>' ><?php echo $the_row;?>
+					    		<br>
+					    		<?php
+					    	}
+					    	
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    }
+					    echo "</form>
+					</div>\n";
+					} else {
+					    //echo "0 results";
+					}?>
+
+					
+
+					<!-- <p>SQL result message:</p><br> -->
+					<div id = "testing_div">
+						
 					</div>
-					<div id = 'service_category'>
-					<form class = 'checklist_form' action='' method='post'>";
-
-
-
-				    // output data of each row
-				    while($row = $result->fetch_assoc()) {
-				    	if($row["service_category"] != null){
-
-				    		$the_row = $row["service_category"];
-				    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
-				    	//}
-				    	//else{
-				    		?>
-				    	<input type='checkbox' onchange = "store_service_category('<?php echo $the_row; ?>', this)" class = 'filter1' name='service_category' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
-				    	<br>
-				    	<?php
-				        //echo "service_category: " . $row["service_category"] . "<br>";
-				    	}
-				    }
-				    echo "</form>
-				</div>";
-				} else {
-				    //echo "0 results";
-				}
-
-				//echo "something before if";
-				$sql = "SELECT DISTINCT 311_ward FROM 311_Explorer ORDER BY 311_ward;";
-				$result = $conn->query($sql);
-
-				if ($result->num_rows > 0) {
-					echo "
-					<div class = 'checklist_subtitle'>
-					<button type = 'button' class id = 'f2_button'>
-						<img  id = 'max_f2' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
-					</button>
-					<form>
-						<input type='checkbox' onchange='check_subs(this)' class = 'filter2' name='filter' value='ward'>Ward<br>
-					</form>
-					</div>
-					<div id = 'ward'>
-					<form class = 'checklist_form' action='' method=''> \n";
-				    // output data of each row			    
-				    while(($row = $result->fetch_assoc())) {
-				    	if($row["311_ward"] != null){
-				    		$the_row = $row["311_ward"];
-				    		//$the_row = str_replace(' ', '', $row["ward"]);//remove the space in string
-				    	//	echo "<input type='checkbox' class = 'filter2' name='ward' value=". null . ">" . "N/A" . "<br>";
-				    	//}
-				    	//else{\
-				    		?>
-				    	<input type="checkbox" onchange = "store_ward('<?php echo $the_row; ?>', this)" class = 'filter2' name = 'ward' value = '<?php echo $the_row;?>'><?php echo $the_row;?>
-				    	<br>
-				    	<?php
-				        //echo "service_category: " . $row["service_category"] . "<br>";
-				    	}
-				    	
-				    }
-				    echo "</form>\n";
-				    echo "</div>\n";
-				} else {
-				    //echo "0 results";
-				}
-				//echo "something before if";
-				$sql = "SELECT DISTINCT 311_neighbourhood FROM 311_explorer ORDER BY 311_neighbourhood;";
-				$result = $conn->query($sql);
-
-				if ($result->num_rows > 0) {
-					echo "<div class = 'checklist_subtitle'>
-
-					<button type = 'button' class id = 'f3_button'>
-						<img  id = 'max_f3' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
-					</button>
-					<form>
-						<input type='checkbox' onchange='check_subs(this)' class = 'filter3' name='filter' value='neighbourhood'>Neighbourhood<br>
-					</form>
-					</div>
-					<div id = 'neighbourhood'>
-					<form class = 'checklist_form' action='' method='post'>";
-				    // output data of each row
-				    
-				    while($row = $result->fetch_assoc()) {
-				    	if($row["311_neighbourhood"] != null){
-				    		$the_row = $row["311_neighbourhood"];
-				    	//	echo "<input type='checkbox' class = 'filter3' name='neighbourhood' value=". null . ">" . "N/A" . "<br>";
-				    	//}
-				    	//else{
-				    		?>
-				    		<input type='checkbox' onchange = "store_311_neighbourhood('<?php echo $the_row; ?>', this)" class = 'filter3' name='neighbourhood' value= '<?php echo $the_row;?>' ><?php echo $the_row;?>
-				    		<br>
-				    		<?php
-				    	}
-				    	
-				        //echo "service_category: " . $row["service_category"] . "<br>";
-				    }
-				    echo "</form>
-				</div>\n";
-				} else {
-				    //echo "0 results";
-				}?>
-
-				
-
-				<p>SQL result message:</p><br>
-				<div id = "testing_div">
 					
 				</div>
-				
 			</div>
-		</div>
-		<div id = "detail">
-			<h1>This is the section for selection display</h1>
-		</div>
+			<div id = "detail">
+				<h1>This is the section for selection display</h1>
+			</div>
+		</div><!--clossing tag for wrap-->
 		<footer>
-			<h1>This is the section for footer</h1>
-			<div id = "quick_link">
-				<h1>Quick link goes here</h1>
-				<a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 dataset</a>
+			<div class = "foot_wrap">
+			<!-- <h1>This is the section for footer</h1> -->
+			<div class = "quick_link">
+				<ul>Quick links:
+					<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
+					<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
+					<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
+				</ul>
 			</div>
-			<p>copyright goes here</p>
+			<p>Copyright：MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
+			</div>
 		</footer>
 
 	</body>
