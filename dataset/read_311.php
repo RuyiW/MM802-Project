@@ -11,7 +11,7 @@ $data = $json['data'];
 $host="localhost";
 $db_user="root";
 $db_pass="";
-$db_name="db_relations";
+$db_name="db_relations_short";
 
 // Create connection
 $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
@@ -21,8 +21,9 @@ if (!$conn) {
 }
 mysql_query("set names utf8;");
 
-$data_length = count($data);
-for ($a = 0; $a < $data_length; $a++){
+//$data_length = count($data);
+$short_length = 100;
+for ($a = 0; $a < $short_length; $a++){
 	$row = $data[$a];
 	$ticket_num = $row[8];
 	$date_created = $row[9];
@@ -55,8 +56,8 @@ for ($a = 0; $a < $data_length; $a++){
 	// echo "<br>";
 	// echo $row[22][4];
 	// echo "<br>";
-	$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, request_status, status_detail, service_category, business_unit, 
-		neighbourhood,	community_league, ward, address, latitude, longtitude, location_x, location_y, ticket_source, calendar_year, count, posse_number, transit_ref_number)
+	$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, 311_request_status, 311_status_detail, service_category, business_unit, 
+		311_neighbourhood,	community_league, 311_ward, address, 311_latitude, 311_longtitude, 311_location_x, 311_location_y, ticket_source, calendar_year, 311_count, posse_number, transit_ref_number)
 	VALUES ( '" . $ticket_num . "', '" . $date_created . "', '" . $date_closed . "', '" . $request_status . "', '" . $status_detail . "', '" . $service_category
 	 . "', '" . $business_unit . "', '" . $neighbourhood . "', '" . $community_league . "', '" . $ward . "', '" . $address . "', '" . $latitude . "', '" . 
 	 $longtitude . "', '" . $location_x . "', '" . $location_y . "', '" . $ticket_source . "', '" . $calendar_year . "', '" . $count . "', '" . $posse_number . "', '" . $transit_ref_number . "')";

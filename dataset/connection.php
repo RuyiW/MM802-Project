@@ -3,17 +3,14 @@
 $host="localhost";
 $db_user="root";
 $db_pass="";
-$db_name="db_relations";
-
-header("Content-Type: text/html");
+$db_name="db_relations_short";
 
 // Create connection
-$conn = new mysqli($host, $db_user, $db_pass, $db_name);
+$conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 mysql_query("set names utf8;");
 
 ?>

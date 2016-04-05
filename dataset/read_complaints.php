@@ -11,7 +11,7 @@ $data = $json['data'];
 $host="localhost";
 $db_user="root";
 $db_pass="";
-$db_name="db_relations";
+$db_name="db_relations_short";
 
 // Create connection
 $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
@@ -21,8 +21,9 @@ if (!$conn) {
 }
 mysql_query("set names utf8;");
 
-$data_length = count($data);
-for ($a = 0; $a < $data_length; $a++){
+//$data_length = count($data);
+$short_length = 100;
+for ($a = 0; $a < $short_length; $a++){
 	$row = $data[$a];
 	$year = $row[8];
 	$month_number = $row[9];
@@ -37,7 +38,7 @@ for ($a = 0; $a < $data_length; $a++){
 	$latitude = $row[18];
 	$longtitude = $row[19];
 	$location_x = $row[20][1];
-	$location_y = $row[21][2];
+	$location_y = $row[20][2];
 	
 	// echo $row[22][0];
 	// echo "<br>";
@@ -49,11 +50,10 @@ for ($a = 0; $a < $data_length; $a++){
 	// echo "<br>";
 	// echo $row[22][4];
 	// echo "<br>";
-	$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, request_status, status_detail, service_category, business_unit, 
-		neighbourhood,	community_league, ward, address, latitude, longtitude, location_x, location_y, ticket_source, calendar_year, count, posse_number, transit_ref_number)
-	VALUES ( '" . $ticket_num . "', '" . $date_created . "', '" . $date_closed . "', '" . $request_status . "', '" . $status_detail . "', '" . $service_category
-	 . "', '" . $business_unit . "', '" . $neighbourhood . "', '" . $community_league . "', '" . $ward . "', '" . $address . "', '" . $latitude . "', '" . 
-	 $longtitude . "', '" . $location_x . "', '" . $location_y . "', '" . $ticket_source . "', '" . $calendar_year . "', '" . $count . "', '" . $posse_number . "', '" . $transit_ref_number . "')";
+	$sql = "INSERT INTO Bylaw (bylaw_year, month_number, month, report_period, bylaw_neighbourhood, bylaw_neighbourhood_id, complaint, 
+		initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y)
+	VALUES ( '" . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
+	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 
 	if (mysqli_query($conn, $sql)) {
     	//echo "New record created successfully";
