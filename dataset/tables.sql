@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS 311_request_status (
 	transit_ref_number INT(10)
 );
 
-CREATE TABLE IF NOT EXISTS checked_result (
+CREATE TABLE IF NOT EXISTS checked_311_result (
 	ticket_number bigint(10), 
 	date_created TIMESTAMP,
 	date_closed TIMESTAMP,
@@ -176,7 +176,10 @@ CREATE TABLE IF NOT EXISTS checked_result (
 	calendar_year YEAR(4),
 	311_count INT(1),
 	posse_number VARCHAR(13),
-	transit_ref_number INT(10),
+	transit_ref_number INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS checked_bylaw_result (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
@@ -195,6 +198,11 @@ CREATE TABLE IF NOT EXISTS checked_result (
 );
 
 CREATE TABLE IF NOT EXISTS match_result (
+	matched_ticket_number bigint(10),
+	complaint_number INT(3)
+);
+
+CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
 	matched_ticket_number bigint(10),
 	complaint_number INT(3)
 );

@@ -55,7 +55,7 @@ for ($a = 0; $a < $short_length; $a++){
 	$sql = "INSERT INTO Bylaw (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, bylaw_neighbourhood_id, complaint, 
 		initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y)
 
-	VALUES ( '" . $complaint_number . ", " . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
+	VALUES ( '" . $complaint_number . "', '" . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
 	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 
 	if (mysqli_query($conn, $sql)) {
