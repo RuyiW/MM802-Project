@@ -50,13 +50,10 @@ for ($a = 0; $a < $short_length; $a++){
 	// echo "<br>";
 	// echo $row[22][4];
 	// echo "<br>";
-<<<<<<< HEAD:dataset/read_complaints.php
+
 	$sql = "INSERT INTO Bylaw (bylaw_year, month_number, month, report_period, bylaw_neighbourhood, bylaw_neighbourhood_id, complaint, 
 		initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y)
-=======
-	$sql = "INSERT INTO Bylaw (year, month_number, month, report_period, neighbourhood, neighbourhood_id, complaint, 
-		initiated_by,	status, count, latitude, longtitude, location_x, location_y)
->>>>>>> origin/master:dataset/read_complains.php
+
 	VALUES ( '" . $year . "', '" . $month_number . "', '" . $month . "', '" . $report_period . "', '" . $neighbourhood . "', '" . $neighbourhood_id
 	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 

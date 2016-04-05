@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 );
 
 CREATE TABLE IF NOT EXISTS Bylaw (
-<<<<<<< HEAD
+
 	bylaw_year YEAR(4),
 	month_number INT(2),
 	month VARCHAR(10),
@@ -97,40 +97,4 @@ CREATE TABLE IF NOT EXISTS checked_result (
 	bylaw_location_x FLOAT(20, 15),
 	bylaw_location_y FLOAT(20, 15)
 );
-=======
-	year YEAR(4),
-	month_number INT(2),
-	month VARCHAR(10),
-	report_period VARCHAR(15),
-	neighbourhood VARCHAR(20),
-	neighbourhood_id INT(4),
-	complaint VARCHAR(20) NOT NULL,
-	initiated_by VARCHAR(15),
-	status VARCHAR(20),
-	count INT(3),
-	latitude FLOAT(20, 15),
-	longtitude FLOAT(20, 15),
-	location_x FLOAT(20, 15),
-	location_y FLOAT(20, 15)
-);
 
-CREATE TABLE IF NOT EXISTS Neighbourhood_Centroid (
-	neighbourhood_id INT(4),
-	neighbourhood VARCHAR(20),
-	latitude FLOAT(20, 15),
-	longtitude FLOAT(20, 15),
-	location_x FLOAT(20, 15),
-	location_y FLOAT(20, 15)
-);
-
-CREATE TABLE IF NOT EXISTS Ward_Boundaries (
-	ward VARCHAR(7),
-	area_km2 FLOAT(20, 15)
-);
-
-CREATE TABLE IF NOT EXISTS Neighbourhood_Boundaries (
-	neighbourhood VARCHAR(20),
-	neighbourhood_id INT(4),
-	area_km2 FLOAT(20, 15)
-);
->>>>>>> origin/master
