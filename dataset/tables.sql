@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS 311_Explorer (
 	ticket_number bigint(10) UNSIGNED PRIMARY KEY, 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS Bylaw (
 
 CREATE TABLE IF NOT EXISTS 311_ward (
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -86,8 +86,8 @@ CREATE TABLE IF NOT EXISTS 311_ward (
 
 CREATE TABLE IF NOT EXISTS 311_neighbourhood (
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -109,8 +109,8 @@ CREATE TABLE IF NOT EXISTS 311_neighbourhood (
 );
 CREATE TABLE IF NOT EXISTS service_category (
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS service_category (
 
 CREATE TABLE IF NOT EXISTS 311_request_status (
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -157,8 +157,8 @@ CREATE TABLE IF NOT EXISTS 311_request_status (
 
 CREATE TABLE IF NOT EXISTS temp_311(
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
@@ -181,8 +181,8 @@ CREATE TABLE IF NOT EXISTS temp_311(
 
 CREATE TABLE IF NOT EXISTS checked_311_result (
 	ticket_number bigint(10), 
-	date_created TIMESTAMP,
-	date_closed TIMESTAMP,
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
 	311_request_status VARCHAR(5) NOT NULL,
 	311_status_detail VARCHAR(20),
 	service_category VARCHAR(20),
