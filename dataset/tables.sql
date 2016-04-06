@@ -206,3 +206,12 @@ CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
 	matched_ticket_number bigint(10),
 	complaint_number INT(3)
 );
+CREATE TABLE IF NOT EXISTS match_resultdistance (
+	complaint_number INT(3),
+	matched_ticket_number bigint(10),
+	distkm FLOAT(5, 3)
+);
+CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
+	matched_ticket_number bigint(10),
+	complaint_number INT(3)
+);
