@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        width: 1000px;
+        height: 700px;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <meta content="utf-8" http-equiv="encoding">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript" src="js/loadMap.js">
+      google.maps.event.addDomListener(window, 'load', initMap);
+    </script> <!--for the map interaction-->
+    <!--<script type="text/javascript" src="js/placeMarkers.js">
+      google.maps.event.addDomListener(window, 'load', initMap);
+    </script>    <!--for testing-->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>  <!--// using google maps-->
+    <script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
+  </body>
+</html>
+ 
