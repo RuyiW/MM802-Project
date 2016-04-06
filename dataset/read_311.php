@@ -22,8 +22,8 @@ if (!$conn) {
 mysql_query("set names utf8;");
 
 //$data_length = count($data);
-$short_length = 100;
-for ($a = 0; $a < $short_length; $a++){
+$short_length = 200;
+for ($a = 100; $a < $short_length; $a++){
 	$row = $data[$a];
 	$ticket_num = $row[8];
 	$date_created = $row[9];
@@ -70,6 +70,23 @@ for ($a = 0; $a < $short_length; $a++){
 	}
 
 	//echo "<br>";
+}
+//update service category number
+$update_sql = "UPDATE 311_Explorer SET service_category = '1' WHERE service_category = 'Snow & Ice Maintenan'"; //select data that matches
+if (mysqli_query($conn, $update_sql)) {
+	echo "The record updated successfully";
+	echo "\n";
+} else {
+	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
+}
+$update_sql = "UPDATE 311_Explorer SET service_category = '2' WHERE service_category = 'Vandalism/Graffiti'"; //select data that matches
+if (mysqli_query($conn, $update_sql)) {
+	echo "The record updated successfully";
+	echo "\n";
+} else {
+	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
 }
 
 echo "numbers: ". $a;

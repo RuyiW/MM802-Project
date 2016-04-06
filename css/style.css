@@ -6,8 +6,10 @@ head{
 }
 body{
 	background-color: #0070BE;
-	/*background-repeat: no-repeat;
-	background-size: 100%;*/
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+
 	font-family: Arial;
 	width: 100%;
 	height: 60em;
@@ -25,9 +27,60 @@ body{
 	width: 20em;
 	margin-left: 10%;
 }
+/*====================navigation========================*/
+.nav{
+	text-transform:uppercase;
+	background-color: #F7F7F7;
+
+}
+.nav ul{
+	width: 100%;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	background-color: #8A8987;
+	-webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    box-shadow: 0 0 0.5em 0.5em gray inset; 
+
+}
+.nav ul li{
+	display:inline-block;
+	width: 19%;
+	box-shadow: -1em 0 0.8em 0.3em #8A8987;
+}
+.nav li a{
+	color:#fff;
+	background: #333;
+	font-size:100%;
+	font-weight: bold;
+	/*text-shadow: 0 0 0.4em #000;*/
+	text-align: center;
+	text-shadow:2px 2px 5px gray;
+	padding: 8% 0;
+	display: block;
+  -webkit-border-radius:.3em;
+  	 -moz-border-radius:.3em;
+ 		  border-radius:.3em; 
+ 	/*box-shadow: 0 0 1em 0 #999;*/
+}
+.nav li a:hover,
+.nav ul li.active a{
+	background: #002B5E;
+	
+}
+/*====================end of navigation========================*/
+.transparency_filter{
+	z-index: -1;
+	position: fixed;
+	opacity: 0.2;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+}
 .wrap{
 	margin: auto;
 	width: 80%;
+	
 }
 /*#menu{
 	float: left;

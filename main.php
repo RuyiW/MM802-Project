@@ -20,10 +20,21 @@
 		<title>311 Web Explore</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css" media="all">
 	</head>
-	<body>
+	<body background="./img/edmonton.jpg">
+		<div class = "transparency_filter"></div>
 		<div id = "header">
 			<img src="./img/logo.png">
 		</div>
+		<div class='nav'>
+			<ul>
+				<li class='active'><a href='main.php'>HOME</a></li>
+				<li><a href='#'>INSTRUCTIONS</a></li>
+				<li><a href='#'>ALGORITHM</a></li>
+				<li><a href='#'>MAP</a></li>
+				<li><a href='#'>ABOUT US</a></li>
+			</ul>
+		</div>
+
 		<div class = "wrap">
 			<!-- <div id = "menu">
 				<h1>This is the section for possible menu</h1>
@@ -43,8 +54,9 @@
 					</form>
 					<?php
 					//echo "something before if";
-
-					$sql = "SELECT DISTINCT service_category FROM 311_Explorer ORDER BY service_category;";
+					
+					$sql = "SELECT DISTINCT service_category FROM 311_Explorer
+					WHERE service_category = '1' OR service_category = '2';";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -66,13 +78,21 @@
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
 					    	if($row["service_category"] != null){
-
-					    		$the_row = $row["service_category"];
+					    		//echo "i am here here";
+					    		if($row["service_category"] == '1'){
+					    			$the_row = 'Snow & Ice Maintenan';
+					    			$the_category_num = '1';
+					    		}
+					    		else if($row["service_category"] == '2') {
+					    			$the_row = 'Vandalism/Graffiti';
+					    			$the_category_num = '2';
+					    		}
+					    		//$the_row = $row["service_category"];
 					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
 					    	//}
 					    	//else{
 					    		?>
-					    	<input type='checkbox' onchange = "store_service_category('<?php echo $the_row; ?>', this)" class = 'filter1' name='service_category' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<input type='checkbox' onchange = "store_service_category('<?php echo $the_category_num; ?>', this)" class = 'filter1' name='service_category' value= '<?php echo $the_category_num;?>'><?php echo $the_row;?>
 					    	<br>
 					    	<?php
 					        //echo "service_category: " . $row["service_category"] . "<br>";
@@ -83,6 +103,7 @@
 					} else {
 					    //echo "0 results";
 					}
+					
 
 					//echo "something before if";
 					$sql = "SELECT DISTINCT 311_ward FROM 311_Explorer ORDER BY 311_ward;";
@@ -223,7 +244,7 @@
 					<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
 				</ul>
 			</div>
-			<p>Copyright：MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
+			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
 			</div>
 		</footer>
 
