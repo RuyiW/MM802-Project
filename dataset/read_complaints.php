@@ -59,10 +59,10 @@ for ($a = 0; $a < $short_length; $a++){
 	 . "', '" . $complaint . "', '" . $initiated_by . "', '" . $status . "', '" . $count . "', '" . $latitude . "', '" . $longtitude . "', '" . $location_x . "', '" . $location_y . "')";
 
 	if (mysqli_query($conn, $sql)) {
-    	//echo "New record created successfully";
+    	echo "New record created successfully";
 	} else {
-    	//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    	//echo "<br>";
+    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    	echo "<br>";
 	}
 
 	//echo "<br>";

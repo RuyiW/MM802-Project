@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 );
 
 CREATE TABLE IF NOT EXISTS Bylaw (
-	complaint_number int(3),
+	complaint_number INT(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
 	month VARCHAR(10),
