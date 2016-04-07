@@ -34,7 +34,12 @@ function infoBox(csv) {
        //}
        //else {
        //}
-       cell.innerHTML = JSON.stringify(newRow);
+       //cell.innerHTML = JSON.stringify(newRow); // PUT WHOLE STRING INTO CELL
+       var infoString = [];
+       infoString = JSON.stringify(newRow);
+       cell.innerHTML = infoString.split(',').join("<br>");
+       //console.log("INFOSTRING");
+       //console.log(infoString);
        //console.log(newRow);
     }
     
@@ -96,6 +101,7 @@ function tabulate(csv, columns) {
  // for displaying in the alert box NOT USING AT THE MOMENT
 function displayContent(val){
   
+  showPopup(val);
   //console.log(val);
  // d3.text(datasetCsv, function(datasetText){
     csv1 = datasetCsv.filter(function(d) {
@@ -108,39 +114,42 @@ function displayContent(val){
         
     });
     your_variable = csv1;
-
-    showPopup(your_variable) ;
+    //console.log(your_variable);
+    
 
 }
 
 // alert box NOT USING ATM
     function showPopup(your_variable){
        //console.log("I am in pop up");
-        $("#popup").dialog({
-            width: 500,
-            //height: 300,
-            //width: 'auto',
-            height: 'auto',
-            open: function(){
+        //$("#popup").dialog({
+        //    width: 500,
+        //    //height: 300,
+        //    //width: 'auto',
+        //    height: 'auto',
+            //open: function(){
                 //whatIsThis = $(your_variable[0]).html(your_variable["Ticket Number"]);
 
                 
                 var acc = [];
                 //var accNew = [];
-                $.each(your_variable[0], function(index, value) {
+                $.each(your_variable, function(index, value) {
                   acc.push(index + ': ' + value);
                 });
                 var accNew = JSON.stringify(acc);
-                //console.log(acc);
+                console.log("ACC STRING");
+                console.log(accNew);
                 //alert(accNew.split(',').join("\r\n"));
                 //var peopleTable = tabulate(csv1, ["Ticket Number", "Request Status" ,"Service Details", "Neighbourhood", "Address"]);
-                whatIsThis = $(this).html(accNew.split(',').join("<br>"));
+                //whatIsThis = $(this).html(accNew.split(',').join("<br>"));
+                //console.log("What IS THIS?");
+                //console.log(whatIsThis);
                 //whatIsThis = $(this).html(peopleTable[0]);
                 //console.log(peopleTable[0]);
 
                 //return your_variable;
-            }
-        });
+            //}
+        //});
     }
  $(document).ready(function(){
     var init_height;
@@ -157,7 +166,7 @@ function displayContent(val){
           // var texto = $('table tr:nth-child(2) td:nth-child(1)').text()
          var rowContent = [];
          rowContent = datasetCsv[rowIndex];
-         val = rowContent["Ticket Number"];
+         val = rowContent["ticket_number"];
            //Hide the other panels
           $(".accordion-content").not($(this).next()).slideUp('fast'); // other accordian
 
@@ -168,9 +177,11 @@ function displayContent(val){
         
         $(this).closest("tr").siblings().removeClass("highlighted");
         $(this).toggleClass("highlighted");
+        
+        //console.log("ROWCONTENT");
       
-        console.log(val);
-        //displayContent(val);
+        //console.log(rowContent);
+        //displayContent(rowContent);
          
     });
   });
