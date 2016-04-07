@@ -8,7 +8,7 @@ function store_ward(ward, ele) {
 	    //console.log("inside function store_ward");
 	}
 	else{
-		$('#testing_div').load('dataset/store_ward.php?ward=' + ward + '&checked=0');
+		// $('#testing_div').load('dataset/store_ward.php?ward=' + ward + '&checked=0');
 	}
 }
 
@@ -22,7 +22,7 @@ function store_service_category(service_category, ele) {
 	    console.log("inside function store_service_category");
 	}
 	else{
-		$('#testing_div').load('dataset/store_service_category.php?service_category=' + service_category + '&checked=0');
+		// $('#testing_div').load('dataset/store_service_category.php?service_category=' + service_category + '&checked=0');
 	}
 }
 
@@ -36,7 +36,7 @@ function store_311_neighbourhood(neighbourhood, ele) {
 	    console.log("inside function store_311_neighbourhood");
 	}
 	else{
-		$('#testing_div').load('dataset/store_311_neighbourhood.php?neighbourhood=' + neighbourhood + '&checked=0');
+		// $('#testing_div').load('dataset/store_311_neighbourhood.php?neighbourhood=' + neighbourhood + '&checked=0');
 	}
 }
 
@@ -50,6 +50,62 @@ function store_311_request_status(request_status, ele) {
 	    console.log("inside function store_311_request_status");
 	}
 	else{
-		$('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+		// $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+	}
+}
+
+function store_month(month, ele) {
+    console.log(month);
+    //var res = service_category.replace("+", "");
+    month = encodeURI(month);
+    console.log(month);
+    if(ele.checked){
+	    $('#testing_div').load('dataset/store_month.php?month=' + month + '&checked=1');
+	    console.log("inside function store_month");
+	}
+	else{
+		// $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+	}
+}
+
+function store_bylaw_year(bylaw_year, ele) {
+    console.log(bylaw_year);
+    //var res = service_category.replace("+", "");
+    bylaw_year = encodeURI(bylaw_year);
+    console.log(bylaw_year);
+    if(ele.checked){
+	    $('#testing_div').load('dataset/store_bylaw_year.php?bylaw_year=' + bylaw_year + '&checked=1');
+	    console.log("inside function store_bylaw_year");
+	}
+	else{
+		// $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+	}
+}
+
+function store_complaint(complaint, ele) {
+    console.log(complaint);
+    //var res = service_category.replace("+", "");
+    complaint = encodeURI(complaint);
+    console.log(complaint);
+    if(ele.checked){
+	    $('#testing_div').load('dataset/store_complaint.php?complaint=' + complaint + '&checked=1');
+	    console.log("inside function store_complaint");
+	}
+	else{
+		// $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
+	}
+}
+
+function store_bylaw_status(bylaw_status, ele) {
+    console.log(bylaw_status);
+    //var res = service_category.replace("+", "");
+    bylaw_status = encodeURI(bylaw_status);
+    console.log(bylaw_status);
+    if(ele.checked){
+	    $('#testing_div').load('dataset/store_bylaw_status.php?bylaw_status=' + bylaw_status + '&checked=1');
+	    console.log("inside function store_bylaw_status");
+	}
+	else{
+		// $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=0');
 	}
 }

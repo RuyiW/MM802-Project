@@ -49,9 +49,9 @@
 				</div>
 				<div id = "checklist_content">
 
-					<form>
+					<!-- <form>
 						<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
-					</form>
+					</form> -->
 					<?php
 					//echo "something before if";
 					
@@ -300,7 +300,8 @@
 					    //echo "0 results";
 					}
 
-					$sql = "SELECT DISTINCT complaint FROM Bylaw ORDER BY complaint;";
+					$sql = "SELECT DISTINCT complaint FROM Bylaw
+					WHERE complaint = '1' OR complaint = '2';";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -322,13 +323,19 @@
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
 					    	if($row["complaint"] != null){
-
-					    		$the_row = $row["complaint"];
+					    		if($row["complaint"] == '1'){
+					    			$the_row = 'Snow/Ice On Walk';
+					    			$the_type_num = '1';
+					    		}
+					    		else if($row["complaint"] == '2') {
+					    			$the_row = 'Graffiti';
+					    			$the_type_num = '2';
+					    		}
 					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
 					    	//}
 					    	//else{
 					    		?>
-					    	<input type='checkbox' onchange = "store_complaint('<?php echo $the_row; ?>', this)" class = 'filter7' name='complaint' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<input type='checkbox' onchange = "store_complaint('<?php echo $the_type_num; ?>', this)" class = 'filter7' name='complaint' value= '<?php echo $the_type_num;?>'><?php echo $the_row;?>
 					    	<br>
 					    	<?php
 					        //echo "service_category: " . $row["service_category"] . "<br>";
@@ -394,7 +401,6 @@
 				</div>
 			</div>
 			<div id = "detail">
-				<h1>This is the section for selection display</h1>
 			</div>
 		</div><!--clossing tag for wrap-->
 		<footer>
@@ -421,8 +427,8 @@
 	<script src = "./js/jquery-ui.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
-	<script type="text/javascript" src="js/check_all.js"></script>
-	<script type="text/javascript" src="js/get_check_result.js"></script>
+	<!-- <script type="text/javascript" src="js/check_all.js"></script>
+	<script type="text/javascript" src="js/get_check_result.js"></script> -->
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>

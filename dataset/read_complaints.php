@@ -67,6 +67,23 @@ for ($a = 0; $a < $short_length; $a++){
 
 	//echo "<br>";
 }
+//update complaint number
+$update_sql = "UPDATE Bylaw SET complaint = '1' WHERE complaint = 'Snow/Ice On Walk'"; //select data that matches
+if (mysqli_query($conn, $update_sql)) {
+	echo "The record updated successfully";
+	echo "\n";
+} else {
+	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
+}
+$update_sql = "UPDATE Bylaw SET complaint = '2' WHERE complaint = 'Graffiti'"; //select data that matches
+if (mysqli_query($conn, $update_sql)) {
+	echo "The record updated successfully";
+	echo "\n";
+} else {
+	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
+}
 
 echo "numbers: ". $a;
 
