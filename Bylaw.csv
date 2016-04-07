@@ -1,0 +1,407 @@
+YEAR,MONTH_NUMBER,MONTH,REPORT_PERIOD,NEIGHBOURHOOD,NEIGHBOURHOOD_ID,COMPLAINT,INITIATED_BY,STATUS,COUNT,LATITUDE,LONGITUDE
+2016,1,JANUARY,Jan-16,MacEwan,5452,2,Citizen,Under Investigation,1,53.42874568,-113.526948
+2016,1,JANUARY,Jan-16,Canora,4090,1,By-law Officer,Under Investigation,1,53.54619344,-113.5842146
+2016,1,JANUARY,Jan-16,Canora,4090,1,Citizen,Under Investigation,1,53.54619344,-113.5842146
+2016,1,JANUARY,Jan-16,Inglewood,3240,1,Citizen,Under Investigation,3,53.56460647,-113.5408522
+2016,1,JANUARY,Jan-16,Dunluce,3180,1,Citizen,Under Investigation,1,53.62147299,-113.5301833
+2016,1,JANUARY,Jan-16,Patricia Heights,4390,1,Citizen,Under Investigation,1,53.50663403,-113.5932177
+2016,1,JANUARY,Jan-16,Athlone,3010,1,Citizen,Under Investigation,1,53.58802604,-113.5509822
+2016,1,JANUARY,Jan-16,Strathcona,5480,1,Citizen,Under Investigation,3,53.52239019,-113.4909856
+2016,1,JANUARY,Jan-16,Elmwood,4140,1,Citizen,Under Investigation,1,53.51573826,-113.6059933
+2016,1,JANUARY,Jan-16,Pollard Meadows,6580,1,Citizen,Under Investigation,1,53.44911502,-113.4130322
+2016,1,JANUARY,Jan-16,Glenwood,4180,1,By-law Officer,Under Investigation,2,53.53641656,-113.6027698
+2016,1,JANUARY,Jan-16,West Jasper Place,4580,1,By-law Officer,Under Investigation,2,53.53662987,-113.5841443
+2016,1,JANUARY,Jan-16,Parkallen,5310,1,Citizen,Under Investigation,1,53.50309581,-113.5174613
+2016,1,JANUARY,Jan-16,Downtown,1090,1,By-law Officer,Under Investigation,6,53.53976659,-113.4983796
+2016,1,JANUARY,Jan-16,Chappelle Area,5462,1,Citizen,Under Investigation,1,53.40291668,-113.586918
+2016,1,JANUARY,Jan-16,Britannia Youngstown,4060,1,By-law Officer,Under Investigation,8,53.54629462,-113.6015104
+2016,1,JANUARY,Jan-16,Malmo Plains,5280,1,Citizen,Under Investigation,1,53.48567699,-113.5289921
+2016,1,JANUARY,Jan-16,McKernan,5290,1,Citizen,Under Investigation,1,53.51275884,-113.5204422
+2016,1,JANUARY,Jan-16,Westmount,3440,1,Citizen,Under Investigation,1,53.54998825,-113.5399738
+2016,1,JANUARY,Jan-16,Belmead,4040,1,Citizen,Under Investigation,1,53.52560296,-113.641015
+2016,1,JANUARY,Jan-16,Belvedere,2080,2,By-law Officer,Under Investigation,1,53.5910569,-113.4360629
+2016,1,JANUARY,Jan-16,Balwin,2020,1,Citizen,Under Investigation,1,53.58795101,-113.4550753
+2016,1,JANUARY,Jan-16,Prince Rupert,1170,1,Citizen,Under Investigation,1,53.5645945,-113.5241177
+2016,1,JANUARY,Jan-16,Rural North East Horse Hill,2670,1,Citizen,Under Investigation,1,53.66378396,-113.3299066
+2016,1,JANUARY,Jan-16,Downtown,1090,1,Citizen,Under Investigation,1,53.53976659,-113.4983796
+2016,2,FEBRUARY,Feb-16,Eastwood,1100,1,Citizen,Under Investigation,1,53.57610461,-113.4687304
+2016,1,JANUARY,Jan-16,Cameron Heights,4466,1,Citizen,Under Investigation,1,53.47412665,-113.6343594
+2016,2,FEBRUARY,Feb-16,Hillview,6300,2,Citizen,Under Investigation,1,53.46974041,-113.427064
+2016,2,FEBRUARY,Feb-16,Prince Charles,3350,1,Citizen,Under Investigation,1,53.57563545,-113.536002
+2016,1,JANUARY,Jan-16,Sakaw,6670,2,By-law Officer,Under Investigation,1,53.44197993,-113.4288283
+2016,2,FEBRUARY,Feb-16,West Jasper Place,4580,1,Citizen,Under Investigation,1,53.53662987,-113.5841443
+2016,2,FEBRUARY,Feb-16,Garneau,5200,1,Citizen,Under Investigation,1,53.51991083,-113.5135356
+2016,2,FEBRUARY,Feb-16,Bannerman,2030,1,Citizen,Under Investigation,1,53.60394968,-113.3786237
+2016,1,JANUARY,Jan-16,Garneau,5200,2,By-law Officer,Under Investigation,5,53.51991083,-113.5135356
+2016,2,FEBRUARY,Feb-16,Ottewell,6550,1,Citizen,Under Investigation,2,53.53128518,-113.430746
+2016,2,FEBRUARY,Feb-16,Jamieson Place,4220,1,Citizen,Under Investigation,2,53.48870738,-113.6490197
+2016,2,FEBRUARY,Feb-16,Wild Rose,6790,1,Citizen,Under Investigation,1,53.47056409,-113.3811672
+2016,2,FEBRUARY,Feb-16,Crawford Plains,6140,1,Citizen,Under Investigation,1,53.44183746,-113.4062159
+2016,1,JANUARY,Jan-16,Downtown,1090,1,Citizen,Under Investigation,1,53.53976659,-113.4983796
+2016,1,JANUARY,Jan-16,Central McDougall,1030,1,By-law Officer,Under Investigation,1,53.55328207,-113.5010679
+2016,2,FEBRUARY,Feb-16,Queen Mary Park,1180,1,Citizen,Under Investigation,1,53.55327854,-113.5196542
+2016,2,FEBRUARY,Feb-16,Prince Charles,3350,1,Citizen,Under Investigation,1,53.57563545,-113.536002
+2016,2,FEBRUARY,Feb-16,Glenwood,4180,1,By-law Officer,Under Investigation,1,53.53641656,-113.6027698
+2016,2,FEBRUARY,Feb-16,Belvedere,2080,1,Citizen,Under Investigation,1,53.5910569,-113.4360629
+2016,2,FEBRUARY,Feb-16,Lymburn,4270,1,By-law Officer,Under Investigation,1,53.50753241,-113.6423002
+2016,2,FEBRUARY,Feb-16,King Edward Park,6360,1,Citizen,Under Investigation,1,53.51515116,-113.4521318
+2016,2,FEBRUARY,Feb-16,Lambton Industrial,6380,1,Citizen,Under Investigation,1,53.52226921,-113.4138479
+2016,1,JANUARY,Jan-16,Queen Alexandra,5330,2,Citizen,Under Investigation,2,53.51221972,-113.5048124
+2016,2,FEBRUARY,Feb-16,Glastonbury,4720,1,Citizen,Under Investigation,1,53.50318728,-113.6698699
+2016,2,FEBRUARY,Feb-16,Kiniski Gardens,6370,1,Citizen,Under Investigation,1,53.47592375,-113.4033029
+2016,2,FEBRUARY,Feb-16,Kilkenny,2410,1,Citizen,Under Investigation,1,53.61037793,-113.4551192
+2016,2,FEBRUARY,Feb-16,Summerside,6213,1,Citizen,Under Investigation,1,53.41752761,-113.4612274
+2016,1,JANUARY,Jan-16,Menisa,6450,2,By-law Officer,Under Investigation,1,53.44206966,-113.4473749
+2016,2,FEBRUARY,Feb-16,West Jasper Place,4580,1,By-law Officer,Under Investigation,3,53.53662987,-113.5841443
+2016,1,JANUARY,Jan-16,Canora,4090,1,By-law Officer,Under Investigation,1,53.54619344,-113.5842146
+2016,2,FEBRUARY,Feb-16,Central McDougall,1030,1,Citizen,Under Investigation,1,53.55328207,-113.5010679
+2016,1,JANUARY,Jan-16,High Park,4200,1,Citizen,Under Investigation,2,53.55498578,-113.5841993
+2016,2,FEBRUARY,Feb-16,Highlands,2330,1,Citizen,Under Investigation,1,53.56599859,-113.4301705
+2016,2,FEBRUARY,Feb-16,Cloverdale,6070,1,Citizen,Under Investigation,1,53.53685805,-113.4740119
+2016,2,FEBRUARY,Feb-16,Inglewood,3240,1,Citizen,Under Investigation,1,53.56460647,-113.5408522
+2016,2,FEBRUARY,Feb-16,McQueen,3300,1,Citizen,Under Investigation,2,53.55493823,-113.5718425
+2016,2,FEBRUARY,Feb-16,Glenwood,4180,1,Citizen,Under Investigation,2,53.53641656,-113.6027698
+2016,2,FEBRUARY,Feb-16,Mayfield,4290,1,Citizen,Under Investigation,1,53.55501803,-113.5981702
+2016,2,FEBRUARY,Feb-16,Allard,5458,1,By-law Officer,Under Investigation,1,53.40119279,-113.5266817
+2016,2,FEBRUARY,Feb-16,Delwood,2230,1,By-law Officer,Under Investigation,1,53.59594894,-113.4551303
+2016,2,FEBRUARY,Feb-16,Davies Industrial East,6160,1,Citizen,Under Investigation,1,53.50618932,-113.4331399
+2016,2,FEBRUARY,Feb-16,Canora,4090,1,By-law Officer,Under Investigation,1,53.54619344,-113.5842146
+2016,2,FEBRUARY,Feb-16,Alberta Avenue,1010,1,Citizen,Under Investigation,1,53.56848538,-113.4851192
+2016,2,FEBRUARY,Feb-16,Rosslyn,3390,1,Citizen,Under Investigation,1,53.59575774,-113.5042872
+2016,2,FEBRUARY,Feb-16,Terrace Heights,6730,1,Citizen,Under Investigation,1,53.54208074,-113.4378011
+2016,2,FEBRUARY,Feb-16,Michaels Park,6480,1,Citizen,Under Investigation,1,53.47957489,-113.4462136
+2016,2,FEBRUARY,Feb-16,Kennedale Industrial,2380,1,Citizen,Under Investigation,1,53.59084912,-113.4234005
+2016,2,FEBRUARY,Feb-16,Brintnell,2110,1,Citizen,Under Investigation,1,53.6213944,-113.4071143
+2016,2,FEBRUARY,Feb-16,Britannia Youngstown,4060,1,By-law Officer,Under Investigation,2,53.54629462,-113.6015104
+2016,1,JANUARY,Jan-16,Forest Heights,6230,2,Citizen,Under Investigation,3,53.54453706,-113.45125
+2016,2,FEBRUARY,Feb-16,Allendale,5010,1,Citizen,Under Investigation,1,53.502277,-113.5048211
+2016,2,FEBRUARY,Feb-16,Strathearn,6710,1,By-law Officer,Under Investigation,2,53.53129198,-113.4640467
+2016,2,FEBRUARY,Feb-16,Rural North East Horse Hill,2670,1,Citizen,Under Investigation,2,53.66378396,-113.3299066
+2016,2,FEBRUARY,Feb-16,Evansdale,2260,1,Citizen,Under Investigation,1,53.61084111,-113.4795689
+2016,1,JANUARY,Jan-16,Silver Berry,6442,1,Citizen,Under Investigation,1,53.46115897,-113.3814062
+2016,2,FEBRUARY,Feb-16,Weinlos,6770,1,By-law Officer,Under Investigation,1,53.45990679,-113.413836
+2016,2,FEBRUARY,Feb-16,Delton,1080,1,Citizen,Under Investigation,2,53.57904638,-113.4824494
+2016,2,FEBRUARY,Feb-16,York,2720,1,Citizen,Under Investigation,2,53.60284342,-113.4302123
+2016,2,FEBRUARY,Feb-16,Potter Greens,4710,1,Citizen,Under Investigation,1,53.5182899,-113.6726024
+2016,2,FEBRUARY,Feb-16,Calder,3070,1,Citizen,Under Investigation,2,53.58805578,-113.5288721
+2016,2,FEBRUARY,Feb-16,Pleasantview,5320,1,By-law Officer,Under Investigation,1,53.49317553,-113.5071314
+2016,3,MARCH,Mar-16,Belmead,4040,1,Citizen,Under Investigation,1,53.52560296,-113.641015
+2016,3,MARCH,Mar-16,Meyokumin,6460,1,By-law Officer,Under Investigation,1,53.45011313,-113.4272575
+2016,3,MARCH,Mar-16,Mayfield,4290,1,Citizen,Under Investigation,1,53.55501803,-113.5981702
+2016,3,MARCH,Mar-16,Strathcona,5480,1,Citizen,Under Investigation,2,53.52239019,-113.4909856
+2016,1,JANUARY,Jan-16,Ritchie,6610,1,Citizen,Under Investigation,2,53.5132751,-113.4827421
+2016,2,FEBRUARY,Feb-16,Spruce Avenue,1230,1,Citizen,Under Investigation,1,53.56463543,-113.4995016
+2016,1,JANUARY,Jan-16,Evansdale,2260,1,Citizen,Under Investigation,1,53.61084111,-113.4795689
+2016,1,JANUARY,Jan-16,Britannia Youngstown,4060,1,Citizen,Under Investigation,1,53.54629462,-113.6015104
+2016,1,JANUARY,Jan-16,Oliver,1150,1,Citizen,Under Investigation,1,53.54198293,-113.5239939
+2016,2,FEBRUARY,Feb-16,Thorncliff,4560,1,Citizen,Under Investigation,1,53.51669839,-113.6228278
+2016,2,FEBRUARY,Feb-16,Bonnie Doon,6040,2,By-law Officer,Under Investigation,1,53.52533712,-113.4671114
+2016,3,MARCH,Mar-16,Riverdale,1210,1,By-law Officer,Under Investigation,1,53.54410729,-113.4690109
+2016,3,MARCH,Mar-16,Downtown,1090,2,Citizen,Under Investigation,1,53.53976659,-113.4983796
+2016,3,MARCH,Mar-16,Crawford Plains,6140,2,By-law Officer,Under Investigation,1,53.44183746,-113.4062159
+2016,3,MARCH,Mar-16,Beaumaris,3040,1,By-law Officer,Under Investigation,1,53.61842234,-113.5050071
+2016,3,MARCH,Mar-16,High Park,4200,1,By-law Officer,Under Investigation,2,53.55498578,-113.5841993
+2016,3,MARCH,Mar-16,Summerlea,4520,1,By-law Officer,Under Investigation,1,53.52562655,-113.6226333
+2016,3,MARCH,Mar-16,Canora,4090,1,By-law Officer,Under Investigation,1,53.54619344,-113.5842146
+2016,3,MARCH,Mar-16,Cumberland,3150,1,Citizen,Under Investigation,1,53.61056257,-113.5531881
+2016,3,MARCH,Mar-16,Larkspur,6390,1,Citizen,Under Investigation,1,53.48021046,-113.3812399
+2016,2,FEBRUARY,Feb-16,Cromdale,1070,1,Citizen,Under Investigation,1,53.55906092,-113.4690431
+2016,3,MARCH,Mar-16,Meadowlark Park,4310,1,Citizen,Under Investigation,1,53.52553194,-113.5965542
+2016,2,FEBRUARY,Feb-16,Killarney,2420,2,Citizen,Under Investigation,2,53.58848869,-113.4795684
+2016,3,MARCH,Mar-16,La Perle,4240,1,Citizen,Under Investigation,1,53.53308755,-113.6407086
+2016,3,MARCH,Mar-16,Silver Berry,6442,1,Citizen,Under Investigation,1,53.46115897,-113.3814062
+2016,3,MARCH,Mar-16,Secord,4487,1,Citizen,Under Investigation,1,53.5339371,-113.7013528
+2016,2,FEBRUARY,Feb-16,Belvedere,2080,1,By-law Officer,Under Investigation,4,53.5910569,-113.4360629
+2016,3,MARCH,Mar-16,Ormsby Place,4380,1,Citizen,Under Investigation,1,53.49910557,-113.6427606
+2016,2,FEBRUARY,Feb-16,West Jasper Place,4580,2,By-law Officer,Under Investigation,1,53.53662987,-113.5841443
+2016,3,MARCH,Mar-16,Glenwood,4180,1,By-law Officer,Under Investigation,2,53.53641656,-113.6027698
+2016,2,FEBRUARY,Feb-16,Strathcona,5480,2,By-law Officer,Under Investigation,1,53.52239019,-113.4909856
+2016,3,MARCH,Mar-16,Westmount,3440,1,Citizen,Under Investigation,1,53.54998825,-113.5399738
+2016,2,FEBRUARY,Feb-16,Schonsee,2700,2,By-law Officer,Under Investigation,1,53.63236258,-113.4551459
+2016,3,MARCH,Mar-16,Fraser,2280,1,By-law Officer,Under Investigation,1,53.61111379,-113.3736697
+2016,3,MARCH,Mar-16,Terrace Heights,6730,1,By-law Officer,Under Investigation,1,53.54208074,-113.4378011
+2016,3,MARCH,Mar-16,Lee Ridge,6400,1,Citizen,Under Investigation,2,53.46959297,-113.4443553
+2016,3,MARCH,Mar-16,Killarney,2420,1,Citizen,Under Investigation,1,53.58848869,-113.4795684
+2016,3,MARCH,Mar-16,Kenilworth,6350,2,By-law Officer,Under Investigation,1,53.52163312,-113.4310424
+2016,3,MARCH,Mar-16,Michaels Park,6480,1,Citizen,Under Investigation,1,53.47957489,-113.4462136
+2016,3,MARCH,Mar-16,Glenwood,4180,1,Citizen,Under Investigation,1,53.53641656,-113.6027698
+2016,2,FEBRUARY,Feb-16,Jasper Park,4230,1,By-law Officer,Under Investigation,1,53.52307007,-113.5841053
+2016,2,FEBRUARY,Feb-16,Strathcona,5480,1,By-law Officer,Under Investigation,1,53.52239019,-113.4909856
+2016,2,FEBRUARY,Feb-16,Klarvatten,2440,2,By-law Officer,Under Investigation,1,53.637224,-113.4766651
+2016,3,MARCH,Mar-16,Kennedale Industrial,2380,1,By-law Officer,Under Investigation,1,53.59084912,-113.4234005
+2016,3,MARCH,Mar-16,Mayliewan,2511,1,By-law Officer,Under Investigation,1,53.62229022,-113.4602645
+2016,3,MARCH,Mar-16,Evansdale,2260,1,By-law Officer,Under Investigation,1,53.61084111,-113.4795689
+2016,3,MARCH,Mar-16,Aldergrove,4020,1,Citizen,Under Investigation,1,53.51688847,-113.641242
+2016,2,FEBRUARY,Feb-16,Carlisle,3090,1,By-law Officer,Under Investigation,1,53.60352022,-113.5259146
+2016,3,MARCH,Mar-16,Secord,4487,2,Citizen,Under Investigation,1,53.5339371,-113.7013528
+2016,3,MARCH,Mar-16,Rosenthal,4750,2,By-law Officer,Under Investigation,1,53.51939766,-113.7012109
+2016,3,MARCH,Mar-16,Chambery,3120,1,Citizen,Under Investigation,1,53.64076376,-113.5117614
+2016,3,MARCH,Mar-16,Eaux Claires,2241,1,By-law Officer,Under Investigation,1,53.62163882,-113.4856372
+2016,3,MARCH,Mar-16,Royal Gardens,5430,1,Citizen,Under Investigation,1,53.47941922,-113.5280553
+2016,3,MARCH,Mar-16,Idylwylde,6320,1,Citizen,Under Investigation,2,53.52162992,-113.4491139
+2016,3,MARCH,Mar-16,Carlisle,3090,2,Citizen,Under Investigation,1,53.60352022,-113.5259146
+2016,3,MARCH,Mar-16,Kildare,2400,1,Citizen,Under Investigation,1,53.60329284,-113.4551501
+2016,3,MARCH,Mar-16,Hollick-Kenyon,2340,1,Citizen,Under Investigation,1,53.62224418,-113.4222879
+2016,3,MARCH,Mar-16,Maple Ridge,6410,1,Citizen,Under Investigation,1,53.50205014,-113.3630627
+2016,2,FEBRUARY,Feb-16,Brintnell,2110,2,Citizen,Under Investigation,1,53.6213944,-113.4071143
+2016,3,MARCH,Mar-16,Tweddle Place,6760,2,By-law Officer,Under Investigation,1,53.47836951,-113.4591601
+2016,3,MARCH,Mar-16,Brintnell,2110,1,By-law Officer,Under Investigation,1,53.6213944,-113.4071143
+2016,3,MARCH,Mar-16,Beacon Heights,2040,1,Citizen,Under Investigation,2,53.57353938,-113.4060401
+2016,3,MARCH,Mar-16,Beverly Heights,2100,1,Citizen,Under Investigation,1,53.56412227,-113.4026524
+2016,3,MARCH,Mar-16,West Jasper Place,4580,1,Citizen,Under Investigation,3,53.53662987,-113.5841443
+2016,3,MARCH,Mar-16,Cromdale,1070,1,Citizen,Under Investigation,1,53.55906092,-113.4690431
+2016,3,MARCH,Mar-16,Inglewood,3240,1,Citizen,Under Investigation,3,53.56460647,-113.5408522
+2016,3,MARCH,Mar-16,Highlands,2330,2,By-law Officer,Under Investigation,1,53.56599859,-113.4301705
+2016,2,FEBRUARY,Feb-16,Lymburn,4270,1,Citizen,Under Investigation,1,53.50753241,-113.6423002
+2016,2,FEBRUARY,Feb-16,Bellevue,2060,1,By-law Officer,Under Investigation,1,53.56641743,-113.4459425
+2016,3,MARCH,Mar-16,Glenwood,4180,1,By-law Officer,Under Investigation,10,53.53641656,-113.6027698
+2016,3,MARCH,Mar-16,Lago Lindo,2450,1,By-law Officer,Under Investigation,2,53.63603897,-113.4846473
+2016,3,MARCH,Mar-16,Belmont,2070,2,By-law Officer,Under Investigation,1,53.59312408,-113.3943792
+2016,2,FEBRUARY,Feb-16,Ellerslie,6211,1,Citizen,Under Investigation,1,53.42854541,-113.4577314
+2016,3,MARCH,Mar-16,Caernarvon,3060,1,By-law Officer,Under Investigation,2,53.61189975,-113.5264017
+2016,3,MARCH,Mar-16,Greenfield,5220,1,Citizen,Under Investigation,1,53.47107265,-113.5275054
+2016,3,MARCH,Mar-16,Gariepy,4160,1,Citizen,Under Investigation,1,53.4935965,-113.6226569
+2016,2,FEBRUARY,Feb-16,High Park,4200,1,By-law Officer,Under Investigation,2,53.55498578,-113.5841993
+2016,2,FEBRUARY,Feb-16,West Jasper Place,4580,1,By-law Officer,Under Investigation,2,53.53662987,-113.5841443
+2016,3,MARCH,Mar-16,Tamarack,6443,1,Citizen,Under Investigation,1,53.46481389,-113.3591655
+2016,2,FEBRUARY,Feb-16,Lauderdale,3260,1,By-law Officer,Under Investigation,4,53.58844885,-113.5042562
+2016,3,MARCH,Mar-16,Delwood,2230,1,Citizen,Under Investigation,2,53.59594894,-113.4551303
+2016,2,FEBRUARY,Feb-16,Riverdale,1210,1,By-law Officer,Under Investigation,1,53.54410729,-113.4690109
+2016,3,MARCH,Mar-16,Britannia Youngstown,4060,1,Citizen,Under Investigation,1,53.54629462,-113.6015104
+2016,2,FEBRUARY,Feb-16,King Edward Park,6360,1,Citizen,Under Investigation,2,53.51515116,-113.4521318
+2016,3,MARCH,Mar-16,Cromdale,1070,1,By-law Officer,Under Investigation,1,53.55906092,-113.4690431
+2016,3,MARCH,Mar-16,Oxford,3320,1,By-law Officer,Under Investigation,1,53.6221978,-113.5472917
+2016,2,FEBRUARY,Feb-16,Elmwood Park,1130,1,Citizen,Under Investigation,1,53.57959138,-113.4609168
+2016,3,MARCH,Mar-16,Westwood,1250,1,Citizen,Under Investigation,1,53.57594236,-113.4985846
+2016,3,MARCH,Mar-16,Argyll,6010,1,By-law Officer,Under Investigation,2,53.50310078,-113.4605388
+2016,3,MARCH,Mar-16,Richford,5451,1,By-law Officer,Under Investigation,1,53.42726986,-113.5073945
+2016,2,FEBRUARY,Feb-16,Jackson Heights,6330,1,By-law Officer,Under Investigation,1,53.48166024,-113.4108477
+2016,2,FEBRUARY,Feb-16,Inglewood,3240,1,By-law Officer,Under Investigation,1,53.56460647,-113.5408522
+2016,3,MARCH,Mar-16,Weinlos,6770,1,By-law Officer,Under Investigation,5,53.45990679,-113.413836
+2016,3,MARCH,Mar-16,Ambleside,5505,1,Citizen,Under Investigation,2,53.43064139,-113.6006766
+2016,3,MARCH,Mar-16,Forest Heights,6230,1,Citizen,Under Investigation,1,53.54453706,-113.45125
+2016,2,FEBRUARY,Feb-16,Homesteader,2350,1,Citizen,Under Investigation,1,53.58472042,-113.4064588
+2016,3,MARCH,Mar-16,Keheewin,5250,1,Citizen,Under Investigation,2,53.45024253,-113.5045129
+2016,2,FEBRUARY,Feb-16,Minchau,6530,1,By-law Officer,Under Investigation,1,53.46982918,-113.4127659
+2016,3,MARCH,Mar-16,Britannia Youngstown,4060,1,By-law Officer,Under Investigation,1,53.54629462,-113.6015104
+2016,3,MARCH,Mar-16,Queen Alexandra,5330,1,Citizen,Under Investigation,1,53.51221972,-113.5048124
+2016,3,MARCH,Mar-16,MacEwan,5452,1,Citizen,Under Investigation,1,53.42874568,-113.526948
+2016,3,MARCH,Mar-16,Kameyosek,6340,1,By-law Officer,Under Investigation,1,53.46191874,-113.4420679
+2016,2,FEBRUARY,Feb-16,Alberta Avenue,1010,1,Citizen,Under Investigation,1,53.56848538,-113.4851192
+2016,3,MARCH,Mar-16,Ekota,6200,1,Citizen,Under Investigation,1,53.44941008,-113.4423357
+2016,3,MARCH,Mar-16,Fraser,2280,1,Citizen,Under Investigation,1,53.61111379,-113.3736697
+2016,1,JANUARY,Jan-16,Strathcona,5480,1,By-law Officer,Under Investigation,7,53.52239019,-113.4909856
+2016,2,FEBRUARY,Feb-16,Holyrood,6310,1,By-law Officer,Under Investigation,3,53.53136058,-113.4501898
+2016,2,FEBRUARY,Feb-16,McCauley,1140,1,Citizen,Under Investigation,1,53.5546051,-113.485098
+2016,3,MARCH,Mar-16,Ekota,6200,1,By-law Officer,Under Investigation,2,53.44941008,-113.4423357
+2016,3,MARCH,Mar-16,Overlanders,2590,1,By-law Officer,Under Investigation,1,53.58101065,-113.3881765
+2016,3,MARCH,Mar-16,Belvedere,2080,1,By-law Officer,Under Investigation,1,53.5910569,-113.4360629
+2016,3,MARCH,Mar-16,Ermineskin,5180,1,Citizen,Under Investigation,1,53.45763949,-113.5057283
+2016,3,MARCH,Mar-16,Caernarvon,3060,1,Citizen,Under Investigation,1,53.61189975,-113.5264017
+2016,2,FEBRUARY,Feb-16,Laurel,6444,1,By-law Officer,Under Investigation,1,53.44579914,-113.3814704
+2016,1,JANUARY,Jan-16,Calder,3070,1,By-law Officer,Under Investigation,1,53.58805578,-113.5288721
+2016,3,MARCH,Mar-16,Menisa,6450,1,By-law Officer,Under Investigation,2,53.44206966,-113.4473749
+2016,3,MARCH,Mar-16,Lorelei,3280,1,By-law Officer,Under Investigation,1,53.62459274,-113.5044658
+2016,3,MARCH,Mar-16,Keswick Area,5576,1,Citizen,Under Investigation,2,53.41760015,-113.635797
+2016,3,MARCH,Mar-16,Ritchie,6610,1,Citizen,Under Investigation,1,53.5132751,-113.4827421
+2016,3,MARCH,Mar-16,York,2720,1,Citizen,Under Investigation,3,53.60284342,-113.4302123
+2016,3,MARCH,Mar-16,Kameyosek,6340,1,Citizen,Under Investigation,1,53.46191874,-113.4420679
+2016,3,MARCH,Mar-16,Sakaw,6670,1,By-law Officer,Under Investigation,2,53.44197993,-113.4288283
+2016,3,MARCH,Mar-16,Strathcona,5480,1,Citizen,Under Investigation,1,53.52239019,-113.4909856
+2016,3,MARCH,Mar-16,Industrial Heights,2360,1,Citizen,Under Investigation,1,53.58098253,-113.437473
+2016,3,MARCH,Mar-16,Keheewin,5250,1,Citizen,Under Investigation,1,53.45024253,-113.5045129
+2016,3,MARCH,Mar-16,Ritchie,6610,1,Citizen,Under Investigation,2,53.5132751,-113.4827421
+2016,2,FEBRUARY,Feb-16,Alberta Avenue,1010,1,By-law Officer,Under Investigation,2,53.56848538,-113.4851192
+2016,3,MARCH,Mar-16,Gold Bar,6270,1,Citizen,Under Investigation,1,53.54890801,-113.4120039
+2016,3,MARCH,Mar-16,Beacon Heights,2040,1,By-law Officer,Under Investigation,3,53.57353938,-113.4060401
+2016,3,MARCH,Mar-16,Lauderdale,3260,1,By-law Officer,Under Investigation,2,53.58844885,-113.5042562
+2016,3,MARCH,Mar-16,Capilano,6061,1,Citizen,Under Investigation,1,53.55467209,-113.4227924
+2016,3,MARCH,Mar-16,Lauderdale,3260,1,Citizen,Under Investigation,1,53.58844885,-113.5042562
+2016,3,MARCH,Mar-16,Crawford Plains,6140,1,Citizen,Under Investigation,2,53.44183746,-113.4062159
+2016,2,FEBRUARY,Feb-16,Central McDougall,1030,1,By-law Officer,Under Investigation,1,53.55328207,-113.5010679
+2016,3,MARCH,Mar-16,Newton,2560,1,By-law Officer,Under Investigation,1,53.57642437,-113.424532
+2016,3,MARCH,Mar-16,Westwood,1250,2,Citizen,Under Investigation,1,53.57594236,-113.4985846
+2016,3,MARCH,Mar-16,Alberta Avenue,1010,1,Citizen,Under Investigation,3,53.56848538,-113.4851192
+2016,3,MARCH,Mar-16,Balwin,2020,1,Citizen,Under Investigation,2,53.58795101,-113.4550753
+2016,2,FEBRUARY,Feb-16,Terwillegar Towne,5640,1,Citizen,Under Investigation,2,53.45067025,-113.5777384
+2016,3,MARCH,Mar-16,Elmwood,4140,1,Citizen,Under Investigation,1,53.51573826,-113.6059933
+2016,3,MARCH,Mar-16,Menisa,6450,1,Citizen,Under Investigation,2,53.44206966,-113.4473749
+2016,3,MARCH,Mar-16,Athlone,3010,1,Citizen,Under Investigation,2,53.58802604,-113.5509822
+2016,3,MARCH,Mar-16,Tamarack,6443,1,By-law Officer,Under Investigation,5,53.46481389,-113.3591655
+2016,3,MARCH,Mar-16,McConachie Area,2521,1,By-law Officer,Under Investigation,16,53.63645165,-113.4313223
+2016,3,MARCH,Mar-16,West Jasper Place,4580,1,By-law Officer,Under Investigation,6,53.53662987,-113.5841443
+2016,3,MARCH,Mar-16,Forest Heights,6230,1,By-law Officer,Under Investigation,2,53.54453706,-113.45125
+2016,3,MARCH,Mar-16,Belmont,2070,1,By-law Officer,Under Investigation,1,53.59312408,-113.3943792
+2016,3,MARCH,Mar-16,Greenfield,5220,1,Citizen,Under Investigation,2,53.47107265,-113.5275054
+2016,3,MARCH,Mar-16,Malmo Plains,5280,1,Citizen,Under Investigation,4,53.48567699,-113.5289921
+2016,3,MARCH,Mar-16,Glengarry,2290,1,By-law Officer,Under Investigation,2,53.59585546,-113.4796117
+2016,3,MARCH,Mar-16,Highlands,2330,1,By-law Officer,Under Investigation,6,53.56599859,-113.4301705
+2016,3,MARCH,Mar-16,Weir Industrial,6780,1,Citizen,Under Investigation,1,53.51176506,-113.4061073
+2016,3,MARCH,Mar-16,Greenfield,5220,1,By-law Officer,Under Investigation,1,53.47107265,-113.5275054
+2016,3,MARCH,Mar-16,Rosslyn,3390,1,Citizen,Under Investigation,2,53.59575774,-113.5042872
+2016,3,MARCH,Mar-16,Michaels Park,6480,1,By-law Officer,Under Investigation,4,53.47957489,-113.4462136
+2016,3,MARCH,Mar-16,North Glenora,3310,1,By-law Officer,Under Investigation,1,53.55494089,-113.5582651
+2016,3,MARCH,Mar-16,Prince Rupert,1170,1,By-law Officer,Under Investigation,2,53.5645945,-113.5241177
+2016,3,MARCH,Mar-16,Kiniski Gardens,6370,1,By-law Officer,Under Investigation,12,53.47592375,-113.4033029
+2016,3,MARCH,Mar-16,Jackson Heights,6330,1,By-law Officer,Under Investigation,5,53.48166024,-113.4108477
+2016,3,MARCH,Mar-16,Alberta Avenue,1010,1,By-law Officer,Under Investigation,10,53.56848538,-113.4851192
+2016,3,MARCH,Mar-16,Meyokumin,6460,1,Citizen,Under Investigation,1,53.45011313,-113.4272575
+2016,3,MARCH,Mar-16,Parkview,3330,1,By-law Officer,Under Investigation,1,53.52406037,-113.5679141
+2016,3,MARCH,Mar-16,Rossdale,1220,1,Citizen,Under Investigation,1,53.53315473,-113.4957958
+2016,3,MARCH,Mar-16,Boyle Street,1020,1,By-law Officer,Under Investigation,5,53.54763098,-113.4792629
+2016,3,MARCH,Mar-16,Carlton,3470,1,By-law Officer,Under Investigation,1,53.62165164,-113.5593733
+2016,3,MARCH,Mar-16,Hudson,3480,1,By-law Officer,Under Investigation,1,53.60434874,-113.5530918
+2016,3,MARCH,Mar-16,Delwood,2230,1,By-law Officer,Under Investigation,2,53.59594894,-113.4551303
+2016,3,MARCH,Mar-16,Belvedere,2080,1,Citizen,Under Investigation,2,53.5910569,-113.4360629
+2016,3,MARCH,Mar-16,Capilano,6061,1,By-law Officer,Under Investigation,2,53.55467209,-113.4227924
+2016,3,MARCH,Mar-16,Sakaw,6670,1,Citizen,Under Investigation,1,53.44197993,-113.4288283
+2016,3,MARCH,Mar-16,Forest Heights,6230,1,Citizen,Under Investigation,1,53.54453706,-113.45125
+2016,3,MARCH,Mar-16,Laurel,6444,1,By-law Officer,Under Investigation,3,53.44579914,-113.3814704
+2016,2,FEBRUARY,Feb-16,Parkdale,1160,1,Citizen,Under Investigation,1,53.5657157,-113.4713504
+2016,2,FEBRUARY,Feb-16,Fulton Place,6240,1,By-law Officer,Under Investigation,1,53.54629464,-113.4274665
+2016,3,MARCH,Mar-16,Kenilworth,6350,1,By-law Officer,Under Investigation,6,53.52163312,-113.4310424
+2016,2,FEBRUARY,Feb-16,Laurel,6444,1,Citizen,Under Investigation,1,53.44579914,-113.3814704
+2016,3,MARCH,Mar-16,Beaumaris,3040,2,Citizen,Under Investigation,1,53.61842234,-113.5050071
+2016,3,MARCH,Mar-16,Beverly Heights,2100,1,By-law Officer,Under Investigation,9,53.56412227,-113.4026524
+2016,3,MARCH,Mar-16,Homesteader,2350,1,By-law Officer,Under Investigation,2,53.58472042,-113.4064588
+2016,3,MARCH,Mar-16,Downtown,1090,1,Citizen,Under Investigation,1,53.53976659,-113.4983796
+2016,3,MARCH,Mar-16,Larkspur,6390,1,By-law Officer,Under Investigation,2,53.48021046,-113.3812399
+2016,3,MARCH,Mar-16,Delton,1080,1,By-law Officer,Under Investigation,3,53.57904638,-113.4824494
+2016,3,MARCH,Mar-16,Duggan,5160,1,Citizen,Under Investigation,1,53.47151003,-113.5060576
+2016,3,MARCH,Mar-16,Mactaggart,5477,1,Citizen,Under Investigation,2,53.43790312,-113.5610466
+2016,3,MARCH,Mar-16,Garneau,5200,1,By-law Officer,Under Investigation,6,53.51991083,-113.5135356
+2016,3,MARCH,Mar-16,Bearspaw,5030,1,By-law Officer,Under Investigation,2,53.44346178,-113.500528
+2016,3,MARCH,Mar-16,Calder,3070,1,By-law Officer,Under Investigation,12,53.58805578,-113.5288721
+2016,3,MARCH,Mar-16,Steinhauer,5470,1,Citizen,Under Investigation,1,53.46452882,-113.505938
+2016,3,MARCH,Mar-16,Belvedere,2080,1,By-law Officer,Under Investigation,6,53.5910569,-113.4360629
+2016,3,MARCH,Mar-16,Minchau,6530,1,By-law Officer,Under Investigation,10,53.46982918,-113.4127659
+2016,3,MARCH,Mar-16,Newton,2560,1,Citizen,Under Investigation,1,53.57642437,-113.424532
+2016,3,MARCH,Mar-16,Ritchie,6610,1,By-law Officer,Under Investigation,9,53.5132751,-113.4827421
+2016,3,MARCH,Mar-16,West Meadowlark Park,4590,1,By-law Officer,Under Investigation,2,53.52560545,-113.6090587
+2016,3,MARCH,Mar-16,Parkdale,1160,1,By-law Officer,Under Investigation,4,53.5657157,-113.4713504
+2016,3,MARCH,Mar-16,Strathearn,6710,1,Citizen,Under Investigation,1,53.53129198,-113.4640467
+2016,2,FEBRUARY,Feb-16,Grovenor,3210,1,By-law Officer,Under Investigation,1,53.54539881,-113.5719116
+2016,3,MARCH,Mar-16,Athlone,3010,1,By-law Officer,Under Investigation,1,53.58802604,-113.5509822
+2016,3,MARCH,Mar-16,Laurier Heights,3270,1,Citizen,Under Investigation,1,53.51425497,-113.5693319
+2016,3,MARCH,Mar-16,Rosslyn,3390,1,By-law Officer,Under Investigation,2,53.59575774,-113.5042872
+2016,3,MARCH,Mar-16,Ellerslie,6211,1,By-law Officer,Under Investigation,1,53.42854541,-113.4577314
+2016,3,MARCH,Mar-16,Belgravia,5040,1,Citizen,Under Investigation,1,53.5117956,-113.5327294
+2016,2,FEBRUARY,Feb-16,Daly Grove,6150,1,By-law Officer,Under Investigation,1,53.4495365,-113.4007273
+2016,3,MARCH,Mar-16,Fraser,2280,1,Citizen,Under Investigation,1,53.61111379,-113.3736697
+2016,3,MARCH,Mar-16,Chappelle Area,5462,1,Citizen,Under Investigation,1,53.40291668,-113.586918
+2016,3,MARCH,Mar-16,Klarvatten,2440,1,Citizen,Under Investigation,4,53.637224,-113.4766651
+2016,3,MARCH,Mar-16,Dunluce,3180,1,Citizen,Under Investigation,2,53.62147299,-113.5301833
+2016,3,MARCH,Mar-16,Homesteader,2350,1,Citizen,Under Investigation,1,53.58472042,-113.4064588
+2016,3,MARCH,Mar-16,Wellington,3430,1,Citizen,Under Investigation,3,53.59583297,-113.5526949
+2016,3,MARCH,Mar-16,Aspen Gardens,5020,1,Citizen,Under Investigation,1,53.47753531,-113.5456643
+2016,3,MARCH,Mar-16,Griesbach,3111,1,Citizen,Under Investigation,2,53.60680837,-113.5042291
+2016,3,MARCH,Mar-16,Bannerman,2030,1,Citizen,Under Investigation,1,53.60394968,-113.3786237
+2016,3,MARCH,Mar-16,Fulton Place,6240,1,Citizen,Under Investigation,2,53.54629464,-113.4274665
+2016,3,MARCH,Mar-16,Daly Grove,6150,1,Citizen,Under Investigation,1,53.4495365,-113.4007273
+2016,3,MARCH,Mar-16,Satoo,6680,1,Citizen,Under Investigation,1,53.44637283,-113.4588916
+2016,3,MARCH,Mar-16,Summerside,6213,1,Citizen,Under Investigation,1,53.41752761,-113.4612274
+2016,3,MARCH,Mar-16,McKernan,5290,1,Citizen,Under Investigation,2,53.51275884,-113.5204422
+2016,3,MARCH,Mar-16,Walker,6662,1,Citizen,Under Investigation,1,53.41765061,-113.4304352
+2016,3,MARCH,Mar-16,Jamieson Place,4220,1,Citizen,Under Investigation,1,53.48870738,-113.6490197
+2016,3,MARCH,Mar-16,The Hamptons,4461,1,Citizen,Under Investigation,1,53.4873856,-113.6756874
+2016,3,MARCH,Mar-16,Wild Rose,6790,1,By-law Officer,Under Investigation,4,53.47056409,-113.3811672
+2016,3,MARCH,Mar-16,South Terwillegar,5642,1,Citizen,Under Investigation,3,53.44024696,-113.5790241
+2016,3,MARCH,Mar-16,Central McDougall,1030,1,Citizen,Under Investigation,1,53.55328207,-113.5010679
+2016,3,MARCH,Mar-16,Strathcona,5480,1,By-law Officer,Under Investigation,18,53.52239019,-113.4909856
+2016,3,MARCH,Mar-16,Rossdale,1220,1,By-law Officer,Under Investigation,1,53.53315473,-113.4957958
+2016,3,MARCH,Mar-16,Glastonbury,4720,1,Citizen,Under Investigation,3,53.50318728,-113.6698699
+2016,3,MARCH,Mar-16,Parkallen,5310,1,Citizen,Under Investigation,4,53.50309581,-113.5174613
+2016,3,MARCH,Mar-16,Strathearn,6710,1,By-law Officer,Under Investigation,4,53.53129198,-113.4640467
+2016,3,MARCH,Mar-16,Garneau,5200,1,Citizen,Under Investigation,2,53.51991083,-113.5135356
+2016,3,MARCH,Mar-16,Alberta Avenue,1010,1,Citizen,Under Investigation,11,53.56848538,-113.4851192
+2016,3,MARCH,Mar-16,Allendale,5010,1,Citizen,Under Investigation,2,53.502277,-113.5048211
+2016,3,MARCH,Mar-16,Lymburn,4270,1,By-law Officer,Under Investigation,1,53.50753241,-113.6423002
+2016,3,MARCH,Mar-16,York,2720,1,By-law Officer,Under Investigation,8,53.60284342,-113.4302123
+2016,3,MARCH,Mar-16,Hudson,3480,1,Citizen,Under Investigation,1,53.60434874,-113.5530918
+2016,3,MARCH,Mar-16,Wellington,3430,1,Citizen,Under Investigation,1,53.59583297,-113.5526949
+2016,3,MARCH,Mar-16,Kiniski Gardens,6370,1,Citizen,Under Investigation,1,53.47592375,-113.4033029
+2016,3,MARCH,Mar-16,McKernan,5290,1,Citizen,Under Investigation,2,53.51275884,-113.5204422
+2016,3,MARCH,Mar-16,Parkallen,5310,1,By-law Officer,Under Investigation,2,53.50309581,-113.5174613
+2016,3,MARCH,Mar-16,Callingwood North,4070,1,Citizen,Under Investigation,3,53.50759782,-113.6230247
+2016,2,FEBRUARY,Feb-16,McCauley,1140,1,By-law Officer,Under Investigation,4,53.5546051,-113.485098
+2016,3,MARCH,Mar-16,Central McDougall,1030,1,By-law Officer,Under Investigation,14,53.55328207,-113.5010679
+2016,3,MARCH,Mar-16,Patricia Heights,4390,1,Citizen,Under Investigation,1,53.50663403,-113.5932177
+2016,3,MARCH,Mar-16,Griesbach,3111,1,Citizen,Under Investigation,2,53.60680837,-113.5042291
+2016,2,FEBRUARY,Feb-16,Oliver,1150,1,By-law Officer,Under Investigation,1,53.54198293,-113.5239939
+2016,3,MARCH,Mar-16,Hazeldean,6290,1,By-law Officer,Under Investigation,9,53.5042058,-113.4778889
+2016,3,MARCH,Mar-16,Oliver,1150,1,Citizen,Under Investigation,1,53.54198293,-113.5239939
+2016,3,MARCH,Mar-16,Ottewell,6550,1,By-law Officer,Under Investigation,2,53.53128518,-113.430746
+2016,3,MARCH,Mar-16,Delton,1080,1,Citizen,Under Investigation,3,53.57904638,-113.4824494
+2016,3,MARCH,Mar-16,Downtown,1090,1,Citizen,Under Investigation,9,53.53976659,-113.4983796
+2016,3,MARCH,Mar-16,Westmount,3440,1,Citizen,Under Investigation,2,53.54998825,-113.5399738
+2016,3,MARCH,Mar-16,Rosenthal,4750,1,Citizen,Under Investigation,1,53.51939766,-113.7012109
+2016,3,MARCH,Mar-16,Gold Bar,6270,1,By-law Officer,Under Investigation,1,53.54890801,-113.4120039
+2016,3,MARCH,Mar-16,Ottewell,6550,1,Citizen,Under Investigation,1,53.53128518,-113.430746
+2016,3,MARCH,Mar-16,Elmwood Park,1130,1,By-law Officer,Under Investigation,1,53.57959138,-113.4609168
+2016,3,MARCH,Mar-16,Glengarry,2290,1,Citizen,Under Investigation,1,53.59585546,-113.4796117
+2016,3,MARCH,Mar-16,Richfield,6600,1,Citizen,Under Investigation,1,53.46948397,-113.4586175
+2016,3,MARCH,Mar-16,Inglewood,3240,2,By-law Officer,Under Investigation,1,53.56460647,-113.5408522
+2016,3,MARCH,Mar-16,Silver Berry,6442,1,By-law Officer,Under Investigation,3,53.46115897,-113.3814062
+2016,2,FEBRUARY,Feb-16,Calder,3070,1,By-law Officer,Under Investigation,6,53.58805578,-113.5288721
+2016,3,MARCH,Mar-16,Sherbrooke,3410,1,Citizen,Under Investigation,2,53.57566321,-113.5472856
+2016,3,MARCH,Mar-16,Killarney,2420,1,By-law Officer,Under Investigation,3,53.58848869,-113.4795684
+2016,3,MARCH,Mar-16,Montrose,2550,1,Citizen,Under Investigation,2,53.57511623,-113.4422303
+2016,3,MARCH,Mar-16,King Edward Park,6360,2,By-law Officer,Under Investigation,6,53.51515116,-113.4521318
+2016,3,MARCH,Mar-16,Oliver,1150,1,By-law Officer,Under Investigation,6,53.54198293,-113.5239939
+2016,2,FEBRUARY,Feb-16,Beacon Heights,2040,1,Citizen,Under Investigation,1,53.57353938,-113.4060401
+2016,3,MARCH,Mar-16,Albany,3460,1,Citizen,Under Investigation,2,53.63238214,-113.5494643
+2016,3,MARCH,Mar-16,McKernan,5290,1,By-law Officer,Under Investigation,5,53.51275884,-113.5204422
+2016,3,MARCH,Mar-16,King Edward Park,6360,1,By-law Officer,Under Investigation,13,53.51515116,-113.4521318
+2016,3,MARCH,Mar-16,Bisset,6030,1,By-law Officer,Under Investigation,1,53.45890549,-113.4006595
+2016,3,MARCH,Mar-16,McCauley,1140,1,Citizen,Under Investigation,3,53.5546051,-113.485098
+2016,3,MARCH,Mar-16,Woodcroft,3450,1,Citizen,Under Investigation,2,53.56459542,-113.5583269
+2016,3,MARCH,Mar-16,Crawford Plains,6140,1,By-law Officer,Under Investigation,1,53.44183746,-113.4062159
+2016,3,MARCH,Mar-16,Duggan,5160,1,Citizen,Under Investigation,1,53.47151003,-113.5060576
+2016,3,MARCH,Mar-16,Cashman,5466,1,Citizen,Under Investigation,1,53.41745758,-113.5006947
+2016,3,MARCH,Mar-16,Montrose,2550,1,By-law Officer,Under Investigation,10,53.57511623,-113.4422303
+2016,3,MARCH,Mar-16,High Park,4200,1,Citizen,Under Investigation,1,53.55498578,-113.5841993
+2016,3,MARCH,Mar-16,Elsinore,3190,1,Citizen,Under Investigation,1,53.64076339,-113.4994021
+2016,3,MARCH,Mar-16,Kilkenny,2410,1,By-law Officer,Under Investigation,1,53.61037793,-113.4551192
+2016,3,MARCH,Mar-16,West Meadowlark Park,4590,1,Citizen,Under Investigation,1,53.52560545,-113.6090587
+2016,3,MARCH,Mar-16,Queen Alexandra,5330,1,By-law Officer,Under Investigation,11,53.51221972,-113.5048124
+2016,3,MARCH,Mar-16,Eastwood,1100,1,By-law Officer,Under Investigation,9,53.57610461,-113.4687304
+2016,3,MARCH,Mar-16,Glenwood,4180,1,Citizen,Under Investigation,3,53.53641656,-113.6027698
+2016,3,MARCH,Mar-16,Inglewood,3240,1,By-law Officer,Under Investigation,8,53.56460647,-113.5408522
+2016,3,MARCH,Mar-16,Glenora,3200,1,Citizen,Under Investigation,2,53.54490471,-113.5570425
+2016,3,MARCH,Mar-16,Lymburn,4270,1,Citizen,Under Investigation,2,53.50753241,-113.6423002
+2016,3,MARCH,Mar-16,Carlton,3470,1,Citizen,Under Investigation,2,53.62165164,-113.5593733
+2016,3,MARCH,Mar-16,Queen Mary Park,1180,1,By-law Officer,Under Investigation,29,53.55327854,-113.5196542
+2016,3,MARCH,Mar-16,Grovenor,3210,1,By-law Officer,Under Investigation,2,53.54539881,-113.5719116
+2016,3,MARCH,Mar-16,Canora,4090,1,Citizen,Under Investigation,2,53.54619344,-113.5842146
+2016,3,MARCH,Mar-16,Bonnie Doon,6040,1,Citizen,Under Investigation,2,53.52533712,-113.4671114
+2016,3,MARCH,Mar-16,Walker,6662,1,By-law Officer,Under Investigation,3,53.41765061,-113.4304352
+2016,3,MARCH,Mar-16,Eaux Claires,2241,1,Citizen,Under Investigation,1,53.62163882,-113.4856372
+2016,3,MARCH,Mar-16,Baranow,3020,1,Citizen,Under Investigation,2,53.60573447,-113.5361033
+2016,3,MARCH,Mar-16,Rural West Big Lake,4470,1,Citizen,Under Investigation,1,53.57745959,-113.6897422
+2016,3,MARCH,Mar-16,North Glenora,3310,1,Citizen,Under Investigation,2,53.55494089,-113.5582651
+2016,3,MARCH,Mar-16,Klarvatten,2440,1,By-law Officer,Under Investigation,1,53.637224,-113.4766651
+2016,3,MARCH,Mar-16,Oliver,1150,1,Citizen,Under Investigation,3,53.54198293,-113.5239939
+2016,3,MARCH,Mar-16,Glenora,3200,1,By-law Officer,Under Investigation,3,53.54490471,-113.5570425
+2016,3,MARCH,Mar-16,Glastonbury,4720,1,By-law Officer,Under Investigation,3,53.50318728,-113.6698699
+2016,3,MARCH,Mar-16,McCauley,1140,1,By-law Officer,Under Investigation,25,53.5546051,-113.485098
+2016,3,MARCH,Mar-16,Westwood,1250,1,By-law Officer,Under Investigation,4,53.57594236,-113.4985846
+2016,3,MARCH,Mar-16,King Edward Park,6360,1,Citizen,Under Investigation,2,53.51515116,-113.4521318
+2016,3,MARCH,Mar-16,Windermere,5570,1,Citizen,Under Investigation,13,53.43257022,-113.6260076
+2016,3,MARCH,Mar-16,Highlands,2330,1,Citizen,Under Investigation,3,53.56599859,-113.4301705
+2016,3,MARCH,Mar-16,Kilkenny,2410,1,Citizen,Under Investigation,3,53.61037793,-113.4551192
+2016,3,MARCH,Mar-16,Westwood,1250,1,Citizen,Under Investigation,1,53.57594236,-113.4985846
+2016,3,MARCH,Mar-16,Schonsee,2700,1,Citizen,Under Investigation,2,53.63236258,-113.4551459
+2016,3,MARCH,Mar-16,The Orchards At Ellerslie,6216,1,Citizen,Under Investigation,2,53.40308747,-113.4643145
+2016,3,MARCH,Mar-16,Eastwood,1100,1,Citizen,Under Investigation,4,53.57610461,-113.4687304
+2016,3,MARCH,Mar-16,Britannia Youngstown,4060,1,By-law Officer,Under Investigation,5,53.54629462,-113.6015104
+2016,3,MARCH,Mar-16,McConachie Area,2521,1,Citizen,Under Investigation,4,53.63645165,-113.4313223
+2016,3,MARCH,Mar-16,Spruce Avenue,1230,1,By-law Officer,Under Investigation,5,53.56463543,-113.4995016
+2016,3,MARCH,Mar-16,Queen Mary Park,1180,1,Citizen,Under Investigation,2,53.55327854,-113.5196542
+2016,3,MARCH,Mar-16,Bonnie Doon,6040,1,By-law Officer,Under Investigation,4,53.52533712,-113.4671114
+2016,3,MARCH,Mar-16,Britannia Youngstown,4060,1,Citizen,Under Investigation,4,53.54629462,-113.6015104
+2016,3,MARCH,Mar-16,Westmount,3440,1,By-law Officer,Under Investigation,16,53.54998825,-113.5399738
+2016,3,MARCH,Mar-16,Canora,4090,1,By-law Officer,Under Investigation,5,53.54619344,-113.5842146
+2016,2,FEBRUARY,Feb-16,Canora,4090,1,By-law Officer,Under Investigation,5,53.54619344,-113.5842146
+2016,3,MARCH,Mar-16,Parkdale,1160,1,Citizen,Under Investigation,3,53.5657157,-113.4713504
+2016,3,MARCH,Mar-16,Calder,3070,1,Citizen,Under Investigation,4,53.58805578,-113.5288721
+2016,3,MARCH,Mar-16,Evansdale,2260,1,Citizen,Under Investigation,1,53.61084111,-113.4795689
