@@ -3,11 +3,11 @@ function initMap() {
         var mapDiv = document.getElementById('map');
         var map = new google.maps.Map(mapDiv, {
                 center: {lat: 53.5466707, lng: -113.5196069},
-                zoom: 10
+                zoom: 11
         });
         
         // load the the Ward Boundaries
-        map.data.loadGeoJson('./dataset/City of Edmonton - Ward Boundaries.geojson');
+        map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
         
         var wardName;
         
@@ -72,7 +72,7 @@ function initMap() {
                 // the bubble window will display the region name that the mouse is hovering over
                 bubbleWin.setPosition(event.latLng);
                 bubbleWin.setContent(wardName);
-                bubbleWin.open(map);
+                //bubbleWin.open(map);
         });
       
         map.data.addListener('mouseout', function(event) {
@@ -115,7 +115,9 @@ function initMap() {
             if (doFilter) {
                 d3.csv("./dataset/exportTable.php", function(data) {
                         dataFilter = data.filter(function(d) {
-                                if (d["311_ward"] == keyWord) {
+                            console.log("first");
+                                if (d["311_neighbourhood"].toLowerCase() == keyWord.toLowerCase()) {
+                                    console.log("second");
                                     //return [ +d["Lat"], +d["Long"] ];
                                     return d;
                                 }

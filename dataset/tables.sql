@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 );
 
 CREATE TABLE IF NOT EXISTS Bylaw (
-	complaint_number int(3),
+	complaint_number INT(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
 	month VARCHAR(10),
@@ -201,6 +201,96 @@ CREATE TABLE IF NOT EXISTS checked_311_result (
 	311_count INT(1),
 	posse_number VARCHAR(13),
 	transit_ref_number INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS month (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(20),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS bylaw_year (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(20),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS complaint (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(20),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS bylaw_status (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(20),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS temp_bylaw (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(20),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
 );
 
 CREATE TABLE IF NOT EXISTS checked_bylaw_result (

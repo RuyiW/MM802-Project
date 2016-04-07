@@ -71,3 +71,35 @@ $(document).ready(function(){
 
 	});
 });
+
+$(document).ready(function(){
+	$("#month").hide();
+	$("#f5_button").click(function(){
+		activateMaxMin($(this),$("#max_f5"),$("#month"));
+
+	});
+});
+
+$(document).ready(function(){
+	$("#bylaw_year").hide();
+	$("#f6_button").click(function(){
+		activateMaxMin($(this),$("#max_f6"),$("#bylaw_year"));
+
+	});
+});
+
+$(document).ready(function(){
+	$("#complaint").hide();
+	$("#f7_button").click(function(){
+		activateMaxMin($(this),$("#max_f7"),$("#complaint"));
+
+	});
+});
+
+$(document).ready(function(){
+	$("#bylaw_status").hide();
+	$("#f8_button").click(function(){
+		activateMaxMin($(this),$("#max_f8"),$("#bylaw_status"));
+
+	});
+});

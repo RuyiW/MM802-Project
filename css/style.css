@@ -5,9 +5,13 @@ head{
 	width: 100%;
 }
 body{
+	background: url(../img/edmonton.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	background-color: #0070BE;
 	background-repeat: no-repeat;
-	background-size: 100%;
 	background-attachment: fixed;
 
 	font-family: Arial;
@@ -31,7 +35,7 @@ body{
 .nav{
 	text-transform:uppercase;
 	background-color: #F7F7F7;
-
+	max-width: 100%;
 }
 .nav ul{
 	width: 100%;
@@ -40,6 +44,8 @@ body{
 	background-color: #8A8987;
 	-webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
+    -webkit-padding-start: 1.5em;
+
     box-shadow: 0 0 0.5em 0.5em gray inset; 
 
 }
@@ -80,8 +86,8 @@ body{
 .wrap{
 	margin: auto;
 	width: 80%;
-	
 }
+
 /*#menu{
 	float: left;
 	margin: 1em 0;
@@ -165,8 +171,32 @@ body{
 	margin-left: -0.6em;
 	margin-top: -0.2em;
 }
+#f5_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+#f6_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+#f7_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
+#f8_button img{
+	width: 1em; 
+	height: 1em;
+	margin-left: -0.6em;
+	margin-top: -0.2em;
+}
 
-#f1_button, #f2_button, #f3_button, #f4_button{
+#f1_button, #f2_button, #f3_button, #f4_button, #f5_button, #f6_button, #f7_button, #f8_button{
 	width: 2em;
 	height: 2em;
 	float: left;
@@ -186,7 +216,7 @@ body{
 	position: relative;
 	float: left;
 }
-#service_category, #ward, #neighbourhood, #request_status{
+#service_category, #ward, #neighbourhood, #request_status, #month, #bylaw_year, #complaint, #bylaw_status{
 	/*margin-top: -1.5em;*/
 	width: 80%;
 	height: auto;
@@ -208,7 +238,18 @@ body{
 #request_status form{
 	font-size: 11;
 }
-
+#month form{
+	font-size: 11;
+}
+#bylaw_year form{
+	font-size: 11;
+}
+#complaint form{
+	font-size: 11;
+}
+#bylaw_status form{
+	font-size: 11;
+}
 
 /*=============================================*/
 
@@ -234,7 +275,12 @@ footer{
 	margin-left: 10%;
 }
 .foot_wrap p{
-	margin-left: 10%;
+	/*margin-left: 12.5%*/
+	text-align: center;
+}
+.quick_links{
+	margin: auto;
+	text-align: center;
 }
 .quick_links ul{
 	margin-left: 20%;

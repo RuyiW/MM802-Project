@@ -23,7 +23,7 @@
 	<body background="./img/edmonton.jpg">
 		<div class = "transparency_filter"></div>
 		<div id = "header">
-			<img src="./img/logo.png">
+			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>
 		</div>
 		<div class='nav'>
 			<ul>
@@ -49,9 +49,10 @@
 				</div>
 				<div id = "checklist_content">
 
-					<form>
+					<!-- <form>
 						<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
-					</form>
+					</form> -->
+					<button id='clear_button' style = 'width:100%' type="button" >Clear Selection</button>
 					<?php
 					//echo "something before if";
 					
@@ -66,14 +67,12 @@
 							<img  id = 'max_f1' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' onchange='check_subs(this)' class = 'filter1' name='filter' value='service_category'>Service Category<br>
-						</form>
+						Service Category
 						</div>
 						<div id = 'service_category'>
 						<form class = 'checklist_form' action='' method='post'>";
 
-
+						// onchange='check_subs(this)'
 
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) {
@@ -115,9 +114,7 @@
 						<button type = 'button' class id = 'f2_button'>
 							<img  id = 'max_f2' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 						</button>
-						<form>
-							<input type='checkbox' onchange='check_subs(this)' class = 'filter2' name='filter' value='ward'>Ward<br>
-						</form>
+						Ward
 						</div>
 						<div id = 'ward'>
 						<form class = 'checklist_form' action='' method=''> \n";
@@ -152,9 +149,7 @@
 						<button type = 'button' class id = 'f3_button'>
 							<img  id = 'max_f3' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 						</button>
-						<form>
-							<input type='checkbox' onchange='check_subs(this)' class = 'filter3' name='filter' value='neighbourhood'>Neighbourhood<br>
-						</form>
+						Neighbourhood
 						</div>
 						<div id = 'neighbourhood'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -190,9 +185,7 @@
 							<img  id = 'max_f4' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' onchange='check_subs(this)' class = 'filter4' name='filter' value='311_request_status'>Request Status<br>
-						</form>
+						Request Status
 						</div>
 						<div id = 'request_status'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -219,6 +212,168 @@
 					} else {
 					    //echo "0 results";
 					}
+
+					$sql = "SELECT DISTINCT month FROM Bylaw ORDER BY month;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f5_button'>
+							<img  id = 'max_f5' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						Reported Month
+						</div>
+						<div id = 'month'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["month"] != null){
+
+					    		$the_row = $row["month"];
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_month('<?php echo $the_row; ?>', this)" class = 'filter5' name='month' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+
+					$sql = "SELECT DISTINCT bylaw_year FROM Bylaw ORDER BY bylaw_year;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f6_button'>
+							<img  id = 'max_f6' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						Reported Year
+						</div>
+						<div id = 'bylaw_year'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["bylaw_year"] != null){
+
+					    		$the_row = $row["bylaw_year"];
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_bylaw_year('<?php echo $the_row; ?>', this)" class = 'filter6' name='bylaw_year' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+
+					$sql = "SELECT DISTINCT complaint FROM Bylaw
+					WHERE complaint = '1' OR complaint = '2';";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f7_button'>
+							<img  id = 'max_f7' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						Complaint Type
+						</div>
+						<div id = 'complaint'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["complaint"] != null){
+					    		if($row["complaint"] == '1'){
+					    			$the_row = 'Snow/Ice On Walk';
+					    			$the_type_num = '1';
+					    		}
+					    		else if($row["complaint"] == '2') {
+					    			$the_row = 'Graffiti';
+					    			$the_type_num = '2';
+					    		}
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_complaint('<?php echo $the_type_num; ?>', this)" class = 'filter7' name='complaint' value= '<?php echo $the_type_num;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+
+					$sql = "SELECT DISTINCT bylaw_status FROM Bylaw ORDER BY bylaw_status;";
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
+						echo "
+						<div class = 'checklist_subtitle'>
+						<button type = 'button' class id = 'f8_button'>
+							<img  id = 'max_f8' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
+
+						</button>
+						Complaint Status
+						</div>
+						<div id = 'bylaw_status'>
+						<form class = 'checklist_form' action='' method='post'>";
+
+
+
+					    // output data of each row
+					    while($row = $result->fetch_assoc()) {
+					    	if($row["bylaw_status"] != null){
+
+					    		$the_row = $row["bylaw_status"];
+					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";
+					    	//}
+					    	//else{
+					    		?>
+					    	<input type='checkbox' onchange = "store_bylaw_status('<?php echo $the_row; ?>', this)" class = 'filter8' name='bylaw_status' value= '<?php echo $the_row;?>'><?php echo $the_row;?>
+					    	<br>
+					    	<?php
+					        //echo "service_category: " . $row["service_category"] . "<br>";
+					    	}
+					    }
+					    echo "</form>
+					</div>";
+					} else {
+					    //echo "0 results";
+					}
+
+
+
 					?>
 
 					
@@ -231,20 +386,19 @@
 				</div>
 			</div>
 			<div id = "detail">
-				<h1>This is the section for selection display</h1>
 			</div>
 		</div><!--clossing tag for wrap-->
 		<footer>
 			<div class = "foot_wrap">
 			<!-- <h1>This is the section for footer</h1> -->
-			<div class = "quick_link">
-				<ul>Quick links:
-					<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
-					<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
-					<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
-				</ul>
-			</div>
-			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
+				<div class = "quick_link">
+					<ul>Quick links:
+						<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
+						<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
+						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
+					</ul>
+				</div>
+				<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
 			</div>
 		</footer>
 
@@ -258,8 +412,8 @@
 	<script src = "./js/jquery-ui.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
-	<script type="text/javascript" src="js/check_all.js"></script>
-	<script type="text/javascript" src="js/get_check_result.js"></script>
+	<!-- <script type="text/javascript" src="js/check_all.js"></script> -->
+	<script type="text/javascript" src="js/clear_selection.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
