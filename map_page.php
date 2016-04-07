@@ -28,8 +28,8 @@
 		<div class='nav'>
 			<ul>
 				<li><a href='main.php'>HOME</a></li>
-				<li><a href='#'>RESULTS</a></li>
-				<li><a href='#'>ALGORITHM</a></li>
+				<li><a href='details.php'>RESULTS</a></li>
+				<li><a href='knn.php'>ALGORITHM</a></li>
 				<li class='active'><a href='map_page.php'>MAP</a></li>
 				<li><a href='#'>ABOUT US</a></li>
 			</ul>

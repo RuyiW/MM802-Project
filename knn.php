@@ -27,9 +27,9 @@
 		</div>
 		<div class='nav'>
 			<ul>
-				<li class='active'><a href='main.php'>HOME</a></li>
+				<li><a href='main.php'>HOME</a></li>
 				<li><a href='details.php'>RESULTS</a></li>
-				<li><a href='knn.php'>ALGORITHM</a></li>
+				<li class='active'><a href='knn.php'>ALGORITHM</a></li>
 				<li><a href='map_page.php'>MAP</a></li>
 				<li><a href='#'>ABOUT US</a></li>
 			</ul>
@@ -39,24 +39,10 @@
 			<!-- <div id = "menu">
 				<h1>This is the section for possible menu</h1>
 			</div> -->
-			<div id = 'introduction'>
-				<h2>Overview of our project</h2>
-				<p>
-					In this project, we propose to create an application that can provide better visualization of the issues that occur in the city of Edmonton, 
-					by using the data from the 311 explorer. We are only interested in the open requests as they have not been resolved. The requests can be categorized by Ward areas, 
-					or neighbourhoods, which can be broken down to service categories for that selected area. These service categories are then assigned to respective Business Units. 
-					We want to combine the 311 Explorer dataset with the Bylaw Infractions dataset, and try to find any connections between the reports from the 311 Explorer and 
-					the complaints reported in the Bylaw Infractions. For example, if there was a graffiti complaint that was still under investigation, we want to find if the 
-					reports of recent vandalism/graffiti might be linked to the complaint. Ideally, our application could help with the further investigations of unresolved complaints, 
-					by providing possible connections to the causes of the complaints. As for finding the possible connections, we are still a little unsure. 
-					</p><p>
-					However we do have some ideas, 
-					such as mapping from 311 Explorer dataset to the Bylaw Infractions dataset by the date, based on the service/complaint type. The dates from 311 Explorer starting from the same 
-					month that the complaint was posted (from the Bylaw Infractions dataset) to present day dates, would be considered. The neighbourhood is considered first, 
-					then we would consider nearby neighbours, checking if there has been an increase in the same requests. As of now, there are only these two data sets that seem to have possible connections. 
-					We have yet to find other datasets that could possibly help find more of the connections related to the complaints, but we will further investigate as we continue on with this project. 
-
-				</p>
+			<div id = 'algorithm_button'>
+				<li><a href="ProjNNneighbour.php">By Neighbourhood</a>
+				<li><a href="ProjNNdays.php">By Days</a>
+				<li><a href="ProjNNdistance.php">By Distance</a>
 			</div>
 			
 		</div><!--clossing tag for wrap-->
