@@ -249,13 +249,20 @@
 		</footer>
 
 	</body>
+	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script src = "./js/jquery-ui.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
 	<script type="text/javascript" src="js/check_all.js"></script>
 	<script type="text/javascript" src="js/get_check_result.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
+	<script type="text/javascript" src="js/tableResults.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
 

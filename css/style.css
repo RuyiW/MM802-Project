@@ -215,10 +215,12 @@ body{
 #detail{
 	float: left;
 	width: 90%;
-	height: 10em;
+	height: auto;
 	margin: 0 5% 1% 5%;
 	/*border: 0.1em solid green;*/
 	background-color: #456F8F;
+	min-height: 100px;
+	overflow: hidden;
 }
 
 footer{
@@ -244,3 +246,35 @@ footer{
 	line-height: 1.5em;
 	font-size: 13;
 }
+
+tr{
+	background: -moz-linear-gradient(top, #ffffff, #D1E3E9);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#D1E3E9));
+	text-align:center;
+}
+		 
+tr:hover{
+	background: -moz-linear-gradient(top, #249ee4, #057cc0);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#249ee4), to(#057cc0));
+}
+		 
+tr:active{
+	background: -moz-linear-gradient(top, #057cc0, #249ee4);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#057cc0), to(#249ee4));
+}
+		 
+#result{
+	font-weight:bold;
+	font-size:16pt;
+}			
+.highlighted {
+	cursor: pointer;
+	background: -moz-linear-gradient(top, #249ee4, #057cc0);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#249ee4), to(#057cc0));
+	font: bold 18px "Trebuchet MS", Verdana, Arial, Helvetica,
+        sans-serif;
+    color: rgb(84, 255, 0);
+}		
+.accordion-toggle {cursor: pointer;}
+.accordion-content {display: none;}
+.accordion-content.default {display: block;}

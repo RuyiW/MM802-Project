@@ -113,14 +113,14 @@ function initMap() {
             var filterData;
             // when a region is selected
             if (doFilter) {
-                d3.csv("./dataset/311_Explorer_Short.csv", function(data) {
+                d3.csv("./dataset/exportTable.php", function(data) {
                         dataFilter = data.filter(function(d) {
-                                if (d["Ward"] == keyWord) {
+                                if (d["311_ward"] == keyWord) {
                                     //return [ +d["Lat"], +d["Long"] ];
                                     return d;
                                 }
                         });
-                        filterData = dataFilter.map(function(d) { return [ +d["Lat"], +d["Long"] ]; });
+                        filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"] ]; });
                         //console.log(filterData);
                         removeMarkers();
                         myDataLoaded(filterData);
@@ -128,8 +128,8 @@ function initMap() {
             }
             else {
                 // region is not selected, so display all markers
-                d3.csv("./dataset/311_Explorer_Short.csv", function(data) {
-                        dataset = data.map(function(d) { return [ +d["Lat"], +d["Long"] ]; });
+                d3.csv("./dataset/exportTable.php", function(data) {
+                        dataset = data.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"] ]; });
                         myDataLoaded(dataset);
                 });
                 
