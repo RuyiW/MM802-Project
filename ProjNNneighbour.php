@@ -10,23 +10,28 @@
   if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
+  $link_address = 'dataset/exportTable.php';
+//echo "<a href='dataset/exportTable.php' download></a>";
+echo "<a href= $link_address >Link</a>";
 ?>
 
-<?php
+ <?php
+
+
 echo "<html><head><link rel='stylesheet' type='text/css' href='./css/style.css' media='all'></head><body><table id = 'sweta' border=1>";
-$sql = "DELETE FROM match_resultNeighbourhood ;";
-          if (mysqli_query($conn, $sql)) {
-         //   echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+// $sql = "DELETE FROM match_resultNeighbourhood ;";
+//           if (mysqli_query($conn, $sql)) {
+//          //   echo "New record created successfully";
+//           //  echo "\n";
+//           } else {
+//             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+//             echo "\n";
+//           }
 $NumrowBylaw = 0;
 
 //Read both csv files
 $file_handle = fopen("Bylaw.csv", "r");
-$file_handle1 = fopen("exportTable.php", "r");
+$file_handle1 = fopen("311Data.csv", "r");
 
 //Copy all the data untill end of file
 while (!feof($file_handle) ) {
@@ -41,9 +46,9 @@ $NumrowBylaw = $NumrowBylaw + 1;
 
 $Numrow311Data = 0;
 
-while (!feof("exportTable.php") ) {
+while (!feof($file_handle1) ) {
 
-$line_of_text1[] = fgetcsv("exportTable.php", 1024);
+$line_of_text1[] = fgetcsv($file_handle1, 1024);
 $Numrow311Data = $Numrow311Data + 1;
 //print $line_of_text[1] . $line_of_text[2]. $line_of_text[3]. $line_of_text[4] . $line_of_text[5]. $line_of_text[6]. "<BR>";
 }
@@ -56,7 +61,7 @@ $count = 0;
 echo "<thead>";
 echo "<tr>";
 echo "<th>Complaint Number</th>";
-echo "<th>Ticket Numb</th>";
+echo "<th>Ticket Number</th>";
 echo "</tr>";
 echo "</thead>";
 
@@ -153,14 +158,14 @@ for ($j = 1; $j < $NumrowBylaw -1 ; $j++) {
             echo "</tbody>";
            $count = $count + 1;
            $distarray[$idx] = INF;
-           $sql = "INSERT INTO match_resultNeighbourhood (matched_ticket_number, complaint_number) VALUES (' " . $line_of_text1[$idx][0] . " ' ,  ' $j  ')";
-           if (mysqli_query($conn, $sql)) {
-            //echo "New record created successfully";
-           // echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+          //  $sql = "INSERT INTO match_resultNeighbourhood (matched_ticket_number, complaint_number) VALUES (' " . $line_of_text1[$idx][0] . " ' ,  ' $j  ')";
+          //  if (mysqli_query($conn, $sql)) {
+          //   //echo "New record created successfully";
+          //  // echo "\n";
+          // } else {
+          //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          //   echo "\n";
+          // }
         }
     }
 }
