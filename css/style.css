@@ -247,6 +247,18 @@ footer{
 	font-size: 13;
 }
 
+#sweta {
+	/*float: left;*/
+	width: 40%;
+	height: auto;
+	margin: auto;
+	/*border: 0.1em solid green;*/
+	background-color: 	#6f8f45;
+	min-height: 100px;
+	overflow: hidden;
+
+}
+
 tr{
 	background: -moz-linear-gradient(top, #ffffff, #D1E3E9);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#D1E3E9));
