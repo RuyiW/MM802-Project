@@ -13,14 +13,15 @@
   }
 ?>
 <?php 
-$sql = "DELETE FROM match_resultdistance;";
-          if (mysqli_query($conn, $sql)) {
-          //  echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+echo "<html><head><link rel='stylesheet' type='text/css' href='./css/style.css' media='all'></head><body><table id = 'sweta' border=1>";
+// $sql = "DELETE FROM match_resultdistance;";
+//           if (mysqli_query($conn, $sql)) {
+//           //  echo "New record created successfully";
+//           //  echo "\n";
+//           } else {
+//             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+//             echo "\n";
+//           }
 
 function CalculateDistance($latitude,$longitude,$lat,$long){
 $R = 6371;
@@ -64,9 +65,15 @@ $thresdist = 5;
 //set the value of k
 $k = 1;
 $count = 0;
-$varcount = 0;
+echo "<thead>";
+echo "<tr>";
+echo "<th>Complaint Number</th>";
+echo "<th>Ticket Number</th>";
+echo "<th>DistanceinKm</th>";
+echo "</tr>";
+echo "</thead>";
 //$distarray = [];
-for ($j = 1; $j < 11; $j++) {
+for ($j = 1; $j < 100; $j++) {
    
    $distance = INF;
    //Take the year of complaint
@@ -79,7 +86,7 @@ for ($j = 1; $j < 11; $j++) {
     $typeofComplaint = $line_of_text[$j][6];
  //echo $typeofComplaint . "<br />\n";
 
-   for ($i = 1; $i < 11 ; $i++) {
+   for ($i = 1; $i < 100 ; $i++) {
    	 
    
    	$dateValue = $line_of_text1[$i][1];
@@ -125,14 +132,27 @@ for ($j = 1; $j < 11; $j++) {
           // $Match[$count][0] = $j;
           // $Match[$count][1] = $line_of_text1[$idx][0];
           //  $Match[$count][2] =0;
-             $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$idx][0] . " ' ,' 0 ')";
-          if (mysqli_query($conn, $sql)) {
-            //echo "New record created successfully";
-            //echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+            echo "<tbody>";
+           echo "<tr>";
+          //echo $idx . "<br />\n"; 
+           // remove for the next iteration the last smallest value:
+          // $Match[$count][0] = $j;
+          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+            echo "<td>".$j."</td>";
+            echo "<td>".$line_of_text1[$idx][0]."</td>";
+            echo "<td>" .'0'."</td>";
+         //  $Match[$count][1] = $line_of_text1[$idx][0];
+          // echo $Match[$count][1]. "<br />\n"; 
+            echo "</tr>";
+            echo "</tbody>";
+          //    $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$idx][0] . " ' ,' 0 ')";
+          // if (mysqli_query($conn, $sql)) {
+          //   //echo "New record created successfully";
+          //   //echo "\n";
+          // } else {
+          //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          //   echo "\n";
+          // }
            // echo "I am in main loop";
           // echo $Match[$count][0] ."<br />\n";
          // echo $Match[$count][1] ."<br />\n";
@@ -153,14 +173,27 @@ for ($j = 1; $j < 11; $j++) {
                       //  echo $Match[$count][0] ."<br />\n";
                       //  echo $Match[$count][1] ."<br />\n";
                       //  echo $Match[$count][2] ."<br />\n";
-                           $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
-                            if (mysqli_query($conn, $sql)) {
-                              //echo "New record created successfully";
-                              //echo "\n";
-                            } else {
-                              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                              echo "\n";
-                            }
+                          echo "<tbody>";
+                           echo "<tr>";
+                          //echo $idx . "<br />\n"; 
+                           // remove for the next iteration the last smallest value:
+                          // $Match[$count][0] = $j;
+                          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+                            echo "<td>".$j."</td>";
+                            echo "<td>".$line_of_text1[$i][0]."</td>";
+                            echo "<td>".$distkm ."</td>";
+                         //  $Match[$count][1] = $line_of_text1[$idx][0];
+                          // echo $Match[$count][1]. "<br />\n"; 
+                            echo "</tr>";
+                            echo "</tbody>";
+                           // $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
+                           //  if (mysqli_query($conn, $sql)) {
+                           //    //echo "New record created successfully";
+                           //    //echo "\n";
+                           //  } else {
+                           //    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                           //    echo "\n";
+                           //  }
                         $count = $count + 1;
                     }
                 }
@@ -175,14 +208,27 @@ for ($j = 1; $j < 11; $j++) {
                        // $Match[$count][0] = $j;
                        // $Match[$count][1] = $line_of_text1[$i][0];
                        // $Match[$count][2] = $distkm;
-                         $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
-                            if (mysqli_query($conn, $sql)) {
-                              //echo "New record created successfully";
-                              //echo "\n";
-                            } else {
-                              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                              echo "\n";
-                            }
+                       echo "<tbody>";
+                           echo "<tr>";
+                          //echo $idx . "<br />\n"; 
+                           // remove for the next iteration the last smallest value:
+                          // $Match[$count][0] = $j;
+                          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+                            echo "<td>".$j."</td>";
+                            echo "<td>".$line_of_text1[$i][0]."</td>";
+                            echo "<td>".$distkm ."</td>";
+                         //  $Match[$count][1] = $line_of_text1[$idx][0];
+                          // echo $Match[$count][1]. "<br />\n"; 
+                            echo "</tr>";
+                            echo "</tbody>";
+                         // $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
+                         //    if (mysqli_query($conn, $sql)) {
+                         //      //echo "New record created successfully";
+                         //      //echo "\n";
+                         //    } else {
+                         //      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                         //      echo "\n";
+                         //    }
                        // echo "I am in 2nd loop";
                        // echo $Match[$count][0] ."<br />\n";
                        // echo $Match[$count][1] ."<br />\n";
@@ -204,14 +250,27 @@ for ($j = 1; $j < 11; $j++) {
                           //  $Match[$count][0] = $j;
                           //  $Match[$count][1] = $line_of_text1[$i][0];
                            // $Match[$count][2] = $distkm;
-                             $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
-                            if (mysqli_query($conn, $sql)) {
-                              //echo "New record created successfully";
-                              //echo "\n";
-                            } else {
-                              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                              echo "\n";
-                            }
+                           echo "<tbody>";
+                           echo "<tr>";
+                          //echo $idx . "<br />\n"; 
+                           // remove for the next iteration the last smallest value:
+                          // $Match[$count][0] = $j;
+                          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+                            echo "<td>".$j."</td>";
+                            echo "<td>".$line_of_text1[$i][0]."</td>";
+                            echo "<td>".$distkm ."</td>";
+                         //  $Match[$count][1] = $line_of_text1[$idx][0];
+                          // echo $Match[$count][1]. "<br />\n"; 
+                            echo "</tr>";
+                            echo "</tbody>";
+                            //  $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
+                            // if (mysqli_query($conn, $sql)) {
+                            //   //echo "New record created successfully";
+                            //   //echo "\n";
+                            // } else {
+                            //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            //   echo "\n";
+                            // }
                           //   echo "I am in 3rd loop";
                            // echo $Match[$count][0] ."<br />\n";
           //echo $Match[$count][1] ."<br />\n";
@@ -232,14 +291,27 @@ for ($j = 1; $j < 11; $j++) {
                             //$Match[$count][0] = $j;
                            // $Match[$count][1] = $line_of_text1[$i][0];
                            // $Match[$count][2] = $distkm;
-                             $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
-                            if (mysqli_query($conn, $sql)) {
-                              //echo "New record created successfully";
-                              //echo "\n";
-                            } else {
-                              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                              echo "\n";
-                            }
+                           echo "<tbody>";
+                           echo "<tr>";
+                          //echo $idx . "<br />\n"; 
+                           // remove for the next iteration the last smallest value:
+                          // $Match[$count][0] = $j;
+                          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+                            echo "<td>".$j."</td>";
+                            echo "<td>".$line_of_text1[$i][0]."</td>";
+                            echo "<td>".$distkm ."</td>";
+                         //  $Match[$count][1] = $line_of_text1[$idx][0];
+                          // echo $Match[$count][1]. "<br />\n"; 
+                            echo "</tr>";
+                            echo "</tbody>";
+                            //  $sql = "INSERT INTO match_resultdistance (complaint_number, matched_ticket_number, distkm ) VALUES (' $j  ',' " . $line_of_text1[$i][0] . " ' ,' $distkm ')";
+                            // if (mysqli_query($conn, $sql)) {
+                            //   //echo "New record created successfully";
+                            //   //echo "\n";
+                            // } else {
+                            //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            //   echo "\n";
+                            // }
                             // echo "I am in 4th loop";
                            // echo $Match[$count][0] ."<br />\n";
                             // echo $Match[$count][1] ."<br />\n";
@@ -253,7 +325,7 @@ for ($j = 1; $j < 11; $j++) {
           
         }
 }
-echo $count;
+//echo $count;
 fclose($file_handle);
 fclose($file_handle1);
 ?>

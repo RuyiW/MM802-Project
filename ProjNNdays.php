@@ -14,15 +14,16 @@
 ?>
 
 <?php
+echo "<html><head><link rel='stylesheet' type='text/css' href='./css/style.css' media='all'></head><body><table id = 'sweta' border=1>";
 
-$sql = "DELETE FROM match_result;";
-          if (mysqli_query($conn, $sql)) {
-          //  echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+// $sql = "DELETE FROM match_result;";
+//           if (mysqli_query($conn, $sql)) {
+//           //  echo "New record created successfully";
+//           //  echo "\n";
+//           } else {
+//             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+//             echo "\n";
+//           }
 
 $NumrowBylaw = 0;
 
@@ -55,7 +56,12 @@ $Numrow311Data = $Numrow311Data + 1;
 //set the value of k
 $k = 1;
 $count = 0;
-$varcount = 0;
+echo "<thead>";
+echo "<tr>";
+echo "<th>Complaint Number</th>";
+echo "<th>Ticket Number</th>";
+echo "</tr>";
+echo "</thead>";
 //$distarray = [];
 //echo $NumrowBylaw;
 for ($j = 1; $j < (101); $j++) {
@@ -113,6 +119,18 @@ for ($j = 1; $j < (101); $j++) {
    	//	echo "The value is " . $val . "<br />\n"; 
         if ($val < INF) {
         	$idx = array_search($val, $distarray);
+          echo "<tbody>";
+           echo "<tr>";
+          //echo $idx . "<br />\n"; 
+           // remove for the next iteration the last smallest value:
+          // $Match[$count][0] = $j;
+          // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
+            echo "<td>".$j."</td>";
+            echo "<td>".$line_of_text1[$idx][0]."</td>";
+         //  $Match[$count][1] = $line_of_text1[$idx][0];
+          // echo $Match[$count][1]. "<br />\n"; 
+            echo "</tr>";
+            echo "</tbody>";
         	//echo $idx . "<br />\n"; 
            // remove for the next iteration the last smallest value:
           // $Match[$count][0] = $j;
@@ -123,19 +141,19 @@ for ($j = 1; $j < (101); $j++) {
           // echo $Match[$count][1]. "<br />\n"; 
            $count = $count + 1;
            $distarray[$idx] = INF;
-           $sql = "INSERT INTO match_result (matched_ticket_number, complaint_number) VALUES (' " . $line_of_text1[$idx][0] . " ' ,  ' $j  ')";
-          if (mysqli_query($conn, $sql)) {
-            //echo "New record created successfully";
-            //echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+          //  $sql = "INSERT INTO match_result (matched_ticket_number, complaint_number) VALUES (' " . $line_of_text1[$idx][0] . " ' ,  ' $j  ')";
+          // if (mysqli_query($conn, $sql)) {
+          //   //echo "New record created successfully";
+          //   //echo "\n";
+          // } else {
+          //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          //   echo "\n";
+          // }
         }
     }
 }
 
-echo $count;
+//echo $count;
 fclose($file_handle);
 fclose($file_handle1);
 $conn->close();

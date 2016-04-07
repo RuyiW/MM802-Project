@@ -277,20 +277,33 @@ footer{
 .foot_wrap p{
 	/*margin-left: 12.5%*/
 	text-align: center;
+	font-size: 17;
 }
-.quick_links{
-	margin: auto;
-	text-align: center;
+.quick_link{
+	margin: 1em 5em;
 }
-.quick_links ul{
-	margin-left: 20%;
+.quick_link ul{
+	color:#fff;
+	background: #333;
+	font-weight: bold;
+	margin-left: 2em;
+	margin-right: 2em;
 	line-height: 2em;
 	font-weight: bold;
 	font-size: 15;
+	box-shadow: -1em 0 0.8em 0.3em #8A8987;
+	-webkit-border-radius:.3em;
+  	 -moz-border-radius:.3em;
+ 		  border-radius:.3em; 
 }
-.quick_links ul li{
+.quick_link ul li{
 	line-height: 1.5em;
 	font-size: 13;
+	color:#fff;
+}
+.quick_link ul li a{
+	color:#fff;
+	background: #333
 }
 
 tr{
