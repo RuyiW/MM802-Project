@@ -52,6 +52,7 @@
 					<!-- <form>
 						<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
 					</form> -->
+					<button id='clear_button' style = 'width:100%' type="button" >Clear Selection</button>
 					<?php
 					//echo "something before if";
 					
@@ -66,9 +67,7 @@
 							<img  id = 'max_f1' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter1' name='filter' value='service_category'>Service Category<br>
-						</form>
+						Service Category
 						</div>
 						<div id = 'service_category'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -115,9 +114,7 @@
 						<button type = 'button' class id = 'f2_button'>
 							<img  id = 'max_f2' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter2' name='filter' value='ward'>Ward<br>
-						</form>
+						Ward
 						</div>
 						<div id = 'ward'>
 						<form class = 'checklist_form' action='' method=''> \n";
@@ -152,9 +149,7 @@
 						<button type = 'button' class id = 'f3_button'>
 							<img  id = 'max_f3' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter3' name='filter' value='neighbourhood'>Neighbourhood<br>
-						</form>
+						Neighbourhood
 						</div>
 						<div id = 'neighbourhood'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -190,9 +185,7 @@
 							<img  id = 'max_f4' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter4' name='filter' value='311_request_status'>Request Status<br>
-						</form>
+						Request Status
 						</div>
 						<div id = 'request_status'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -230,9 +223,7 @@
 							<img  id = 'max_f5' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter5' name='filter' value='month'>Reported Month<br>
-						</form>
+						Reported Month
 						</div>
 						<div id = 'month'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -270,9 +261,7 @@
 							<img  id = 'max_f6' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter6' name='filter' value='bylaw_year'>Reported Year<br>
-						</form>
+						Reported Year
 						</div>
 						<div id = 'bylaw_year'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -311,9 +300,7 @@
 							<img  id = 'max_f7' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter7' name='filter' value='complaint'>Complaint Type<br>
-						</form>
+						Complaint Type
 						</div>
 						<div id = 'complaint'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -357,9 +344,7 @@
 							<img  id = 'max_f8' style = 'width: 2em; height: 2em;' src='./img/plus-78.png'>
 
 						</button>
-						<form>
-							<input type='checkbox' class = 'filter8' name='filter' value='bylaw_status'>Complaint Status<br>
-						</form>
+						Complaint Status
 						</div>
 						<div id = 'bylaw_status'>
 						<form class = 'checklist_form' action='' method='post'>";
@@ -427,8 +412,8 @@
 	<script src = "./js/jquery-ui.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
-	<!-- <script type="text/javascript" src="js/check_all.js"></script>
-	<script type="text/javascript" src="js/get_check_result.js"></script> -->
+	<!-- <script type="text/javascript" src="js/check_all.js"></script> -->
+	<script type="text/javascript" src="js/clear_selection.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
