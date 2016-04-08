@@ -40,9 +40,18 @@
 				<h1>This is the section for possible menu</h1>
 			</div> -->
 			<div id = 'algorithm_button'>
-				<li><a href="ProjNNneighbour.php">By Neighbourhood</a>
+				<li><a href="ProjNNneighbour.php">By Neighbourhood</a></li>
 				<li><a href="ProjNNdays.php">By Days</a>
+					<form>
+						<p>Please specify the range of days: (0-7)</p>
+						<input type="range" name="points" min="0" max="7">
+					</form>
+				</li>
 				<li><a href="ProjNNdistance.php">By Distance</a>
+					<form>
+						<input type="range" name="points" min="0" max="10">
+					</form>
+				</li>
 			</div>
 			
 		</div><!--clossing tag for wrap-->
@@ -51,7 +60,10 @@
 			<!-- <h1>This is the section for footer</h1> -->
 				<div class = "quick_link">
 					<ul>Quick links:
-						<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
+						<li>
+							<a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a>
+							
+						</li>
 						<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
 						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
 					</ul>

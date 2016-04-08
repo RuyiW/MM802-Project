@@ -315,7 +315,7 @@
 					    			$the_type_num = '1';
 					    		}
 					    		else if($row["complaint"] == '2') {
-					    			$the_row = 'Graffiti';
+					    			$the_row = 'Graffiti and Nuisance Property';
 					    			$the_type_num = '2';
 					    		}
 					    	//	echo "<input type='checkbox' class = 'filter1' name='service_category' value=". null . ">" . "N/A" . "<br>";

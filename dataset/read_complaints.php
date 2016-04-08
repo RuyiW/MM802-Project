@@ -84,6 +84,15 @@ if (mysqli_query($conn, $update_sql)) {
 	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
 	echo "\n";
 }
+$update_sql = "UPDATE Bylaw SET complaint = '2' WHERE complaint = 'Nuisance Property'"; //select data that matches
+if (mysqli_query($conn, $update_sql)) {
+	echo "The record updated successfully";
+	echo "\n";
+} else {
+	echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
+}
+
 
 echo "numbers: ". $a;
 
