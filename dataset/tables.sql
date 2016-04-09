@@ -316,21 +316,17 @@ CREATE TABLE IF NOT EXISTS match_result (
 	complaint_number INT(3)
 );
 
-CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
-	matched_ticket_number bigint(10),
-	complaint_number INT(3)
-);
 
 CREATE TABLE IF NOT EXISTS match_resultdistance (
 	complaint_number INT(3),
 	matched_ticket_number bigint(10),
 	distkm FLOAT(5, 3)
-);CREATE TABLE IF NOT EXISTS match_resultdistance (
+);
+
+CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
 	complaint_number INT(3),
 	matched_ticket_number bigint(10),
-	distkm FLOAT(5, 3)
-);
-CREATE TABLE IF NOT EXISTS match_resultNeighbourhood (
-	matched_ticket_number bigint(10),
-	complaint_number INT(3)
+	service_category VARCHAR(20),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15)
 );

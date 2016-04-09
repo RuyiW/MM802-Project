@@ -17,16 +17,36 @@ echo "<a href= $link_address >Link</a>";
 
  <?php
 
-
 echo "<html><head><link rel='stylesheet' type='text/css' href='./css/style.css' media='all'></head><body><table id = 'sweta' border=1>";
-// $sql = "DELETE FROM match_resultNeighbourhood ;";
-//           if (mysqli_query($conn, $sql)) {
-//          //   echo "New record created successfully";
-//           //  echo "\n";
-//           } else {
-//             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-//             echo "\n";
-//           }
+$get_data_sql = "SELECT ticket_number, date_created, 311_request_status, service_category, 311_neighbourhood,311_latitude, 311_longtitude FROM 311_Explorer";
+$result = $conn->query($get_data_sql);
+
+if ($result->num_rows > 0) {
+  $index = 1;
+  while($row = $result->fetch_assoc()) {
+      if($row["service_category"] != null){
+        $array_ticket_number[$index] = $row["ticket_number"];
+        $array_date_created[$index] = $row["date_created"];
+        $array_request_status[$index] = $row["311_request_status"];
+        $array_service_category[$index] = $row["service_category"];
+        $array_311_neighbourhood[$index] = $row["311_neighbourhood"];
+        $array_311_latitude[$index] = $row["311_latitude"];
+        $array_311_longitude[$index] = $row["311_longtitude"];
+        $index++;
+      }
+    }
+}
+
+
+
+$sql = "DELETE FROM match_resultNeighbourhood ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
 $NumrowBylaw = 0;
 
 //Read both csv files
@@ -44,14 +64,14 @@ $NumrowBylaw = $NumrowBylaw + 1;
 //close the file
 
 
-$Numrow311Data = 0;
+// $Numrow311Data = 0;
 
-while (!feof($file_handle1) ) {
+// while (!feof($file_handle1) ) {
 
-$line_of_text1[] = fgetcsv($file_handle1, 1024);
-$Numrow311Data = $Numrow311Data + 1;
-//print $line_of_text[1] . $line_of_text[2]. $line_of_text[3]. $line_of_text[4] . $line_of_text[5]. $line_of_text[6]. "<BR>";
-}
+// $line_of_text1[] = fgetcsv($file_handle1, 1024);
+// $Numrow311Data = $Numrow311Data + 1;
+// //print $line_of_text[1] . $line_of_text[2]. $line_of_text[3]. $line_of_text[4] . $line_of_text[5]. $line_of_text[6]. "<BR>";
+// }
 //echo $Numrow311Data ."<br />\n";
 
 
@@ -81,13 +101,17 @@ for ($j = 1; $j < $NumrowBylaw -1 ; $j++) {
     $Neighbourhood = $line_of_text[$j][4];
  //echo $Neighbourhood . "<br />\n";
     $CompMatchReq = 0;
-   for ($i = 1; $i < $Numrow311Data - 1 ; $i++) {
+   for ($i = 1; $i <  101 ; $i++) {
    	 
-   	$NeighbourhoodReq = $line_of_text1[$i][8];
+   	$NeighbourhoodReq = $array_311_neighbourhood[$i];
    	 // echo $NeighbourhoodReq . "<br />\n";
    	$CompareStr = strcasecmp($Neighbourhood , $NeighbourhoodReq);
 
-   	$dateValue = $line_of_text1[$i][1];
+   	$dateValue = $array_date_created[$i];
+
+    $Req_status = $array_request_status[$i];
+
+    $CompareReq_Status = strcasecmp($Req_status , 'Open');
 
    	// $parts = explode(" ", $dateValue);
     // echo $parts;
@@ -111,7 +135,7 @@ for ($j = 1; $j < $NumrowBylaw -1 ; $j++) {
  // echo $line_of_text1[$i][4]; 
    
 
-   	 if ($typeofComplaint ==  $line_of_text1[$i][5] && ($year <= $line_of_text1[$i][16]) && ($CompareStr == 0)){
+   	 if ($typeofComplaint ==  $array_service_category[$i] && ($CompareReq_Status == 0) && ($year <= $y) && ($CompareStr == 0)){
           //If request month and complaint month is similar
           if ($m == $month ){
               $distance = $d;
@@ -151,21 +175,22 @@ for ($j = 1; $j < $NumrowBylaw -1 ; $j++) {
           // $Match[$count][0] = $j;
           // echo "The value of j is " . $Match[$count][0] . "<br />\n"; 
             echo "<td>".$j."</td>";
-            echo "<td>".$line_of_text1[$idx][0]."</td>";
+            echo "<td>".$array_ticket_number[$idx]."</td>";
          //  $Match[$count][1] = $line_of_text1[$idx][0];
           // echo $Match[$count][1]. "<br />\n"; 
             echo "</tr>";
             echo "</tbody>";
            $count = $count + 1;
            $distarray[$idx] = INF;
-          //  $sql = "INSERT INTO match_resultNeighbourhood (matched_ticket_number, complaint_number) VALUES (' " . $line_of_text1[$idx][0] . " ' ,  ' $j  ')";
-          //  if (mysqli_query($conn, $sql)) {
-          //   //echo "New record created successfully";
-          //  // echo "\n";
-          // } else {
-          //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-          //   echo "\n";
-          // }
+           $sql = "INSERT INTO match_resultNeighbourhood (complaint_number,matched_ticket_number, service_category,311_latitude,311_longtitude) 
+           VALUES (' $j  ',' " . $array_ticket_number[$idx] . " ' , ' " . $array_service_category[$idx] . " ',' " . $array_311_latitude[$idx] . " ',' " . $array_311_longitude[$idx] . " ' )";
+           if (mysqli_query($conn, $sql)) {
+            //echo "New record created successfully";
+           // echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
         }
     }
 }

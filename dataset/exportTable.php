@@ -51,7 +51,7 @@ echo "\n";
 //}
 
 // get the names of the attributes to insert into the first row of the csv file
-$result = $conn->query('SELECT * FROM 311_explorer');
+$result = $conn->query('SELECT * FROM checked_311_result');
 
 if ($fp && $result) {
     header('Content-Type: text/csv');
