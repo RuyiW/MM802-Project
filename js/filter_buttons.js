@@ -21,3 +21,8 @@ $(document).ready(function(){
 });
 
 
+function reload_page(){
+	location.reload();
+}
+
+

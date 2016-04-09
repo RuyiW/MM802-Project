@@ -53,6 +53,7 @@
 						<input type="checkbox" onchange="check_all(this)" name = "selection" value="all">Select all<br>
 					</form> -->
 					<button id='clear_button' style = 'width:100%' type="button" >Clear Selection</button>
+					<button id='submit_button' style = 'width:100%' type="submit" onclick="reload_page()">Submit Selection</button>
 					<?php
 					//echo "something before if";
 					
@@ -385,6 +386,7 @@
 					
 				</div>
 			</div>
+			<div id = 'detail'></div>
 		</div><!--clossing tag for wrap-->
 		<footer>
 			<div class = "foot_wrap">
@@ -414,7 +416,7 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
 	<!-- <script type="text/javascript" src="js/check_all.js"></script> -->
-	<script type="text/javascript" src="js/clear_selection.js"></script>
+	<script type="text/javascript" src="js/filter_buttons.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
