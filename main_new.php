@@ -22,58 +22,29 @@
 	</head>
 	<body background="./img/edmonton.jpg">
 		<div class = "transparency_filter"></div>
-		<div id = "header">
-			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>
-		</div>
-		<div class='nav'>
+		<div class = "menu">
 			<ul>
-				<li><a href='main.php'>HOME</a></li>
-				<li><a href='details.php'>RESULTS</a></li>
-				<li class='active'><a href='knn.php'>ALGORITHM</a></li>
-				<li><a href='map_page.php'>MAP</a></li>
+				<li><a href='main_new.php'>HOME</a></li>
+				<li><a href='knn_new.php'>ALGORITHM</a></li>
+				<li><a href='map_page_new.php'>MAP</a></li>
 				<li><a href='#'>ABOUT US</a></li>
 			</ul>
 		</div>
-
-		<div class = "wrap">
-			<!-- <div id = "menu">
-				<h1>This is the section for possible menu</h1>
-			</div> -->
-			<div id = 'algorithm_button'>
-				<li><a href="ProjNNneighbour.php">By Neighbourhood</a></li>
-				<li><a href="ProjNNdays.php">By Days</a>
-					<form>
-						<p>Please specify the range of days: (0-7)</p>
-						<input type="range" name="points" min="0" max="7">
-					</form>
-				</li>
-				<li><a href="ProjNNdistance.php">By Distance</a>
-					<form>
-						<input type="range" name="points" min="0" max="10">
-					</form>
-				</li>
-			</div>
-			
-		</div><!--clossing tag for wrap-->
-		<footer>
-			<div class = "foot_wrap">
-			<!-- <h1>This is the section for footer</h1> -->
-				<div class = "quick_link">
-					<ul>Quick links:
-						<li>
-							<a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a>
-							
-						</li>
-						<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
-						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
-					</ul>
-				</div>
-				<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
-			</div>
-		</footer>
-
+		<div class = "right_content">
+			<p>Welcome</p>
+		</div>
+		<div class = "bottom_bar">
+			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>
+			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
+			<ul>Quick links:
+				<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
+				||
+				<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
+				||
+				<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
+			</ul>
+		</div>
 	</body>
-	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -96,4 +67,3 @@
 	$conn->close();
 ?>
 </html>
-
