@@ -96,6 +96,7 @@ function initMap() {
         
         // show all the markers in the markers array
         function showAllMarkers(map) {
+                //console.log(markers.length);
                 for (var i = 0; i < markers.length; i++) {
                         markers[i].setMap(map);
                 }

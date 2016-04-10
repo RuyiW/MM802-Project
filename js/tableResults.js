@@ -29,6 +29,7 @@ function infoBox(csv) {
        row.setAttribute("class", "accordion-content");
        var cell = row.insertCell(0);
        cell.setAttribute("colspan", "3");
+       //cell.setAttribute("color", "purple");
        //if (i == 0) {
        // cell.setAttribute("class", "accordion-content default");
        //}
@@ -37,6 +38,9 @@ function infoBox(csv) {
        //cell.innerHTML = JSON.stringify(newRow); // PUT WHOLE STRING INTO CELL
        var infoString = [];
        infoString = JSON.stringify(newRow);
+       infoString = infoString.replace(/["]/g, '');
+       infoString = infoString.replace('{', '');
+       infoString = infoString.replace('}', '');
        cell.innerHTML = infoString.split(',').join("<br>");
        //console.log("INFOSTRING");
        //console.log(infoString);
@@ -152,7 +156,7 @@ function displayContent(val){
         //});
     }
  $(document).ready(function(){
-    var init_height;
+    //var init_height;
         // var table = $('#example').DataTable();
     //$(".accordion tr:not(.accordion-toggle)").hide();
     //$(".accordion tr:first-child").show();
@@ -161,18 +165,21 @@ function displayContent(val){
     $('#accordion').find('.accordion-toggle').click(function() {     
           
           // for parsing        
-          var colIndex = parseInt($(this).parent().children().index($(this)));
-          var rowIndex = parseInt($(this).parent().parent().children().index($(this).parent()));
-          // var texto = $('table tr:nth-child(2) td:nth-child(1)').text()
-         var rowContent = [];
-         rowContent = datasetCsv[rowIndex];
-         val = rowContent["ticket_number"];
-           //Hide the other panels
-          $(".accordion-content").not($(this).next()).slideUp('fast'); // other accordian
+         // var colIndex = parseInt($(this).parent().children().index($(this)));
+         // var rowIndex = parseInt($(this).parent().parent().children().index($(this).parent()));
+         // // var texto = $('table tr:nth-child(2) td:nth-child(1)').text()
+         //var rowContent = [];
+         //rowContent = datasetCsv[rowIndex];
+         //console.log(rowContent);
+         //val = rowContent["ticket_number"];
+          
+          
+          //Hide the other panels
+        $(".accordion-content").not($(this).next()).slideUp('fast'); // other accordian
 
-      
+
          
-         $(this).next().slideDown('slow'); // other accordian
+        $(this).next().slideDown('slow'); // other accordian
         // $("#detail").height(($("#accordion").height()+80));
         
         $(this).closest("tr").siblings().removeClass("highlighted");

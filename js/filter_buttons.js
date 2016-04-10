@@ -22,6 +22,8 @@ $(document).ready(function(){
 
 
 function reload_page(){
+	$('#testing_div').load('dataset/copyCheckedResults.php');
+	clear_func();
 	location.reload();
 }
 
