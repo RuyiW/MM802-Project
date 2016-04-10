@@ -40,20 +40,24 @@
 				<h1>This is the section for possible menu</h1>
 			</div> -->
 			<div id = 'algorithm_button'>
-				<li><a href="ProjNNneighbour.php">By Neighbourhood</a></li>
-				<li><a href="ProjNNdays.php">By Days</a>
-					<form>
-						<p>Please specify the range of days: (0-7)</p>
-						<input type="range" name="points" min="0" max="7">
-					</form>
-				</li>
-				<li><a href="ProjNNdistance.php">By Distance</a>
-					<form>
-						<input type="range" name="points" min="0" max="10">
-					</form>
-				</li>
+				<ul>
+					<li><a href="ProjNNneighbour.php">By Neighbourhood</a></li>
+					<li><a href="ProjNNdays.php">By Days</a>
+						<form method = "post">
+							<p>Please specify the range of days: (0-7)</p>
+							<input id = "value_for_days" type="range" name="points" min="0" max="7" value="0" onchange = "pass_k_value(this)">
+						</form>
+					</li>
+					<li>
+						<a href="ProjNNdistance.php">By Distance</a>
+						<form method = "post">
+							<p>Please specify the range of days: (0-7)</p>
+							<input id = "value_for_distance" type="range" name="points" min="0" max="7" value = "0" onchange = "pass_k_value(this)">
+						</form>
+					</li>
+				</ul>
 			</div>
-			
+			<div id = "empty_div"></div>
 		</div><!--clossing tag for wrap-->
 		<footer>
 			<div class = "foot_wrap">
@@ -85,6 +89,7 @@
 	<!-- <script type="text/javascript" src="js/check_all.js"></script> -->
 	<script type="text/javascript" src="js/filter_buttons.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
+	<script type="text/javascript" src="js/k_value.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
