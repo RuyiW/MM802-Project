@@ -21,55 +21,62 @@ if (!$conn) {
 }
 mysql_query("set names utf8;");
 
-//$data_length = count($data);
-$short_length = 200;
-for ($a = 100; $a < $short_length; $a++){
+$data_length = count($data);
+$short_length = 100;
+$a = 0;
+$b = 0;
+while (($a < $data_length) && ($b < $short_length)){
 	$row = $data[$a];
-	$ticket_num = $row[8];
-	$date_created = $row[9];
-	$date_closed = $row[10];
-	$request_status = $row[11];
-	$status_detail = $row[12];
-	$service_category = $row[13];
-	$service_details = $row[14];
-	$business_unit = $row[15];
-	$neighbourhood = $row[16];
-	$community_league = $row[17];
-	$ward = $row[18];
-	$address = $row[19];
-	$latitude = $row[20];
-	$longtitude = $row[21];
-	$location_x = $row[22][1];
-	$location_y = $row[22][2];
-	$ticket_source = $row[23];
-	$calendar_year = $row[24];
-	$count = $row[25];
-	$posse_number = $row[26];
-	$transit_ref_number = $row[27];
-	// echo $row[22][0];
-	// echo "<br>";
-	// echo $row[22][1];
-	// echo "<br>";
-	// echo $row[22][2];
-	// echo "<br>";
-	// echo $row[22][3];
-	// echo "<br>";
-	// echo $row[22][4];
-	// echo "<br>";
-	$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, 311_request_status, 311_status_detail, service_category, business_unit, 
-		311_neighbourhood,	community_league, 311_ward, address, 311_latitude, 311_longtitude, 311_location_x, 311_location_y, ticket_source, calendar_year, 311_count, posse_number, transit_ref_number)
-	VALUES ( '" . $ticket_num . "', '" . $date_created . "', '" . $date_closed . "', '" . $request_status . "', '" . $status_detail . "', '" . $service_category
-	 . "', '" . $business_unit . "', '" . $neighbourhood . "', '" . $community_league . "', '" . $ward . "', '" . $address . "', '" . $latitude . "', '" . 
-	 $longtitude . "', '" . $location_x . "', '" . $location_y . "', '" . $ticket_source . "', '" . $calendar_year . "', '" . $count . "', '" . $posse_number . "', '" . $transit_ref_number . "')";
+	if(($row[13] == "Snow & Ice Maintenance") || ($row[13] == "Vandalism/Graffiti")){
+		
+		$ticket_num = $row[8];
+		$date_created = $row[9];
+		$date_closed = $row[10];
+		$request_status = $row[11];
+		$status_detail = $row[12];
+		$service_category = $row[13];
+		$service_details = $row[14];
+		$business_unit = $row[15];
+		$neighbourhood = $row[16];
+		$community_league = $row[17];
+		$ward = $row[18];
+		$address = $row[19];
+		$latitude = $row[20];
+		$longtitude = $row[21];
+		$location_x = $row[22][1];
+		$location_y = $row[22][2];
+		$ticket_source = $row[23];
+		$calendar_year = $row[24];
+		$count = $row[25];
+		$posse_number = $row[26];
+		$transit_ref_number = $row[27];
+		// echo $row[22][0];
+		// echo "<br>";
+		// echo $row[22][1];
+		// echo "<br>";
+		// echo $row[22][2];
+		// echo "<br>";
+		// echo $row[22][3];
+		// echo "<br>";
+		// echo $row[22][4];
+		// echo "<br>";
+		$sql = "INSERT INTO 311_Explorer (ticket_number, date_created, date_closed, 311_request_status, 311_status_detail, service_category, business_unit, 
+			311_neighbourhood,	community_league, 311_ward, address, 311_latitude, 311_longtitude, 311_location_x, 311_location_y, ticket_source, calendar_year, 311_count, posse_number, transit_ref_number)
+		VALUES ( '" . $ticket_num . "', '" . $date_created . "', '" . $date_closed . "', '" . $request_status . "', '" . $status_detail . "', '" . $service_category
+		 . "', '" . $business_unit . "', '" . $neighbourhood . "', '" . $community_league . "', '" . $ward . "', '" . $address . "', '" . $latitude . "', '" . 
+		 $longtitude . "', '" . $location_x . "', '" . $location_y . "', '" . $ticket_source . "', '" . $calendar_year . "', '" . $count . "', '" . $posse_number . "', '" . $transit_ref_number . "')";
 
-	if (mysqli_query($conn, $sql)) {
-    	//echo "New record created successfully";
-	} else {
-    	//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    	//echo "<br>";
+		if (mysqli_query($conn, $sql)) {
+	    	//echo "New record created successfully";
+		} else {
+	    	//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	    	//echo "<br>";
+		}
+
+		//echo "<br>";
+		$b++;
 	}
-
-	//echo "<br>";
+	$a++;
 }
 //update service category number
 $update_sql = "UPDATE 311_Explorer SET service_category = '1' WHERE service_category = 'Snow & Ice Maintenan'"; //select data that matches

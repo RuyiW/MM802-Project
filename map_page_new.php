@@ -72,7 +72,7 @@
 					    	if($row["service_category"] != null){
 					    		//echo "i am here here";
 					    		if($row["service_category"] == '1'){
-					    			$the_row = 'Snow & Ice Maintenan';
+					    			$the_row = 'Snow & Ice Maintenance';
 					    			$the_category_num = '1';
 					    		}
 					    		else if($row["service_category"] == '2') {

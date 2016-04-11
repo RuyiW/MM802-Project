@@ -77,7 +77,7 @@ if ($copyTableBylaw) {
 }
 
 // get the names of the attributes to insert into the first row of the csv file
-$result = $conn->query('SELECT * FROM checked_311_result');
+//$result = $conn->query('SELECT * FROM checked_311_result');
 
 
 //fclose($fp);
