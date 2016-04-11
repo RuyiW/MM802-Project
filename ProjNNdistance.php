@@ -61,7 +61,8 @@ $Numrow311Data = $Numrow311Data + 1;
 }
 //echo $Numrow311Data ."<br />\n";
 
-$thresdist = 5;
+//$thresdist = 5;
+$thresdist = $_GET['distance_value'];
 //set the value of k
 $k = 1;
 $count = 0;
