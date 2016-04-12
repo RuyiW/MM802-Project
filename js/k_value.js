@@ -9,14 +9,16 @@ function pass_k_value(ele){
 	}
 	else if(ele.id == "value_for_days"){
 		value = ele.value;
-		$('#empty_div').load('ProjNNdays.php?day_value=' +value);
+		var nei_value = document.getElementById('value_for_day_neighbour').value;
+		$('#empty_div').load('ProjNNdays.php?day_value=' +value+ '&k_value=' +nei_value);
 		//document.getElementById("day_value").innerHTML = value;
 		console.log("value of days");
 		console.log(value);
 	}
 	else if(ele.id == "value_for_day_neighbour"){
 		value = ele.value;
-		$('#empty_div').load('ProjNNdays.php?k_value=' +value);
+		var day_value = document.getElementById('value_for_days').value;
+		$('#empty_div').load('ProjNNdays.php?day_value=' +day_value+ '&k_value=' +value);
 		//document.getElementById("day_value").innerHTML = value;
 		console.log("value_for_day_neighbour");
 		console.log(value);
