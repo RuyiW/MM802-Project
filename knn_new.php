@@ -64,7 +64,28 @@
 					</li>
 				</ul>
 			</div>
-			<div id = "empty_div"></div>
+			<div class="tabs">
+				<ul id = "nav_tab0">
+					<li id = "nav_tab_li0" class="active" onclick="setTab(0,0)">
+						<a>MAP</a>
+					</li>
+					<li id = "nav_tab_li1" class="" onclick="setTab(0,1)">
+						<a>TABLE</a>
+					</li>
+				</ul>
+			</div>
+			<section id="result_showing0" class="result_box">
+				<ul id  = "result_showing_ul0" class="block" style="display:block">
+					<h1>Showing result on map</h1><br>
+					<!-- map goes here -->
+					<div id = "map" style = "width:100%"></div>
+				</ul>
+				<ul id = "result_showing_ul1" class="block" style="display:none">
+					<h1>Showing result in table</h1><br>
+					<div id = "empty_div"></div>
+				</ul>
+			</section>
+			
 		</div>
 		<div class = "bottom_bar">
 			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>

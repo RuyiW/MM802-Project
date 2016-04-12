@@ -31,3 +31,18 @@ function pass_k_value(ele){
 		console.log(value);
 	}
 }
+
+function setTab(m,n){
+	//console.log("in the setTab function");
+ 	var n_t=document.getElementById("nav_tab"+m);
+ 	var tli=n_t.getElementsByTagName("li");
+ 	//console.log(tli);
+ 	var r_s=document.getElementById("result_showing"+m);
+ 	var mli=r_s.getElementsByTagName("ul");
+ 	//console.log(tli.length);
+	for(i=0;i<tli.length;i++){  
+		//console.log("in the for loop");
+	  	tli[i].className=i==n?"active":"";
+	  	mli[i].style.display=i==n?"block":"none";
+	}
+}
