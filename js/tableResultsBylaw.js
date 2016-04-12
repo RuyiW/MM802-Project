@@ -1,4 +1,4 @@
-d3.csv("./dataset/exportTable.php", function(data) {
+d3.csv("./dataset/exportTableSubmittedBylaw.php", function(data) {
   var datasetCsv;
     csv = data.map(function(d) { return d; });
     //csv = data.filter(function(d) {
@@ -15,9 +15,9 @@ d3.csv("./dataset/exportTable.php", function(data) {
 function infoBox(csv) {
     var rowsInfo = [];
     var tableInfo = [];
-    var testTable = document.getElementsByClassName("tableBody");
-    tableInfo = d3.select("body").select("tbody.tableBody").selectAll("tr");
-    rowsInfo = d3.select("body").select("tbody.tableBody").selectAll("tr").data();
+    var testTable = document.getElementsByClassName("tableBody2");
+    tableInfo = d3.select("body").select("tbody.tableBody2").selectAll("tr");
+    rowsInfo = d3.select("body").select("tbody.tableBody2").selectAll("tr").data();
     //console.log(testTable[0]);
     //console.log(tableInfo[0]);
     //console.log(rowsInfo);
@@ -38,12 +38,13 @@ function infoBox(csv) {
        //cell.innerHTML = JSON.stringify(newRow); // PUT WHOLE STRING INTO CELL
        var infoString = [];
        infoString = JSON.stringify(newRow);
+       //cell.innerHTML = infoString;
        infoString = infoString.replace(/["]/g, '');
        infoString = infoString.replace('{', '');
        infoString = infoString.replace('}', '');
        infoString = infoString.replace(/[_]/g, ' ');
        infoString = infoString.replace(/[:]/g, ' : ');
-       infoString = infoString.replace(/(311)/g, '');
+       infoString = infoString.replace(/(bylaw)/g, '');
        cell.innerHTML = infoString.split(',').join("<br>");
        //console.log("INFOSTRING");
        //console.log(infoString);
@@ -54,12 +55,12 @@ function infoBox(csv) {
    
 // The table generation function
 function tabulate(csv, columns) {
-    var table = d3.select("body").select("#detail").append("table")
-            .attr("id", "accordion")
+    var table = d3.select("body").select("#detail2").append("table")
+            .attr("id", "accordion2")
             .attr("style", "width: 100%");
         thead = table.append("thead"),
         tbody = table.append("tbody");
-        tbody.attr("class", "tableBody");
+        tbody.attr("class", "tableBody2");
         //console.log(table);
     //console.log(columns[0].replace('_', ' '));
     // append the header row
@@ -68,7 +69,7 @@ function tabulate(csv, columns) {
         .data(columns)
         .enter()
         .append("th")
-         .attr("id","tablerow")
+         .attr("id","tablerow2")
             .text(function(column) { return column.replace(/[_]/g, ' '); });
 
     // create a row for each object in the data
@@ -90,7 +91,7 @@ function tabulate(csv, columns) {
         .attr("style", "font-family: Courier") // sets the font style
         .attr("style", "fill: blue") // sets the font style
         .attr("class", "DatasetTable")
-        .attr("id", "results")
+        .attr("id", "results2")
             .html(function(d) { return d.value; });
             
             
@@ -98,7 +99,7 @@ function tabulate(csv, columns) {
 }
 
 // render the table
- var peopleTable = tabulate(csv, ["ticket_number", "date_created", "311_request_status", "service_category" ]);
+ var peopleTable = tabulate(csv, ["complaint_number", "report_period", "bylaw_status", "complaint" ]);
  infoBox(csv); // add the row with all the information
 
  datasetCsv = csv;
@@ -113,10 +114,10 @@ function displayContent(val){
  // d3.text(datasetCsv, function(datasetText){
     csv1 = datasetCsv.filter(function(d) {
         
-        if(d["ticket_number"] == val)
+        if(d["complaint_number"] == val)
         {
 
-             return d["ticket_number"]==val;
+             return d["complaint_number"]==val;
         }
         
     });
@@ -165,7 +166,7 @@ function displayContent(val){
     //$(".accordion tr:first-child").show();
     //$("#detail").height(($("#accordion").height()+80));
     
-    $('#accordion').find('.accordion-toggle').click(function() {     
+    $('#accordion2').find('.accordion-toggle').click(function() {     
           
           // for parsing        
          // var colIndex = parseInt($(this).parent().children().index($(this)));

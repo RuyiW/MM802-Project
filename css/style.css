@@ -415,7 +415,7 @@ body{
 /*===========================end algorithm page=============================*/
 
 
-#detail{
+#detail, #detail2{
 	float: left;
 	width: 90%;
 	height: auto;
@@ -533,7 +533,7 @@ tr:active{
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#057cc0), to(#249ee4));
 }
 		 
-#result{
+#result, #result2{
 	font-weight:bold;
 	font-size:16pt;
 }			
