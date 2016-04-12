@@ -78,7 +78,7 @@
 				<ul id  = "result_showing_ul0" class="block" style="display:block">
 					<h1>Showing result on map</h1><br>
 					<!-- map goes here -->
-					<div id = "map" style = "width:100%"></div>
+					<div id = "algorithm_map" style = "width:100%"></div>
 				</ul>
 				<ul id = "result_showing_ul1" class="block" style="display:none">
 					<h1>Showing result in table</h1><br>
@@ -111,7 +111,7 @@
 	<script type="text/javascript" src="js/filter_buttons.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/k_value.js"></script>
-	<script type="text/javascript" src="js/loadMap.js"> </script>
+	<script type="text/javascript" src="js/algorithm_loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
