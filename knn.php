@@ -72,7 +72,27 @@
 					</li>
 				</ul>
 			</div>
-			<div id = "empty_div"></div>
+			<div class="tabs">
+				<ul id = "nav_tab0">
+					<li id = "nav_tab_li0" class="active" onclick="setTab(0,0)">
+						<a>MAP</a>
+					</li>
+					<li id = "nav_tab_li1" class="" onclick="setTab(0,1)">
+						<a>TABLE</a>
+					</li>
+				</ul>
+			</div>
+			<section id="result_showing0" class="result_box">
+				<ul id  = "result_showing_ul0" class="block" style="display:block">
+					<h1>Showing result on map</h1><br>
+					<!-- map goes here -->
+					<div id = "algorithm_map" style = "width:100%"></div>
+				</ul>
+				<ul id = "result_showing_ul1" class="block" style="display:none">
+					<h1>Showing result in table</h1><br>
+					<div id = "empty_div"></div>
+				</ul>
+			</section>
 		</div><!--clossing tag for wrap-->
 		<footer>
 			<div class = "foot_wrap">
@@ -105,7 +125,7 @@
 	<script type="text/javascript" src="js/filter_buttons.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/k_value.js"></script>
-	<script type="text/javascript" src="js/loadMap.js"> </script>
+	<script type="text/javascript" src="js/algorithm_loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 

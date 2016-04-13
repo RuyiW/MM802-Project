@@ -72,7 +72,7 @@
 					    	if($row["service_category"] != null){
 					    		//echo "i am here here";
 					    		if($row["service_category"] == '1'){
-					    			$the_row = 'Snow & Ice Maintenan';
+					    			$the_row = 'Snow & Ice Maintenance';
 					    			$the_category_num = '1';
 					    		}
 					    		else if($row["service_category"] == '2') {
@@ -405,6 +405,7 @@
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
+	<script type="text/javascript" src="js/tableResultsBylaw.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
 

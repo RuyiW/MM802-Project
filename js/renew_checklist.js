@@ -4,7 +4,7 @@ function store_ward(ward, ele) {
     ward = encodeURI(ward);
     //console.log(ward);
 	if(ele.checked){
-	    $('#testing_div').load('dataset/store_ward.php?ward=' + ward + '&checked=1');
+	    $('#testing_div').load('dataset/store_ward.php?ward=' + ward);
 	    ele.disabled = true;
 	    //console.log("inside function store_ward");
 	}
@@ -20,7 +20,7 @@ function store_service_category(service_category, ele) {
     service_category = encodeURI(service_category);
     //console.log(service_category);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_service_category.php?service_category=' + service_category + '&checked=1');
+	    $('#testing_div').load('dataset/store_service_category.php?service_category=' + service_category);
 	    //console.log("inside function store_service_category");
 	    ele.disabled = true;
 	}
@@ -35,7 +35,7 @@ function store_311_neighbourhood(neighbourhood, ele) {
     neighbourhood = encodeURI(neighbourhood);
     //console.log(neighbourhood);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_311_neighbourhood.php?neighbourhood=' + neighbourhood + '&checked=1');
+	    $('#testing_div').load('dataset/store_311_neighbourhood.php?neighbourhood=' + neighbourhood);
 	    //console.log("inside function store_311_neighbourhood");
 	    ele.disabled = true;
 	}
@@ -50,7 +50,7 @@ function store_311_request_status(request_status, ele) {
     request_status = encodeURI(request_status);
     //console.log(request_status);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status + '&checked=1');
+	    $('#testing_div').load('dataset/store_311_request_status.php?request_status=' + request_status);
 	    //console.log("inside function store_311_request_status");
 	    ele.disabled = true;
 	}
@@ -65,7 +65,7 @@ function store_month(month, ele) {
     month = encodeURI(month);
     //console.log(month);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_month.php?month=' + month + '&checked=1');
+	    $('#testing_div').load('dataset/store_month.php?month=' + month);
 	    //console.log("inside function store_month");
 	    ele.disabled = true;
 	}
@@ -80,7 +80,7 @@ function store_bylaw_year(bylaw_year, ele) {
     bylaw_year = encodeURI(bylaw_year);
     //console.log(bylaw_year);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_bylaw_year.php?bylaw_year=' + bylaw_year + '&checked=1');
+	    $('#testing_div').load('dataset/store_bylaw_year.php?bylaw_year=' + bylaw_year);
 	    //console.log("inside function store_bylaw_year");
 	    ele.disabled = true;
 	}
@@ -95,7 +95,7 @@ function store_complaint(complaint, ele) {
     complaint = encodeURI(complaint);
     //console.log(complaint);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_complaint.php?complaint=' + complaint + '&checked=1');
+	    $('#testing_div').load('dataset/store_complaint.php?complaint=' + complaint);
 	    //console.log("inside function store_complaint");
 	    ele.disabled = true;
 	}
@@ -110,7 +110,7 @@ function store_bylaw_status(bylaw_status, ele) {
     bylaw_status = encodeURI(bylaw_status);
     //console.log(bylaw_status);
     if(ele.checked){
-	    $('#testing_div').load('dataset/store_bylaw_status.php?bylaw_status=' + bylaw_status + '&checked=1');
+	    $('#testing_div').load('dataset/store_bylaw_status.php?bylaw_status=' + bylaw_status);
 	    //console.log("inside function store_bylaw_status");
 	    ele.disabled = true;
 	}

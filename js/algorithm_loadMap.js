@@ -1,6 +1,6 @@
 var markers = []; // array of the markers
 function initMap() {
-        var mapDiv = document.getElementById('map');
+        var mapDiv = document.getElementById('algorithm_map');
         var map = new google.maps.Map(mapDiv, {
                 center: {lat: 53.5466707, lng: -113.5196069},
                 zoom: 11
