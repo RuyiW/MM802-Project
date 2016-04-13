@@ -27,14 +27,14 @@
 				<li><a href='main_new.php'>HOME</a></li>
 				<li><a href='knn_new.php'>ALGORITHM</a></li>
 				<li><a href='map_page_new.php'>MAP</a></li>
-				<li><a href='#'>ABOUT US</a></li>
+				<li><a href='#'>CHARTS</a></li>
 			</ul>
 		</div>
 		<div class = "right_content">
 			<h1>Welcome</h1>
 			
 		</div>
-		<div class = "bottom_bar">
+		<div class = "bottom_bar" style="height:6em;">
 			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>
 			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
 			<ul>Quick links:

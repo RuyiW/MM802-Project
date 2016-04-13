@@ -393,14 +393,14 @@ body{
 	position: relative;
 	z-index: 1;
 	width:70%;
-	height: auto;
+	max-height: 30em;
 	float: left; 
 	padding: 3em;
 	margin-left: 2em;
 	background:white;
 	box-shadow: 0 0 1em rgba(0,0,0,0.5);
 	border-radius: 1em 1em 1em 1em;
-	overflow: hidden;
+	overflow: scroll;
 	word-spacing: 1em;
 }
 
@@ -433,9 +433,15 @@ body{
 	position: fixed;
 	left: 0;
 	bottom: 0;
-
 	width: 100%;
+	height: 1em;
 	background-color: rgba(78, 76, 76, 0.63);
+	transition: height 1s; /* delays for 1 second */
+	-webkit-transition: height 1s; /* for Safari & Chrome */
+}
+.bottom_bar:hover{
+	height: 6em;
+	
 }
 .bottom_bar img {
 	float: left;

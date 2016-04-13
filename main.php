@@ -31,7 +31,7 @@
 				<li><a href='details.php'>RESULTS</a></li>
 				<li><a href='knn.php'>ALGORITHM</a></li>
 				<li><a href='map_page.php'>MAP</a></li>
-				<li><a href='#'>ABOUT US</a></li>
+				<li><a href='#'>CHARTS</a></li>
 			</ul>
 		</div>
 
