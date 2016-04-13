@@ -5,29 +5,43 @@
         <title>Highcharts Example</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript">
+        var charts;
         $(document).ready(function() {
             var options = {
                 chart: {
                     renderTo: 'container',
                     type: 'column',
-                    marginRight: 130,
-                    marginBottom: 25
+                    //marginRight: 130,
+                    //marginBottom: 25
                 },
-                // title: {
-                //     text: 'Revenue vs. Overhead',
-                //     x: -20 //center
-                // },
+                title: {
+                    text: 'Neighbourhood vs. Complaint Count',
+                    x: -20 //center
+                },
                 // subtitle: {
                 //     text: '',
                 //     x: -20
                 // },
                 xAxis: {
+                     title: {
+                        text: 'Neighbourhood'
+                    },
                     categories: []
                 },
                  yAxis: {
-                     min: 0,
+                    
                      title: {
-                        text: 'Count'
+                        text: 'Complaint Count'
+                    },
+                     plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                  plotOptions: {
+                    series: {
+                        colorByPoint: true
                     }
                 },
                 // yAxis: {
@@ -40,20 +54,20 @@
                 //         color: '#808080'
                 //     }]
                 // },
-                // tooltip: {
-                //     formatter: function() {
-                //             return '<b>'+ this.series.name +'</b><br/>'+
-                //             this.x +': '+ this.y;
-                //     }
-                // },
-                // legend: {
-                //     layout: 'vertical',
-                //     align: 'right',
-                //     verticalAlign: 'top',
-                //     x: -10,
-                //     y: 100,
-                //     borderWidth: 0
-                // },
+                tooltip: {
+                    formatter: function() {
+                            return '<b>'+ this.series.name +'</b><br/>'+
+                            this.x +': '+ this.y;
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -10,
+                    y: 100,
+                    borderWidth: 0
+                },
                // series: []
                    series:[{
                    name: "Complaint Count",
@@ -73,9 +87,9 @@
                     yDataObj = json[1];
 
                     for(var key in xDataObj){
-                        xData.push(xDataObj[key]);
+                         xData.push(xDataObj[key]);
                     }
-
+                    
                     for(var key in yDataObj){
                         yData.push(parseFloat(yDataObj[key]));
                     }
