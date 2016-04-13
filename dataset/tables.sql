@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS 311_Explorer (
 	ticket_number bigint(10) UNSIGNED PRIMARY KEY, 
 	date_created VARCHAR(20),
@@ -7,7 +8,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -28,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Bylaw (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -69,7 +70,7 @@ CREATE TABLE IF NOT EXISTS 311_ward (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -93,7 +94,7 @@ CREATE TABLE IF NOT EXISTS 311_neighbourhood (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -116,7 +117,7 @@ CREATE TABLE IF NOT EXISTS service_category (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -140,7 +141,7 @@ CREATE TABLE IF NOT EXISTS 311_request_status (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -164,7 +165,7 @@ CREATE TABLE IF NOT EXISTS temp_311(
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -188,7 +189,7 @@ CREATE TABLE IF NOT EXISTS checked_311_result (
 	service_category VARCHAR(20),
 	service_details VARCHAR(30),
 	business_unit VARCHAR(50),
-	311_neighbourhood VARCHAR(40),
+	311_neighbourhood VARCHAR(20),
 	community_league VARCHAR(60),
 	311_ward VARCHAR(7),
 	address VARCHAR(60),
@@ -209,7 +210,7 @@ CREATE TABLE IF NOT EXISTS month (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -227,7 +228,7 @@ CREATE TABLE IF NOT EXISTS bylaw_year (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -245,7 +246,7 @@ CREATE TABLE IF NOT EXISTS complaint (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -263,7 +264,7 @@ CREATE TABLE IF NOT EXISTS bylaw_status (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -281,7 +282,7 @@ CREATE TABLE IF NOT EXISTS temp_bylaw (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -299,7 +300,7 @@ CREATE TABLE IF NOT EXISTS checked_bylaw_result (
 	month_number INT(2),
 	month VARCHAR(10),
 	report_period VARCHAR(15),
-	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood VARCHAR(20),
 	bylaw_neighbourhood_id INT(4),
 	complaint VARCHAR(20) NOT NULL,
 	initiated_by VARCHAR(15),
@@ -311,15 +312,21 @@ CREATE TABLE IF NOT EXISTS checked_bylaw_result (
 	bylaw_location_y FLOAT(20, 15)
 );
 
-CREATE TABLE IF NOT EXISTS match_result (
+CREATE TABLE IF NOT EXISTS match_resultdays (
+	complaint_number INT(3),
 	matched_ticket_number bigint(10),
-	complaint_number INT(3)
+	service_category VARCHAR(20),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15)
 );
 
 
 CREATE TABLE IF NOT EXISTS match_resultdistance (
 	complaint_number INT(3),
 	matched_ticket_number bigint(10),
+	service_category VARCHAR(20),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
 	distkm FLOAT(5, 3)
 );
 

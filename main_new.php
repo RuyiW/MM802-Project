@@ -31,7 +31,8 @@
 			</ul>
 		</div>
 		<div class = "right_content">
-			<p>Welcome</p>
+			<h1>Welcome</h1>
+			
 		</div>
 		<div class = "bottom_bar">
 			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>

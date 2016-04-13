@@ -154,7 +154,7 @@ body{
 	opacity: 0.9;
 	background-color: white;
 }
-.right_content p {
+.right_content h1 {
 	font-size: 20;
 	font-weight: bold;
 	color: #F7F7F7;
@@ -393,14 +393,14 @@ body{
 	position: relative;
 	z-index: 1;
 	width:70%;
-	height: 30em;
+	height: auto;
 	float: left; 
 	padding: 3em;
 	margin-left: 2em;
 	background:white;
 	box-shadow: 0 0 1em rgba(0,0,0,0.5);
 	border-radius: 1em 1em 1em 1em;
-	overflow: scroll;
+	overflow: hidden;
 	word-spacing: 1em;
 }
 
