@@ -128,22 +128,89 @@ for ($j = 1; $j < 100; $j++){
 
        if ($typeofComplaint ==  $array_service_category[$i] && ($CompareReq_Status == 0) && ($year <= $y)){
             //If request month and complaint month is similar
-            if ($m == $month ){
-                $distance = $d;
+              if ($m == $month && ($year == $y)){
+                  $distance = $d;
 
-             }
-            else{
-              //If request month is greater than complaint month
-                if ($m > $month ){
-                    if($m == 1 || $m == 3 || $m== 5 || $m== 7 || $m== 8 || $m== 10 || $m == 12){
-                    $distance = 31 + $d;
-                    }
+               }
+               else if($m == $month && ($year < $y)){
+                  $diffyear = ($y - $year)*365;
+                  $distance = $d +  $diffyear;
+               }
+               //If request month is greater than complaint month
+               else if ($m > $month && ($year == $y)){
+                  $distance = 0;
+                  for($mon = $month; $mon <$m ; $mon++){
+                     if($mon == 1 || $mon == 3 || $mon== 5 || $mon== 7 || $mon== 8 || $mon== 10 || $mon == 12){
+                        $distance += 31;
+                      } 
                     else{
-                    $distance =  30 + $d;  
+                        if($mon == 2){
+                          if((($y % 4) == 0 && (($y % 100) != 0)) || ($y % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
+                      }
+                  }
+                 $distance += $d;
+              }
+              else{
+                $distance = 0;
+                for ($mon = $month; $mon<=12 ; $mon++)
+                {
+                   if($mon == 1 || $mon == 3 || $mon== 5 || $mon== 7 || $mon== 8 || $mon== 10 || $mon == 12){
+                        $distance += 31;
+                      } 
+                    else{
+                        if($mon == 2){
+                          if((($year % 4) == 0 && (($year % 100) != 0)) || ($year % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
                     }
                 }
+                for ($newmon = 1; $newmon < $m ; $newmon++)
+                {
+                   if($newmon == 1 || $newmon == 3 || $newmon == 5 || $newmon == 7 || $newmon == 8 || $newmon == 10 || $newmon == 12){
+                        $distance += 31;
+                      } 
+                    else{
+                        if($mon == 2){
+                          if((($y % 4) == 0 && (($y % 100) != 0)) || ($y % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
+                    }
+                }
+                $distance += $d;
 
-            }
+              }
        }
      //  echo $distance ."<br />\n";
        $distarray[$i] = $distance;
@@ -292,4 +359,6 @@ for ($j = 1; $j < 100; $j++){
         }
    }
 }
+echo "</table></body></html>";
+echo $count;
 ?>

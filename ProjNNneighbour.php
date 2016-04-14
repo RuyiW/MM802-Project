@@ -75,7 +75,7 @@ $sql = "DELETE FROM match_resultdays ;";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "\n";
           }
-		  
+      
 $sql = "DELETE FROM match_resultdistance ;";
           if (mysqli_query($conn, $sql)) {
          //   echo "New record created successfully";
@@ -84,9 +84,9 @@ $sql = "DELETE FROM match_resultdistance ;";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "\n";
           }
-		  
-		  
-		  
+      
+      
+      
 $NumrowBylaw = 0;
 
 //set the value of k
@@ -111,12 +111,12 @@ for ($j = 1; $j < 101 ; $j++) {
     $compare_bylawstatus = strcasecmp($bylawstatus, 'Under Investigation');
     if($compare_bylawstatus == 0){   
        for ($i = 1; $i <  101 ; $i++) {
-       	 
-       	$NeighbourhoodReq = $array_311_neighbourhood[$i];
-       	 // echo $NeighbourhoodReq . "<br />\n";
-       	$CompareStr = strcasecmp($Neighbourhood , $NeighbourhoodReq);
+         
+        $NeighbourhoodReq = $array_311_neighbourhood[$i];
+         // echo $NeighbourhoodReq . "<br />\n";
+        $CompareStr = strcasecmp($Neighbourhood , $NeighbourhoodReq);
 
-       	$dateValue = $array_date_created[$i];
+        $dateValue = $array_date_created[$i];
 
         $Req_status = $array_request_status[$i];
 
@@ -127,29 +127,97 @@ for ($j = 1; $j < 101 ; $j++) {
         $m  = date('m',$time);
         $y  = date('Y',$time);
 
-       	 if ($typeofComplaint ==  $array_service_category[$i] && ($CompareReq_Status == 0) && ($year <= $y) && ($CompareStr == 0)){
+         if ($typeofComplaint ==  $array_service_category[$i] && ($CompareReq_Status == 0) && ($year <= $y) && ($CompareStr == 0)){
               //If request month and complaint month is similar
-              if ($m == $month ){
+              if ($m == $month && ($year == $y)){
                   $distance = $d;
 
                }
-              else{
-              	//If request month is greater than complaint month
-                  if ($m > $month ){
-                      if($m == 1 || $m == 3 || $m== 5 || $m== 7 || $m== 8 || $m== 10 || $m == 12){
-                      $distance = 31 + $d;
-                      }
-                      else{
-                      $distance =  30 + $d;  
+               else if($m == $month && ($year < $y)){
+                  $diffyear = ($y - $year)*365;
+                  $distance = $d +  $diffyear;
+               }
+               //If request month is greater than complaint month
+               else if ($m > $month && ($year == $y)){
+                  $distance = 0;
+                  for($mon = $month; $mon <$m ; $mon++){
+                     if($mon == 1 || $mon == 3 || $mon== 5 || $mon== 7 || $mon== 8 || $mon== 10 || $mon == 12){
+                        $distance += 31;
+                      } 
+                    else{
+                        if($mon == 2){
+                          if((($y % 4) == 0 && (($y % 100) != 0)) || ($y % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
                       }
                   }
+                 $distance += $d;
+              }
+              else{
+                $distance = 0;
+                for ($mon = $month; $mon<=12 ; $mon++)
+                {
+                   if($mon == 1 || $mon == 3 || $mon== 5 || $mon== 7 || $mon== 8 || $mon== 10 || $mon == 12){
+                        $distance += 31;
+                      } 
+                    else{
+                        if($mon == 2){
+                          if((($year % 4) == 0 && (($year % 100) != 0)) || ($year % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
+                    }
+                }
+                for ($newmon = 1; $newmon < $m ; $newmon++)
+                {
+                   if($newmon == 1 || $newmon == 3 || $newmon == 5 || $newmon == 7 || $newmon == 8 || $newmon == 10 || $newmon == 12){
+                        $distance += 31;
+                      } 
+                    else{
+                        if($mon == 2){
+                          if((($y % 4) == 0 && (($y % 100) != 0)) || ($y % 400) == 0)
+                          {
+                            $distance +=  29; 
+                          }
+                          else{
+                            $distance +=  28; 
+                          }
+                          
+                        }
+                        else{
+                           $distance +=  30 ; 
+                        }
+                       
+                    }
+                }
+                $distance += $d;
 
               }
          }
+
        //  echo $distance ."<br />\n";
          $distarray[$i] = $distance;
          $distance = INF;
-       	// echo  $distarray[$i] . "<br />\n";
+        // echo  $distarray[$i] . "<br />\n";
        }
       
        for ($kval=0; $kval <= $k; $kval++){
@@ -157,9 +225,9 @@ for ($j = 1; $j < 101 ; $j++) {
             //[val(kval),idx] = min(distarray);
             $val = min($distarray);
             
-       	//	echo "The value is " . $val . "<br />\n"; 
+        //  echo "The value is " . $val . "<br />\n"; 
             if ($val < INF) {
-            	$idx = array_search($val, $distarray);
+              $idx = array_search($val, $distarray);
               echo "<tbody>";
               echo "<tr>";
               echo "<td>".$j."</td>";
