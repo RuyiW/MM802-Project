@@ -12,6 +12,34 @@
 	if (!$conn) {
 	    die("Connection failed: " . mysqli_connect_error());
 	}
+	
+	$sql = "DELETE FROM match_resultNeighbourhood ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+
+	$sql = "DELETE FROM match_resultdays ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+		  
+	$sql = "DELETE FROM match_resultdistance ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+	
 ?>
 
 <!DOCTYPE HTML>
@@ -36,19 +64,19 @@
 					<li><a href="ProjNNneighbour.php">By Neighbourhood</a>
 						<form oninput="current_neighbour_value.value=parseInt(value_for_neighbour.value)" method = "post">
 							<p>Please specify the number of neighbours: (0-7)</p>
-							<input id = "value_for_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "pass_k_value(this)">
+							<input id = "value_for_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
 							<output name = "current_neighbour_value" for="value_for_neighbour" style="color:white"></output>
 						</form>
 					</li>
 					<li><a href="ProjNNdays.php">By Days</a>
 						<form oninput="current_day_value.value=parseInt(value_for_days.value)" method = "post">
 							<p>Please specify the range of days: (0-7)</p>
-							<input id = "value_for_days" type="range" name="points" min="0" max="7" value="0" onchange = "pass_k_value(this)">
+							<input id = "value_for_days" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
 							<output name = "current_day_value" for="value_for_days" style="color:white"></output>
 						</form>
 						<form oninput="current_day_neighbour_value.value=parseInt(value_for_day_neighbour.value)" method = "post">
 							<p>Please specify the number of neighbours: (0-7)</p>
-							<input id = "value_for_day_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "pass_k_value(this)">
+							<input id = "value_for_day_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
 							<output name = "current_day_neighbour_value" for="value_for_day_neighbour" style="color:white"></output>
 						</form>
 						<!-- <p style = "color:white;" id = "day_value"></p> -->
@@ -57,7 +85,7 @@
 						<a href="ProjNNdistance.php">By Distance</a>
 						<form oninput="current_distance_value.value=parseInt(value_for_distance.value)" method = "post">
 							<p>Please specify the range of distance: (0-7)</p>
-							<input id = "value_for_distance" type="range" name="points" min="0" max="7" value = "0" onchange = "pass_k_value(this)">
+							<input id = "value_for_distance" type="range" name="points" min="0" max="7" value = "0" onchange = "callProcedure(this)">
 							<output name = "current_distance_value" for="value_for_distance" style="color:white"></output>
 						</form>
 						<!-- <p style = "color:white;" id = "distance_value"></p> -->
@@ -112,9 +140,30 @@
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
 	<script type="text/javascript" src="js/k_value.js"></script>
 	<script type="text/javascript" src="js/algorithm_loadMap.js"> </script>
-	<script type="text/javascript" src="js/tableResults.js"></script>
+	<!--<script type="text/javascript" src="js/tableResults.js"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
+	<!--For loading the Map tab-->
+	<script>
+		function callProcedure(k_value) {
+            pass_k_value(k_value);
+			setTimeout(function() {
+				initMap();
+			}, 1000);
+										
+        };
+	</script>
+	
+	<script>
+		function reload() {
+            setTab(0,0);
+			//pass_k_value(k_value);
+			setTimeout(function() {
+				initMap();
+			}, 500);
+										
+        };
+	</script>
 
 
 

@@ -169,7 +169,7 @@ body{
 	background: rgba(0, 0, 255, 0.5);
 }*/
 
-#map{
+#map, #algorithm_map{
 	float: right;
 	width: 100%;
 	height: 35em;

@@ -379,6 +379,7 @@
 				</div>
 			</div>
 			<div id = 'detail'></div>
+			<div id = 'detail2'></div>
 		</div>
 		<div class = "bottom_bar">
 			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>

@@ -9,11 +9,11 @@ function initMap() {
         // load the the Ward Boundaries
         map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
         
-        var wardName;
+        //var wardName;
         
-        google.maps.event.addListenerOnce( map, 'idle', function() {
-                readBylaw(map);
-        });
+        //google.maps.event.addListenerOnce( map, 'idle', function() {
+        //        readBylaw(map);
+        //});
         
         //readBylaw(map);
         
@@ -125,15 +125,15 @@ function initMap() {
         function myDataLoaded(dataset) {
             //google.maps.event.trigger(map, 'resize');
             for( i = 0; i < dataset.length; i++ ) {
-                if (dataset[i][2] == 1){
-                        marker = new google.maps.Marker({
-                                position: {lat: dataset[i][0], lng: dataset[i][1]},
-                                map: map,
-                                icon: snowflake
-                        });
-                }
+                //if (dataset[i][2] == 1){
+                //        marker = new google.maps.Marker({
+                //                position: {lat: dataset[i][0], lng: dataset[i][1]},
+                //                map: map,
+                //                icon: snowflake
+                //        });
+                //}
                 
-                if (dataset[i][2] == 2){
+                //if (dataset[i][2] == 2){
                         //console.log(dataset[i][0]);
                         //console.log(dataset[i][1])
                         marker = new google.maps.Marker({
@@ -141,7 +141,7 @@ function initMap() {
                                 map: map
                                 //icon: icon
                         });
-                }
+                //}
                 markers.push(marker);	
             }
             showAllMarkers(map);
@@ -149,7 +149,8 @@ function initMap() {
         
         // show all the markers in the markers array
         function showAllMarkers(map) {
-                //console.log(markers.length);
+                console.log("NUMBER OF MARKERS");
+                console.log(markers.length);
                 for (var i = 0; i < markers.length; i++) {
                         markers[i].setMap(map);
                 }
@@ -169,16 +170,22 @@ function initMap() {
             //readBylaw(map);
             // when a region is selected
             if (doFilter) {
-                d3.csv("./dataset/exportTable.php", function(data) {
+                d3.csv("./dataset/export311.php", function(data) {
                         dataFilter = data.filter(function(d) {
                             console.log("first");
                                 if (d["311_neighbourhood"].toLowerCase() == keyWord.toLowerCase()) {
                                     console.log("second");
                                     //return [ +d["Lat"], +d["Long"] ];
-                                    return d;
+                                    for (j = 0; j<dataset.length; j++) {
+                                        if (d["ticket_number"] == dataset[j][3]) {
+                                            return d;
+                                        }
+                                        
+                                    }
+                                    
                                 }
                         });
-                        filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"], +d["service_category"] ]; });
+                        filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"] ]; });
                         //console.log(filterData);
                         removeMarkers();
                         //readBylaw(map);
@@ -188,10 +195,11 @@ function initMap() {
             }
             else {
                 // region is not selected, so display all markers
-                d3.csv("./dataset/exportTable.php", function(data) {
-                        dataset = data.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"], +d["service_category"] ]; });
+                d3.csv("./dataset/exportAlgorithmTable.php", function(data) {
+                        dataset = data.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"], +d["complaint_number"], +d["matched_ticket_number"] ]; });
                         removeMarkers();
                         //readBylaw(map);
+                        console.log(dataset);
                         //google.maps.event.trigger(map, 'resize');
                         myDataLoaded(dataset);
                 });
@@ -199,45 +207,45 @@ function initMap() {
             }
         }
         
-        function readBylaw(map) {
-                //map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
-                //console.log("reading bylaw submitted checklist");
-                d3.csv("./dataset/exportTableSubmittedBylaw.php", function(data) {
-                        bylawFilter = data.map(function(d) {return d;});
-                        //console.log(bylawFilter[0]["bylaw_neighbourhood"]);
-                        //var count = 0;
-                        bylawFilter.forEach(function(row) {
-                                //console.log(row);
-                                bylawName = row["bylaw_neighbourhood"].toLowerCase();
-                                //console.log(bylawName);
-                                //console.log(map.data);
-                                //console.log(map.data.getProperty('name'));
-                                map.data.forEach(function(region) {
-                                        //console.log(region);
-                                        //console.log("SEARCHING MAP");
-                                        neighbourName = region.getProperty('name').toLowerCase();
-                                        //console.log(neighbourName);
-                                        if (bylawName == neighbourName) {
-                                                //count = count + 1;
-                                                //console.log("match!");
-                                                //console.log(bylawName);
-                                                //console.log(neighbourName);
-                                                region.setProperty('bylawShow',true);
-                                                //console.log(region.getProperty('bylawShow'));
-                                                //map.data.revertStyle();
-                                        }
-                                        //return bylawName === neighbourName;
-                                        
-                                });
-                                //features.setProperty('isHighlighted', false);
-                        
-                        });
-                        //google.maps.event.trigger(map, 'resize');
-                        //console.log(count);
-                });
-                //map.data.setMap(map);
-           //google.maps.event.trigger(map, 'resize');     
-        }
+        //function readBylaw(map) {
+        //        //map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
+        //        //console.log("reading bylaw submitted checklist");
+        //        d3.csv("./dataset/exportTableSubmittedBylaw.php", function(data) {
+        //                bylawFilter = data.map(function(d) {return d;});
+        //                //console.log(bylawFilter[0]["bylaw_neighbourhood"]);
+        //                //var count = 0;
+        //                bylawFilter.forEach(function(row) {
+        //                        //console.log(row);
+        //                        bylawName = row["bylaw_neighbourhood"].toLowerCase();
+        //                        //console.log(bylawName);
+        //                        //console.log(map.data);
+        //                        //console.log(map.data.getProperty('name'));
+        //                        map.data.forEach(function(region) {
+        //                                //console.log(region);
+        //                                //console.log("SEARCHING MAP");
+        //                                neighbourName = region.getProperty('name').toLowerCase();
+        //                                //console.log(neighbourName);
+        //                                if (bylawName == neighbourName) {
+        //                                        //count = count + 1;
+        //                                        //console.log("match!");
+        //                                        //console.log(bylawName);
+        //                                        //console.log(neighbourName);
+        //                                        region.setProperty('bylawShow',true);
+        //                                        //console.log(region.getProperty('bylawShow'));
+        //                                        //map.data.revertStyle();
+        //                                }
+        //                                //return bylawName === neighbourName;
+        //                                
+        //                        });
+        //                        //features.setProperty('isHighlighted', false);
+        //                
+        //                });
+        //                //google.maps.event.trigger(map, 'resize');
+        //                //console.log(count);
+        //        });
+        //        //map.data.setMap(map);
+        //   //google.maps.event.trigger(map, 'resize');     
+        //}
         
         
         //google.maps.event.trigger(map, 'resize') 

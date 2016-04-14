@@ -387,6 +387,7 @@
 				</div>
 			</div>
 			<div id = 'detail'></div>
+			<div id = 'detail2'></div>
 		</div><!--clossing tag for wrap-->
 		<footer>
 			<div class = "foot_wrap">

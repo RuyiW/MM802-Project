@@ -66,6 +66,28 @@ $sql = "DELETE FROM match_resultdays ;";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "\n";
           }
+          
+$sql = "DELETE FROM match_resultdistance ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+          
+$sql = "DELETE FROM match_resultNeighbourhood ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+          
+          
+          
+          
 $NumrowBylaw = 0;
 
 //set the value of k
