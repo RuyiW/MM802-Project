@@ -3,29 +3,16 @@ function initMap() {
         var mapDiv = document.getElementById('algorithm_map');
         var map = new google.maps.Map(mapDiv, {
                 center: {lat: 53.5466707, lng: -113.5196069},
-                zoom: 11
+                zoom: 10
         });
         
         // load the the Ward Boundaries
         map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
         
-        //var wardName;
-        
-        //google.maps.event.addListenerOnce( map, 'idle', function() {
-        //        readBylaw(map);
-        //});
-        
-        //readBylaw(map);
+    
         
         // place all markers on the map
         loadMyData('Do not filter', false);
-        
-        //readBylaw(map);
-        
-        //setTimeout(function() {
-        //        console.log("before reading bylaw submitted");
-        //        readBylaw();
-        //}, 500);
         
         
         var bubbleWin = new google.maps.InfoWindow();
@@ -35,15 +22,11 @@ function initMap() {
         map.data.setStyle(function(feature) {
           var color = 'black';
           var stroke = 2;
-          //readBylaw(map); // BAD 
           if (feature.getProperty('isHighlighted')) {
                 color = 'blue';
                 //stroke = 8;
           }
-          if (feature.getProperty('bylawShow')) {
-                color = 'red';
-                stroke = 5;
-          }
+
           if (feature.getProperty('hover')) {
                 stroke = 8;
           }
@@ -61,20 +44,14 @@ function initMap() {
           });
         });
       
-        var snowflake = {
-                url: './img/snowflake.ico', // url
-                scaledSize: new google.maps.Size(50, 50), // scaled size
-                //origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(32,32)
-        };
         
-        map.data.addListener('setProperty', function(event) {
-                if (event.feature.getProperty('bylawShow')) {
-                        console.log('overriding style');
-                        map.data.Style(event.feature, {fillColor: 'red', strokeColor: 'red', strokeWeight: 5});
-                }
-                
-        });
+        //map.data.addListener('setProperty', function(event) {
+        //        if (event.feature.getProperty('bylawShow')) {
+        //                console.log('overriding style');
+        //                map.data.Style(event.feature, {fillColor: 'red', strokeColor: 'red', strokeWeight: 5});
+        //        }
+        //        
+        //});
         
         // When the user clicks, set 'isHighlighted' to true, changing the color of the region.
         map.data.addListener('click', function(event) {
@@ -125,23 +102,11 @@ function initMap() {
         function myDataLoaded(dataset) {
             //google.maps.event.trigger(map, 'resize');
             for( i = 0; i < dataset.length; i++ ) {
-                //if (dataset[i][2] == 1){
-                //        marker = new google.maps.Marker({
-                //                position: {lat: dataset[i][0], lng: dataset[i][1]},
-                //                map: map,
-                //                icon: snowflake
-                //        });
-                //}
-                
-                //if (dataset[i][2] == 2){
-                        //console.log(dataset[i][0]);
-                        //console.log(dataset[i][1])
-                        marker = new google.maps.Marker({
-                                position: {lat: dataset[i][0], lng: dataset[i][1]},
-                                map: map
-                                //icon: icon
-                        });
-                //}
+                marker = new google.maps.Marker({
+                        position: {lat: dataset[i][0], lng: dataset[i][1]},
+                        map: map
+                        //icon: icon
+                });
                 markers.push(marker);	
             }
             showAllMarkers(map);
@@ -188,7 +153,6 @@ function initMap() {
                         filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"] ]; });
                         //console.log(filterData);
                         removeMarkers();
-                        //readBylaw(map);
                         //google.maps.event.trigger(map, 'resize');
                         myDataLoaded(filterData);
                 });
@@ -198,7 +162,6 @@ function initMap() {
                 d3.csv("./dataset/exportAlgorithmTable.php", function(data) {
                         dataset = data.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"], +d["complaint_number"], +d["matched_ticket_number"] ]; });
                         removeMarkers();
-                        //readBylaw(map);
                         console.log(dataset);
                         //google.maps.event.trigger(map, 'resize');
                         myDataLoaded(dataset);
@@ -207,45 +170,6 @@ function initMap() {
             }
         }
         
-        //function readBylaw(map) {
-        //        //map.data.loadGeoJson('./dataset/City of Edmonton - Neighbourhood Boundaries (Map View).geojson');
-        //        //console.log("reading bylaw submitted checklist");
-        //        d3.csv("./dataset/exportTableSubmittedBylaw.php", function(data) {
-        //                bylawFilter = data.map(function(d) {return d;});
-        //                //console.log(bylawFilter[0]["bylaw_neighbourhood"]);
-        //                //var count = 0;
-        //                bylawFilter.forEach(function(row) {
-        //                        //console.log(row);
-        //                        bylawName = row["bylaw_neighbourhood"].toLowerCase();
-        //                        //console.log(bylawName);
-        //                        //console.log(map.data);
-        //                        //console.log(map.data.getProperty('name'));
-        //                        map.data.forEach(function(region) {
-        //                                //console.log(region);
-        //                                //console.log("SEARCHING MAP");
-        //                                neighbourName = region.getProperty('name').toLowerCase();
-        //                                //console.log(neighbourName);
-        //                                if (bylawName == neighbourName) {
-        //                                        //count = count + 1;
-        //                                        //console.log("match!");
-        //                                        //console.log(bylawName);
-        //                                        //console.log(neighbourName);
-        //                                        region.setProperty('bylawShow',true);
-        //                                        //console.log(region.getProperty('bylawShow'));
-        //                                        //map.data.revertStyle();
-        //                                }
-        //                                //return bylawName === neighbourName;
-        //                                
-        //                        });
-        //                        //features.setProperty('isHighlighted', false);
-        //                
-        //                });
-        //                //google.maps.event.trigger(map, 'resize');
-        //                //console.log(count);
-        //        });
-        //        //map.data.setMap(map);
-        //   //google.maps.event.trigger(map, 'resize');     
-        //}
         
         
         //google.maps.event.trigger(map, 'resize') 
