@@ -65,19 +65,19 @@
 						<form oninput="current_neighbour_value.value=parseInt(value_for_neighbour.value)" method = "post">
 							<p>Please specify the number of neighbours: (0-7)</p>
 							<input id = "value_for_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
-							<output name = "current_neighbour_value" for="value_for_neighbour" style="color:white"></output>
+							<output id = "neighbour_output" name = "current_neighbour_value" for="value_for_neighbour" style="color:white"></output>
 						</form>
 					</li>
 					<li><a href="ProjNNdays.php">By Days</a>
 						<form oninput="current_day_value.value=parseInt(value_for_days.value)" method = "post">
 							<p>Please specify the range of days: (0-7)</p>
 							<input id = "value_for_days" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
-							<output name = "current_day_value" for="value_for_days" style="color:white"></output>
+							<output id = "days_output" name = "current_day_value" for="value_for_days" style="color:white"></output>
 						</form>
 						<form oninput="current_day_neighbour_value.value=parseInt(value_for_day_neighbour.value)" method = "post">
 							<p>Please specify the number of neighbours: (0-7)</p>
 							<input id = "value_for_day_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
-							<output name = "current_day_neighbour_value" for="value_for_day_neighbour" style="color:white"></output>
+							<output id = "day_neighbour_output" name = "current_day_neighbour_value" for="value_for_day_neighbour" style="color:white"></output>
 						</form>
 						<!-- <p style = "color:white;" id = "day_value"></p> -->
 					</li>
@@ -86,7 +86,7 @@
 						<form oninput="current_distance_value.value=parseInt(value_for_distance.value)" method = "post">
 							<p>Please specify the range of distance: (0-7)</p>
 							<input id = "value_for_distance" type="range" name="points" min="0" max="7" value = "0" onchange = "callProcedure(this)">
-							<output name = "current_distance_value" for="value_for_distance" style="color:white"></output>
+							<output id = "distance_output" name = "current_distance_value" for="value_for_distance" style="color:white"></output>
 						</form>
 						<!-- <p style = "color:white;" id = "distance_value"></p> -->
 					</li>
