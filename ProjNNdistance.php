@@ -60,6 +60,24 @@ $sql = "DELETE FROM match_resultdistance;";
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "\n";
           }
+          
+$sql = "DELETE FROM match_resultdays ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
+          
+$sql = "DELETE FROM match_resultNeighbourhood ;";
+          if (mysqli_query($conn, $sql)) {
+         //   echo "New record created successfully";
+          //  echo "\n";
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "\n";
+          }
 
 function CalculateDistance($latitude,$longitude,$lat,$long){
 $R = 6371;
