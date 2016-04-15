@@ -425,7 +425,7 @@
 	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
 	<script type="text/javascript" src="js/tableResultsBylaw.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
 
 

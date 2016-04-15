@@ -146,24 +146,24 @@
 
 	<!--For loading the Map tab-->
 	<script>
-		function callProcedure(k_value) {
-            pass_k_value(k_value);
-			setTimeout(function() {
-				initMap();
-			}, 1500);
+	    function callProcedure(k_value) {
+		pass_k_value(k_value);
+		    setTimeout(function() {
+			initMap();
+		    }, 1500);
 										
-        };
+	    };
 	</script>
 	
 	<script>
-		function reload() {
-            setTab(0,0);
-			//pass_k_value(k_value);
-			setTimeout(function() {
-				initMap();
-			}, 500);
+	    function reload() {
+	        setTab(0,0);
+    		//pass_k_value(k_value);
+    		setTimeout(function() {
+			initMap();
+    		}, 500);
 										
-        };
+	    };
 	</script>
 
 
