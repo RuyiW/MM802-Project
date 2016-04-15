@@ -28,7 +28,7 @@
 				<li><a href='../main_new.php'>HOME</a></li>
 				<li><a href='../knn_new.php'>ALGORITHM</a></li>
 				<li><a href='../map_page_new.php'>MAP</a></li>
-				<li><a href='chart_page1.php'>CHARTS</a></li>
+				<li><a href='chart_page.php'>CHARTS</a></li>
 			</ul>
 		</div>
 		<div class = "right_content">
@@ -106,7 +106,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
-    <script type="text/javascript" src="testing_display1.js"></script>
+    <script type="text/javascript" src="../js/display_charts.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
