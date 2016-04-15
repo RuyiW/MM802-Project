@@ -68,6 +68,13 @@ function initMap() {
                 anchor: new google.maps.Point(32,32)
         };
         
+        var G = {
+                url: './img/g.png', // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                //origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(32,32)
+        };
+        
         map.data.addListener('setProperty', function(event) {
                 if (event.feature.getProperty('bylawShow')) {
                         console.log('overriding style');
@@ -138,8 +145,8 @@ function initMap() {
                         //console.log(dataset[i][1])
                         marker = new google.maps.Marker({
                                 position: {lat: dataset[i][0], lng: dataset[i][1]},
-                                map: map
-                                //icon: icon
+                                map: map,
+                                icon: G
                         });
                 }
                 markers.push(marker);	
