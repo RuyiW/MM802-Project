@@ -23,21 +23,15 @@
 	</head>
 	<body background="../img/edmonton.jpg">
 		<div class = "transparency_filter"></div>
-		<div id = "header">
-			<a href="http://www.edmonton.ca/"><img src="../img/logo.png"></a>
-		</div>
-		<div class='nav'>
+		<div class = "menu">
 			<ul>
-				<li class='active'><a href='../main.php'>HOME</a></li>
-				<li><a href='../details.php'>RESULTS</a></li>
-				<li><a href='../knn.php'>ALGORITHM</a></li>
-				<li><a href='../map_page.php'>MAP</a></li>
-				<li><a href='charts/chart_page.php'>CHARTS</a></li>
+				<li><a href='../main_new.php'>HOME</a></li>
+				<li><a href='../knn_new.php'>ALGORITHM</a></li>
+				<li><a href='../map_page_new.php'>MAP</a></li>
+				<li><a href='chart_page.php'>CHARTS</a></li>
 			</ul>
 		</div>
-
-		<div class = "wrap" style="background-color: white;">
-			
+		<div class = "right_content">
 			<h2>Highcharts</h2>
 			<ul class="nav nav-tabs">
 				<li class="active" id = "chart_1"><a data-toggle="tab" href="#chart1">Request count</a></li>
@@ -96,24 +90,19 @@
 				</div>
 				
 			</div>	
-			
-		</div><!--clossing tag for wrap-->
-		<footer>
-			<div class = "foot_wrap">
-			<!-- <h1>This is the section for footer</h1> -->
-				<div class = "quick_link">
-					<ul>Quick links:
-						<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
-						<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
-						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
-					</ul>
-				</div>
-				<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
-			</div>
-		</footer>
-
+		</div>
+		<div class = "bottom_bar">
+			<a href="http://www.edmonton.ca/"><img src="../img/logo.png"></a>
+			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
+			<ul>Quick links:
+				<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
+				||
+				<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
+				||
+				<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
+			</ul>
+		</div>
 	</body>
-	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -131,6 +120,8 @@
 	<script type="text/javascript" src="../js/renew_checklist.js"></script>
 	<script type="text/javascript" src="../js/k_value.js"></script>
 	<script type="text/javascript" src="../js/loadMap.js"> </script>
+	<!-- <script type="text/javascript" src="../js/tableResults.js"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script> -->
 
 
 
@@ -139,4 +130,3 @@
 	$conn->close();
 ?>
 </html>
-

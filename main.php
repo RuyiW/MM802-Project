@@ -36,9 +36,7 @@
 		</div>
 
 		<div class = "wrap">
-			<!-- <div id = "menu">
-				<h1>This is the section for possible menu</h1>
-			</div> -->
+			
 			<div id = 'introduction'>
 				<h2>Overview of our project</h2>
 				<p>

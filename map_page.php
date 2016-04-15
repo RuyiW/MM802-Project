@@ -13,23 +13,23 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$sql = "DELETE FROM submitted_checked_311 ;";
-          if (mysqli_query($conn, $sql)) {
-         //   echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+	// $sql = "DELETE FROM submitted_checked_311 ;";
+ //          if (mysqli_query($conn, $sql)) {
+ //         //   echo "New record created successfully";
+ //          //  echo "\n";
+ //          } else {
+ //            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ //            echo "\n";
+ //          }
 		  
-	$sql = "DELETE FROM submitted_checked_bylaw;";
-          if (mysqli_query($conn, $sql)) {
-         //   echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+	// $sql = "DELETE FROM submitted_checked_bylaw;";
+ //          if (mysqli_query($conn, $sql)) {
+ //         //   echo "New record created successfully";
+ //          //  echo "\n";
+ //          } else {
+ //            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ //            echo "\n";
+ //          }
 	
 ?>
 
@@ -415,10 +415,7 @@
 					<ul>Quick links:
 						<li><a href="https://data.edmonton.ca/Indicators/311-Explorer/ukww-xkmj#column-menu">311 Explorer</a></li>
 						<li><a href="https://data.edmonton.ca/Community-Services/Bylaw-Infractions/xgwu-c37w#column-menu">Bylaw Infractions</a></li>
-					</ul>
-					<ul>
 						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Ward-Boundaries/yhng-294h">Ward Boundaries</a></li>
-						<li><a href="https://data.edmonton.ca/Administrative/City-of-Edmonton-Neighbourhood-Boundaries-Map-View/jfvj-x253">Neighbourhood Boundaries</a></li>
 					</ul>
 				</div>
 				<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
