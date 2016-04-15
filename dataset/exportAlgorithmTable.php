@@ -63,7 +63,7 @@ for ($i = 0; $i < 3; $i++) {
     
 }
 
-mysql_query("set names utf8;");
+// mysql_query("set names utf8;");
 $fp = fopen('php://output', 'w');
 //$columns = $conn->query('SHOW COLUMNS FROM 311_explorer');
 $sql = "SHOW COLUMNS FROM " . $tableWanted;

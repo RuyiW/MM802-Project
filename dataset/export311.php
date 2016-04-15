@@ -28,7 +28,7 @@ $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-mysql_query("set names utf8;");
+// mysql_query("set names utf8;");
 $fp = fopen('php://output', 'w');
 //$columns = $conn->query('SHOW COLUMNS FROM 311_explorer');
 $sql = "SHOW COLUMNS FROM 311_explorer";

@@ -51,21 +51,21 @@ if (!$conn) {
 //}
 
 // drop the submitted tables if they exist
-$drop311 = $conn->query('DROP TABLE IF EXISTS submitted_checked_311');
-$dropBylaw = $conn->query('DROP TABLE IF EXISTS submitted_checked_bylaw');
+$drop311 = $conn->query('DELETE FROM submitted_checked_311');
+$dropBylaw = $conn->query('DELETE FROM submitted_checked_bylaw');
 if ($drop311) {
     
-    echo "submitted 311 table dropped";
+    echo "submitted 311 table deleted";
 }
 
 if ($dropBylaw) {
     
-    echo "submitted byLaw table dropped";
+    echo "submitted byLaw table deleted";
 }
 
 
-$copyTable311 = $conn->query('CREATE TABLE IF NOT EXISTS submitted_checked_311 SELECT * FROM checked_311_result');
-$copyTableBylaw = $conn->query('CREATE TABLE IF NOT EXISTS submitted_checked_bylaw SELECT * FROM checked_bylaw_result');
+$copyTable311 = $conn->query('INSERT INTO submitted_checked_311 SELECT * FROM checked_311_result');
+$copyTableBylaw = $conn->query('INSERT INTO submitted_checked_bylaw SELECT * FROM checked_bylaw_result');
 if ($copyTable311) {
     
     echo "copy 311 results success";

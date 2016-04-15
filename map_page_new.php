@@ -13,23 +13,23 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$sql = "DELETE FROM submitted_checked_311 ;";
-          if (mysqli_query($conn, $sql)) {
-         //   echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+	// $sql = "DELETE FROM submitted_checked_311 ;";
+ //          if (mysqli_query($conn, $sql)) {
+ //         //   echo "New record created successfully";
+ //          //  echo "\n";
+ //          } else {
+ //            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ //            echo "\n";
+ //          }
 		  
-	$sql = "DELETE FROM submitted_checked_bylaw;";
-          if (mysqli_query($conn, $sql)) {
-         //   echo "New record created successfully";
-          //  echo "\n";
-          } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "\n";
-          }
+	// $sql = "DELETE FROM submitted_checked_bylaw;";
+ //          if (mysqli_query($conn, $sql)) {
+ //         //   echo "New record created successfully";
+ //          //  echo "\n";
+ //          } else {
+ //            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ //            echo "\n";
+ //          }
 ?>
 
 <!DOCTYPE HTML>

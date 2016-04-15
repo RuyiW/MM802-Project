@@ -19,7 +19,7 @@ $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-mysql_query("set names utf8;");
+// mysql_query("set names utf8;");
 
 $data_length = count($data);
 $short_length = 100;
