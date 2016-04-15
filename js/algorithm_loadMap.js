@@ -1,4 +1,5 @@
 var markers = []; // array of the markers
+var countDataset = [];
 function initMap() {
         var mapDiv = document.getElementById('algorithm_map');
         var map = new google.maps.Map(mapDiv, {
@@ -98,12 +99,65 @@ function initMap() {
         // load the dataset
         var dataset;
         
+        
         // after the data is loaded, show the markers for the dataset
-        function myDataLoaded(dataset) {
+        function myDataLoaded(data) {
             //google.maps.event.trigger(map, 'resize');
-            for( i = 0; i < dataset.length; i++ ) {
-                marker = new google.maps.Marker({
-                        position: {lat: dataset[i][0], lng: dataset[i][1]},
+            //var count = 10;
+            var total;
+            
+            if (data.length != dataset.length) {
+                console.log("filter length is not the same");
+                console.log(data.length);
+                console.log(dataset.length);
+                
+                for (count = 0; count < data.length; count++) {
+                        //console.log("counting in here");
+                        total = 0;
+                        for (count2 = 0; count2 < dataset.length; count2++) {
+                                //if (count != count2) {
+                                        if (data[count][2] == dataset[count2][3]) {
+                                                //console.log("MATCHED");
+                                                total++;
+                                        }   
+                                //}
+                        
+                        
+                        }
+                        //console.log(total);
+                        countDataset.push(total);     
+                }
+                
+            }
+            else {
+                for (count = 0; count < data.length; count++) {
+                        //console.log("counting in here");
+                        total = 1;
+                        for (count2 = 0; count2 < data.length; count2++) {
+                                if (count != count2) {
+                                        if (data[count][3] == data[count2][3]) {
+                                           //console.log("MATCHED");
+                                          total++;
+                                        }   
+                                }
+                        
+                        
+                        }
+                //console.log(total);
+                countDataset.push(total);     
+                }
+                
+            }
+            
+            console.log(countDataset);
+            
+            for( i = 0; i < data.length; i++ ) {
+                var marker = new MarkerWithLabel({
+                        position: {lat: data[i][0], lng: data[i][1]},
+                        labelContent: countDataset[i].toString(),
+                        labelAnchor: new google.maps.Point(22, 0),
+                        labelClass: "labels", // the CSS class for the label
+                        labelStyle: {opacity: 0.75},
                         map: map
                         //icon: icon
                 });
@@ -111,6 +165,7 @@ function initMap() {
             }
             showAllMarkers(map);
         }
+        
         
         // show all the markers in the markers array
         function showAllMarkers(map) {
@@ -125,6 +180,7 @@ function initMap() {
         function removeMarkers() {
             showAllMarkers(null);
             markers = [];
+            countDataset = [];
         }
         
         // loading the data, filter the data, to return markers only in that region, or show all markers
@@ -150,9 +206,10 @@ function initMap() {
                                     
                                 }
                         });
-                        filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"] ]; });
+                        filterData = dataFilter.map(function(d) { return [ +d["311_latitude"], +d["311_longtitude"], +d["ticket_number"] ]; });
                         //console.log(filterData);
                         removeMarkers();
+                        console.log(filterData);
                         //google.maps.event.trigger(map, 'resize');
                         myDataLoaded(filterData);
                 });
@@ -172,13 +229,6 @@ function initMap() {
         
         
         
-        //google.maps.event.trigger(map, 'resize') 
-        //google.maps.event.addDomListener(window, 'load', function () {
-        //        initMap();
-        //        //loadGeoJson(myMap);
-        //        //calculate(myMap);
-        //        readBylaw(map);
-        //});
 
         
 }

@@ -94,7 +94,7 @@
 			</div>
 			<div class="tabs">
 				<ul id = "nav_tab0">
-					<li id = "nav_tab_li0" class="active" onclick="setTab(0,0)">
+					<li id = "nav_tab_li0" class="active" onclick="reload()">
 						<a>MAP</a>
 					</li>
 					<li id = "nav_tab_li1" class="" onclick="setTab(0,1)">
@@ -141,7 +141,8 @@
 	<script type="text/javascript" src="js/k_value.js"></script>
 	<script type="text/javascript" src="js/algorithm_loadMap.js"> </script>
 	<!--<script type="text/javascript" src="js/tableResults.js"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
 
 	<!--For loading the Map tab-->
 	<script>
@@ -149,7 +150,7 @@
             pass_k_value(k_value);
 			setTimeout(function() {
 				initMap();
-			}, 1000);
+			}, 1500);
 										
         };
 	</script>
