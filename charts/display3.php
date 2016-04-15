@@ -15,7 +15,7 @@
                     //marginBottom: 25
                 },
                 title: {
-                    text: 'Neighbourhood Snow and Ice Sidewalk Maintenance',
+                    text: 'Neighbourhood vs Snow and Ice Sidewalk Maintenance',
                     x: -20,//center
                       style: {
                         color: '#FF0011',
