@@ -61,14 +61,14 @@
 		<div class = "right_content">
 			<div id = 'algorithm_button'>
 				<ul>
-					<li><a href="ProjNNneighbour.php">By Neighbourhood</a>
+					<li><a href="ProjNNneighbour.php?k_value=0">By Neighbourhood</a>
 						<form oninput="current_neighbour_value.value=parseInt(value_for_neighbour.value)" method = "post">
 							<p>Please specify the number of neighbours: (0-7)</p>
 							<input id = "value_for_neighbour" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
 							<output id = "neighbour_output" name = "current_neighbour_value" for="value_for_neighbour" style="color:white"></output>
 						</form>
 					</li>
-					<li><a href="ProjNNdays.php">By Days</a>
+					<li><a href="ProjNNdays.php?day_value=0&k_value=0">By Days</a>
 						<form oninput="current_day_value.value=parseInt(value_for_days.value)" method = "post">
 							<p>Please specify the range of days: (0-7)</p>
 							<input id = "value_for_days" type="range" name="points" min="0" max="7" value="0" onchange = "callProcedure(this)">
@@ -82,7 +82,7 @@
 						<!-- <p style = "color:white;" id = "day_value"></p> -->
 					</li>
 					<li>
-						<a href="ProjNNdistance.php">By Distance</a>
+						<a href="ProjNNdistance.php?distance_value=0">By Distance</a>
 						<form oninput="current_distance_value.value=parseInt(value_for_distance.value)" method = "post">
 							<p>Please specify the range of distance: (0-7)</p>
 							<input id = "value_for_distance" type="range" name="points" min="0" max="7" value = "0" onchange = "callProcedure(this)">
