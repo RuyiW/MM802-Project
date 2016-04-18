@@ -1,5 +1,5 @@
 <?php session_start(); 
-  //include_once './dataset/read_data.php';
+  
   $host="localhost";
   $db_user="root";
   $db_pass="";
@@ -10,17 +10,17 @@
   if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
-  //$link_address = 'dataset/exportTable.php';
-//echo "<a href='dataset/exportTable.php' download></a>";
-//echo "<a href= $link_address >Link</a>";
+
 ?>
 
  <?php
 
+//HTML table
 echo "<html><head><link rel='stylesheet' type='text/css' href='./css/style.css' media='all'></head><body><table id = 'sweta' border=1>";
+//Read attributes from 311 explorer sql table
 $get_data_sql = "SELECT ticket_number, date_created, 311_request_status, service_category, 311_neighbourhood,311_latitude, 311_longtitude FROM 311_Explorer";
 $result = $conn->query($get_data_sql);
-
+//Copy the attributes in an array
 if ($result->num_rows > 0) {
   $index = 1;
   while($row = $result->fetch_assoc()) {
@@ -37,10 +37,10 @@ if ($result->num_rows > 0) {
     }
 }
 
-
+//Read attributes from bylaw dataset
 $get_data_sql1 = "SELECT bylaw_year, month_number, bylaw_neighbourhood, complaint, bylaw_status, bylaw_latitude,bylaw_longtitude FROM Bylaw";
 $result1 = $conn->query($get_data_sql1);
-
+//Copy the attributes in an array
 if ($result1->num_rows > 0) {
   $index = 1;
   while($row = $result1->fetch_assoc()) {
@@ -57,7 +57,7 @@ if ($result1->num_rows > 0) {
     }
 }
 
-
+//Delete all tables
 $sql = "DELETE FROM match_resultNeighbourhood ;";
           if (mysqli_query($conn, $sql)) {
          //   echo "New record created successfully";
@@ -89,10 +89,11 @@ $sql = "DELETE FROM match_resultdistance ;";
       
 $NumrowBylaw = 0;
 
-//set the value of k
 //$k = 1;
+//get the value of k from user
 $k = $_GET['k_value'];
 $count = 0;
+//Head of HTML table
 echo "<thead>";
 echo "<tr>";
 echo "<th>Complaint Number</th>";
@@ -100,46 +101,57 @@ echo "<th>Ticket Number</th>";
 echo "</tr>";
 echo "</thead>";
 
+//Loop for all complaints
 for ($j = 1; $j < 101 ; $j++) {
    
     $distance = INF;
+    //Get the month,year, type , nieghbourhood of complaint
     $year = $complaint_bylaw_year[$j];
     $month =  $complaint_month_number[$j];
     $typeofComplaint = $complaint_type[$j];
     $Neighbourhood = $complaint_bylaw_neighbourhood[$j];
     $bylawstatus = $complaint_bylaw_status[$j];
+    //Check if the bylaw status is under investigation
     $compare_bylawstatus = strcasecmp($bylawstatus, 'Under Investigation');
-    if($compare_bylawstatus == 0){   
+    if($compare_bylawstatus == 0){  
+    //Loop through all the requests 
        for ($i = 1; $i <  101 ; $i++) {
          
+         // Get the neighbourhood of the request
         $NeighbourhoodReq = $array_311_neighbourhood[$i];
          // echo $NeighbourhoodReq . "<br />\n";
+        //Check if the request neighbourhood and complaint neighbourhood are equal
         $CompareStr = strcasecmp($Neighbourhood , $NeighbourhoodReq);
 
+        //Get the date when the request was created
         $dateValue = $array_date_created[$i];
-
+        // Check if the request status is open 
         $Req_status = $array_request_status[$i];
 
         $CompareReq_Status = strcasecmp($Req_status , 'Open');
-
+       // Parse the date
         $time  = strtotime($dateValue);
         $d  = date('d',$time);
         $m  = date('m',$time);
         $y  = date('Y',$time);
-
+         //Condition to check if the type of complaint and request is equal, the request status is open 
+        //the complaint year is less that or eual to request year and the complaint neighbourhood is equal to request neighbourhood
          if ($typeofComplaint ==  $array_service_category[$i] && ($CompareReq_Status == 0) && ($year <= $y) && ($CompareStr == 0)){
-              //If request month and complaint month is similar
+              //If request month and complaint month is similar also the year when they were reported
               if ($m == $month && ($year == $y)){
+                //Distance in days
                   $distance = $d;
 
                }
+               //If request month and complaint month is similar and the complaint year is less than request year
                else if($m == $month && ($year < $y)){
                   $diffyear = ($y - $year)*365;
                   $distance = $d +  $diffyear;
                }
-               //If request month is greater than complaint month
+               //If request month is more than complaint month and the complaint year is equal request year
                else if ($m > $month && ($year == $y)){
                   $distance = 0;
+                  //Calculate distance in days 
                   for($mon = $month; $mon <$m ; $mon++){
                      if($mon == 1 || $mon == 3 || $mon== 5 || $mon== 7 || $mon== 8 || $mon== 10 || $mon == 12){
                         $distance += 31;
@@ -164,6 +176,7 @@ for ($j = 1; $j < 101 ; $j++) {
                  $distance += $d;
               }
               else{
+                //If request month is more or less than complaint month, and complaint year is less than request year
                 $distance = 0;
                 for ($mon = $month; $mon<=12 ; $mon++)
                 {
@@ -214,20 +227,20 @@ for ($j = 1; $j < 101 ; $j++) {
               }
          }
 
-       //  echo $distance ."<br />\n";
+       // Copy all the distances in an array
          $distarray[$i] = $distance;
          $distance = INF;
-        // echo  $distarray[$i] . "<br />\n";
+        
        }
-      
+      //Loop for k values. Find all the k minimum values
        for ($kval=0; $kval <= $k; $kval++){
-           // echo "I am in the loop";
-            //[val(kval),idx] = min(distarray);
+           //Take the minimum value from the distarray
             $val = min($distarray);
-            
-        //  echo "The value is " . $val . "<br />\n"; 
+            //Check if the minimum value is less than inf
             if ($val < INF) {
+              //Get the index of the minimum value
               $idx = array_search($val, $distarray);
+              //Display the complaint number and request ticket number in HTML table
               echo "<tbody>";
               echo "<tr>";
               echo "<td>".$j."</td>";
@@ -236,6 +249,7 @@ for ($j = 1; $j < 101 ; $j++) {
               echo "</tbody>";
                $count = $count + 1;
                $distarray[$idx] = INF;
+               //Insert the values in sql table
                $sql = "INSERT INTO match_resultNeighbourhood (complaint_number,matched_ticket_number, service_category,311_latitude,311_longtitude) 
                VALUES (' $j  ',' " . $array_ticket_number[$idx] . " ' , ' " . $array_service_category[$idx] . " ',' " . $array_311_latitude[$idx] . " ',' " . $array_311_longitude[$idx] . " ' )";
                if (mysqli_query($conn, $sql)) {
@@ -250,6 +264,7 @@ for ($j = 1; $j < 101 ; $j++) {
 
     }
 }
+//Close the HTML body table
 echo "</table></body></html>";
 echo $count;
 ?>

@@ -14,11 +14,14 @@
 <?php
 
 $index = 0;
+//Get the distinct neighbourhood values from 311 dataset
 $get_data_sql1 = "SELECT DISTINCT 311_neighbourhood,311_request_status,service_category FROM 311_Explorer";
 $result1 = $conn->query($get_data_sql1);
 $rows1 = array();
 if ($result1->num_rows > 0) {
   $index = 0;
+ //Check if the request status is closed and check if the service category is 1
+//If both conditions match then copy the distinct neighbourhood in an array
   while($rr = $result1->fetch_assoc()) {
       $CompareReq_Status = strcasecmp($rr["311_request_status"] , 'Close');
       $Compare_ServiceCategory = strcasecmp($rr["service_category"] , '1');
@@ -28,12 +31,14 @@ if ($result1->num_rows > 0) {
       }
     }
 }
-
+//Get the 311_neighbourhood, 311_request_status, service_category, 311_count, date_created,date_closed values from 311 dataset
 $get_data_sql = "SELECT 311_neighbourhood,311_request_status,service_category,311_count,date_created,date_closed FROM 311_Explorer";
 $result = $conn->query($get_data_sql);
 $rows = array();
 if ($result->num_rows > 0) {
   $i = 0;
+  //Check if the request status is closed and check if the service category is 1
+//If both conditions match then copy the distinct neighbourhood in an array
   while($r = $result->fetch_assoc()) {
     $CompareReq_Status = strcasecmp($r["311_request_status"] , 'Close');
      $Compare_ServiceCategory = strcasecmp($r["service_category"] , '1');
@@ -47,6 +52,7 @@ if ($result->num_rows > 0) {
     }
 }
 //print $i;
+//Loop to calculate the average time required to close the request in distinct neighbourhood
 for($ii = 0; $ii < $index; $ii++){
     $neighbour = $rows1[$ii];
     $count = 0;
@@ -108,9 +114,10 @@ for($ii = 0; $ii < $index; $ii++){
    }
 }
 $result2 = array();
+//Push the name of neighbourhood and the request count in the new array
 array_push($result2,$rows1);
 array_push($result2,$rows);
-
+//Json encode the array
 print json_encode($result2);
 
 ?>
