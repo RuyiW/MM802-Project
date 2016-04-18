@@ -1,22 +1,17 @@
 <?php
-//// output headers so that the file is downloaded rather than displayed
-//header('Content-Type: text/csv; charset=utf-8');
-//header('Content-Disposition: attachment; filename=data.csv');
-//
-//// create a file pointer connected to the output stream
-//$output = fopen('php://output', 'w');
-//
-//// output the column headings
-//fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
-//
-//// fetch the data
-//mysql_connect('localhost', 'username', 'password');
-//mysql_select_db('database');
-//$rows = mysql_query('SELECT field1,field2,field3 FROM table');
-//
-//// loop over the rows, outputting them
-//while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// On the Algorithm page, this file is executed after the user inputs the desired K value in one of the 3 sections //
+// (By Days, By Distance, or By Neigbourhood). It finds which table is not empty                                   //
+// (3 tables in total in the server's database: "match_resultdays", "match_resultdistance", and                    //
+// "match_resultNeighbourhood") and use it to export the table to a CSV file for the script "algorithm_loadMap.js" //
+// to read and display the markers on the map.                                                                     //
+//                                                                                                                 //
+// Note: Before new results are generated for every input the user provides, the tables are first emptied.         //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Parameters used to connect to the server's database
 $host="localhost";
 $db_user="root";
 $db_pass="";
@@ -29,78 +24,67 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$tables[0] = "match_resultdays";
-$tables[1] = "match_resultdistance";
-$tables[2] = "match_resultNeighbourhood";
+// Names of tables to read and export to CSV file
+// These tables are for the Algorithm page. After the user inputs a parameter,
+// either from 3 different sections: By Days, By Distance or By Neighbourhood,
+// which these 3 sections have the corresponding tables below.
 
-//$tables = array("match_resultdays", "match_resultdistance", "match_resultNeighbourhood");
-//echo $tables;
-//console.log($tables);
+$tables[0] = "match_resultdays";            // Result table for By Days
+$tables[1] = "match_resultdistance";        // Result table for By Distance
+$tables[2] = "match_resultNeighbourhood";   // Result table for By Neighbourhood
+
+// By default read "match_resultdays"
 $tableWanted = $tables[0];
+
+// Find the table that is not empty
 for ($i = 0; $i < 3; $i++) {
-  //  echo $tables[$i];
+    
     $sqlgetTable = "SELECT COUNT(*) FROM " . $tables[$i];
-    //echo $sqlgetTable;
     $rowNum = $conn->query($sqlgetTable);
+    
     if ($rowNum) {
-        //echo "found query <br>";
         while ($rows = $rowNum->fetch_array(MYSQLI_NUM)) {
-            //echo "getting value <br>";
             if($rows[0] > 0) {
-                //echo "not empty table <br>";
-                //echo $rows[0];
-                //echo "<br>";
-                $tableWanted = $tables[$i];
-                //echo $tableWanted;
-                //echo "<br>";
-                
+                $tableWanted = $tables[$i];    
             }
         }
-        //die;
-        
-    }
-    
-    
+    }    
 }
 
 // mysql_query("set names utf8;");
+
+// Once we find the table that is not empty, export it to CSV
+// If all tables were empty "match_resultdays" would be exported to a CSV file by default
+
+// Open php stream to output to CSV file
 $fp = fopen('php://output', 'w');
-//$columns = $conn->query('SHOW COLUMNS FROM 311_explorer');
+
+// Get the names of the attributes/columns to insert into the first row of the CSV file
 $sql = "SHOW COLUMNS FROM " . $tableWanted;
 $columns = mysqli_query($conn,$sql);
+
 while($row = mysqli_fetch_array($columns)){
     echo $row['Field'].",";
-    //fputcsv($fp, $row['Field']);
 }
 echo "\n";
 
 
-//console.log($columns);
-//if ($fp && $columns) {
-//    header('Content-Type: text/csv');
-//    header('Content-Disposition: attachment; filename="exportTest.csv"');
-//        //fputcsv($fp, )
-//    fputcsv($fp, array_values($columns));
-//    die;
-//    
-//}
-
+// Get the data from the table and insert into the CSV file
 $sqlQuery = "SELECT * FROM " . $tableWanted;
-// get the names of the attributes to insert into the first row of the csv file
 $result = $conn->query($sqlQuery);
 
 if ($fp && $result) {
+    
     header('Content-Type: text/csv');
     header('Content-Disposition: attachment; filename="exportTest.csv"');
-    //console.log($result);
-        //fputcsv($fp, )
-    //fputcsv($fp, $columns);
+
     while ($row = $result->fetch_array(MYSQLI_NUM)) {
         fputcsv($fp, array_values($row));
     }
     die;
 }
 
+// Close the php stream and the connection to the server's database. 
 fclose($fp);
 $conn->close();
 

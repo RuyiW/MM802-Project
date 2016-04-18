@@ -1,27 +1,32 @@
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// On the Map page, this file is executed after the user chooses what they want (the filter options) viewed on the //
+// map and tables.                                                                                                 //
+// The table that this script reads is "submitted_checked_311" This script displays the "submitted_checked_311"    //
+// table from the server's database for the user to see their results based on their filtered options              //
+//                                                                                                                 //
+// The table first only show the information with attributes "ticket_number", "date_created", "311_request_status" //
+// and "service_category". If the user clicks on a row then more information on that row will open up underneath.  //                                                                                           //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Export the table "submitted_checked_311" from the server's database to a CSV file.
 d3.csv("./dataset/exportTable.php", function(data) {
   var datasetCsv;
     csv = data.map(function(d) { return d; });
-    //csv = data.filter(function(d) {
-    //    
-    //    if(d["Request Status"] == "Open")
-    //    {
-    //
-    //         return d;
-    //    }
-    //    
-    //});
 
-// for displaying everything in the row with informatioin
+// For displaying everything in the row with informatioin
+// Parameter: csv -> is the "submitted_checked_311" table
 function infoBox(csv) {
     var rowsInfo = [];
     var tableInfo = [];
     var testTable = document.getElementsByClassName("tableBody");
     tableInfo = d3.select("body").select("tbody.tableBody").selectAll("tr");
     rowsInfo = d3.select("body").select("tbody.tableBody").selectAll("tr").data();
-    //console.log(testTable[0]);
-    //console.log(tableInfo[0]);
-    //console.log(rowsInfo);
     
+    // In the table create a new row that contains all the content related to the above row.
+    // Assign the new row to the class "accordion-content", so that it would only be displayed when the user clicks on
+    // the above row. 
     for (i = 0; i < rowsInfo.length; i++) {
        newRow = rowsInfo[i];
        var index = i + 1;
@@ -29,14 +34,9 @@ function infoBox(csv) {
        row.setAttribute("class", "accordion-content");
        var cell = row.insertCell(0);
        cell.setAttribute("colspan", "4");
-       //cell.setAttribute("color", "purple");
-       //if (i == 0) {
-       // cell.setAttribute("class", "accordion-content default");
-       //}
-       //else {
-       //}
-       //cell.innerHTML = JSON.stringify(newRow); // PUT WHOLE STRING INTO CELL
        var infoString = [];
+       
+       // Turns the content into string and then remove unwanted characters, before inserting into the HTML table. 
        infoString = JSON.stringify(newRow);
        infoString = infoString.replace(/["]/g, '');
        infoString = infoString.replace('{', '');
@@ -45,24 +45,25 @@ function infoBox(csv) {
        infoString = infoString.replace(/[:]/g, ' : ');
        infoString = infoString.replace(/(311)/g, '');
        cell.innerHTML = infoString.split(',').join("<br>");
-       //console.log("INFOSTRING");
-       //console.log(infoString);
-       //console.log(newRow);
+
     }
     
 }   
    
-// The table generation function
+// Generate the table for "submitted_checked_311"
+// Parameter: csv -> is the "submitted_checked_311" table
+// Parameter: columns -> an array of columns we want to initially display on the table
 function tabulate(csv, columns) {
+    
+    // Create the HTML table
     var table = d3.select("body").select("#detail").append("table")
             .attr("id", "accordion")
             .attr("style", "width: 100%");
         thead = table.append("thead"),
         tbody = table.append("tbody");
         tbody.attr("class", "tableBody");
-        //console.log(table);
-    //console.log(columns[0].replace('_', ' '));
-    // append the header row
+
+    // Create the Header for the table -> the columns we want to display
     thead.append("tr")
         .selectAll("th")
         .data(columns)
@@ -71,14 +72,15 @@ function tabulate(csv, columns) {
          .attr("id","tablerow")
             .text(function(column) { return column.replace(/[_]/g, ' '); });
 
-    // create a row for each object in the data
+    // Create a row for each object in the data and assign it the class "accordion-toggle", which is for
+    // deciding if extra information will be displayed or not. 
     var rows = tbody.selectAll("tr")
         .data(csv)
         .enter()
         .append("tr")
         .attr("class", "accordion-toggle")
 
-    // create a cell in each row for each column
+    // Create a cell in each row for each column
     var cells = rows.selectAll("td")
         .data(function(row) {
             return columns.map(function(column) {
@@ -97,101 +99,25 @@ function tabulate(csv, columns) {
     return table;
 }
 
-// render the table
- var peopleTable = tabulate(csv, ["ticket_number", "date_created", "311_request_status", "service_category" ]);
- infoBox(csv); // add the row with all the information
+// Render the table
+tabulate(csv, ["ticket_number", "date_created", "311_request_status", "service_category" ]);
+infoBox(csv); // add the row with all the information
 
- datasetCsv = csv;
- var val;
- var your_variable;
 
- // for displaying in the alert box NOT USING AT THE MOMENT
-function displayContent(val){
-  
-  showPopup(val);
-  //console.log(val);
- // d3.text(datasetCsv, function(datasetText){
-    csv1 = datasetCsv.filter(function(d) {
-        
-        if(d["ticket_number"] == val)
-        {
-
-             return d["ticket_number"]==val;
-        }
-        
-    });
-    your_variable = csv1;
-    //console.log(your_variable);
-    
-
-}
-
-// alert box NOT USING ATM
-    function showPopup(your_variable){
-       //console.log("I am in pop up");
-        //$("#popup").dialog({
-        //    width: 500,
-        //    //height: 300,
-        //    //width: 'auto',
-        //    height: 'auto',
-            //open: function(){
-                //whatIsThis = $(your_variable[0]).html(your_variable["Ticket Number"]);
-
-                
-                var acc = [];
-                //var accNew = [];
-                $.each(your_variable, function(index, value) {
-                  acc.push(index + ': ' + value);
-                });
-                var accNew = JSON.stringify(acc);
-                console.log("ACC STRING");
-                console.log(accNew);
-                //alert(accNew.split(',').join("\r\n"));
-                //var peopleTable = tabulate(csv1, ["Ticket Number", "Request Status" ,"Service Details", "Neighbourhood", "Address"]);
-                //whatIsThis = $(this).html(accNew.split(',').join("<br>"));
-                //console.log("What IS THIS?");
-                //console.log(whatIsThis);
-                //whatIsThis = $(this).html(peopleTable[0]);
-                //console.log(peopleTable[0]);
-
-                //return your_variable;
-            //}
-        //});
-    }
+// Shows extra information for the row the user clicks on, and hides all other rows' extra information. 
  $(document).ready(function(){
-    //var init_height;
-        // var table = $('#example').DataTable();
-    //$(".accordion tr:not(.accordion-toggle)").hide();
-    //$(".accordion tr:first-child").show();
-    //$("#detail").height(($("#accordion").height()+80));
     
     $('#accordion').find('.accordion-toggle').click(function() {     
           
-          // for parsing        
-         // var colIndex = parseInt($(this).parent().children().index($(this)));
-         // var rowIndex = parseInt($(this).parent().parent().children().index($(this).parent()));
-         // // var texto = $('table tr:nth-child(2) td:nth-child(1)').text()
-         //var rowContent = [];
-         //rowContent = datasetCsv[rowIndex];
-         //console.log(rowContent);
-         //val = rowContent["ticket_number"];
-          
-          
-          //Hide the other panels
-        $(".accordion-content").not($(this).next()).slideUp('fast'); // other accordian
+        //Hide the other panels
+        $(".accordion-content").not($(this).next()).slideUp('fast');
 
-
-         
-        $(this).next().slideDown('slow'); // other accordian
-        // $("#detail").height(($("#accordion").height()+80));
+        // Show the exta information for the selected row.
+        $(this).next().slideDown('slow'); 
         
+        // Highlight the selected row and unhighlight the other rows.
         $(this).closest("tr").siblings().removeClass("highlighted");
         $(this).toggleClass("highlighted");
-        
-        //console.log("ROWCONTENT");
-      
-        //console.log(rowContent);
-        //displayContent(rowContent);
          
     });
   });

@@ -1,22 +1,14 @@
 <?php
-//// output headers so that the file is downloaded rather than displayed
-//header('Content-Type: text/csv; charset=utf-8');
-//header('Content-Disposition: attachment; filename=data.csv');
-//
-//// create a file pointer connected to the output stream
-//$output = fopen('php://output', 'w');
-//
-//// output the column headings
-//fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
-//
-//// fetch the data
-//mysql_connect('localhost', 'username', 'password');
-//mysql_select_db('database');
-//$rows = mysql_query('SELECT field1,field2,field3 FROM table');
-//
-//// loop over the rows, outputting them
-//while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Export the submitted_checked_311 table from the server's database to a CSV file for "loadMap.js" and            //
+// "tableResults.js" to read.                                                                                      //
+//                                                                                                                 //
+// "loadMap.js" uses the CSV file to display the markers on the map, and "tableResults.js" uses the CSV file to    //
+// dispaly the table to the user.                                                                                  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Parameters used to connect to the server's database
 $host="localhost";
 $db_user="root";
 $db_pass="";
@@ -29,42 +21,34 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 // mysql_query("set names utf8;");
+
+// Open php stream to output to CSV file
 $fp = fopen('php://output', 'w');
-//$columns = $conn->query('SHOW COLUMNS FROM 311_explorer');
+
+// Get the names of the attributes/columns to insert into the first row of the CSV file
 $sql = "SHOW COLUMNS FROM 311_explorer";
 $columns = mysqli_query($conn,$sql);
+
 while($row = mysqli_fetch_array($columns)){
     echo $row['Field'].",";
-    //fputcsv($fp, $row['Field']);
 }
 echo "\n";
 
-
-//console.log($columns);
-//if ($fp && $columns) {
-//    header('Content-Type: text/csv');
-//    header('Content-Disposition: attachment; filename="exportTest.csv"');
-//        //fputcsv($fp, )
-//    fputcsv($fp, array_values($columns));
-//    die;
-//    
-//}
-
-// get the names of the attributes to insert into the first row of the csv file
+// Get the data from the table and insert into the CSV file
 $result = $conn->query('SELECT * FROM submitted_checked_311');
 
 if ($fp && $result) {
+    
     header('Content-Type: text/csv');
     header('Content-Disposition: attachment; filename="exportTest.csv"');
-    //console.log($result);
-        //fputcsv($fp, )
-    //fputcsv($fp, $columns);
+
     while ($row = $result->fetch_array(MYSQLI_NUM)) {
         fputcsv($fp, array_values($row));
     }
     die;
 }
 
+// Close the php stream and the connection to the server's database. 
 fclose($fp);
 $conn->close();
 

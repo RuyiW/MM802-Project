@@ -1,22 +1,18 @@
 <?php
-//// output headers so that the file is downloaded rather than displayed
-//header('Content-Type: text/csv; charset=utf-8');
-//header('Content-Disposition: attachment; filename=data.csv');
-//
-//// create a file pointer connected to the output stream
-//$output = fopen('php://output', 'w');
-//
-//// output the column headings
-//fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
-//
-//// fetch the data
-//mysql_connect('localhost', 'username', 'password');
-//mysql_select_db('database');
-//$rows = mysql_query('SELECT field1,field2,field3 FROM table');
-//
-//// loop over the rows, outputting them
-//while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// On the Map page, this script is executed after the user has submitted their filtered options. It copies the     //
+// "checked_311_result" and the "checked_bylaw_result" tables to the "submitted_checked_311" and                   //
+// "submitted_checked_bylaw".                                                                                      //
+// The "checked_311_result" and the "checked_bylaw_result" tables are the results from the user's filter selection //
+// and the "submitted_checked_311" and "submitted_checked_bylaw" tables are used to display the information on the //
+// map and to display the table on the page.                                                                       //
+//                                                                                                                 //
+// Note: All these tables mentioned are stored on the server's database.                                           //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Parameters used to connect to the server's database
 $host="localhost";
 $db_user="root";
 $db_pass="";
@@ -28,29 +24,9 @@ $conn = mysqli_connect($host, $db_user, $db_pass, $db_name);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-//mysql_query("set names utf8;");
-//$fp = fopen('php://output', 'w');
-//$columns = $conn->query('SHOW COLUMNS FROM 311_explorer');
-//$sql = "SHOW COLUMNS FROM 311_explorer";
-//$columns = mysqli_query($conn,$sql);
-//while($row = mysqli_fetch_array($columns)){
-//    echo $row['Field'].",";
-//    //fputcsv($fp, $row['Field']);
-//}
-//echo "\n";
 
 
-//console.log($columns);
-//if ($fp && $columns) {
-//    header('Content-Type: text/csv');
-//    header('Content-Disposition: attachment; filename="exportTest.csv"');
-//        //fputcsv($fp, )
-//    fputcsv($fp, array_values($columns));
-//    die;
-//    
-//}
-
-// drop the submitted tables if they exist
+// Before copying drop "submitted_checked_311 and "submitted_checked_bylaw" tables if they exist
 $drop311 = $conn->query('DELETE FROM submitted_checked_311');
 $dropBylaw = $conn->query('DELETE FROM submitted_checked_bylaw');
 if ($drop311) {
@@ -64,6 +40,7 @@ if ($dropBylaw) {
 }
 
 
+// Copy the checked tables to the subbitted tables 
 $copyTable311 = $conn->query('INSERT INTO submitted_checked_311 SELECT * FROM checked_311_result');
 $copyTableBylaw = $conn->query('INSERT INTO submitted_checked_bylaw SELECT * FROM checked_bylaw_result');
 if ($copyTable311) {
@@ -76,11 +53,7 @@ if ($copyTableBylaw) {
     echo "copy Bylaw results success";
 }
 
-// get the names of the attributes to insert into the first row of the csv file
-//$result = $conn->query('SELECT * FROM checked_311_result');
-
-
-//fclose($fp);
+// Close the connection to the server's database. 
 $conn->close();
 
 ?>
