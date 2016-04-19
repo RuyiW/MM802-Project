@@ -1,5 +1,6 @@
 # MM811-Project
 MM811-course project about data mining
+Sweta Bedmutha, Queenie Luc, Ruyi Wang
 
 
 Requirements:

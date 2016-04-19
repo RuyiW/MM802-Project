@@ -5,6 +5,18 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function(){
+    Math.easeOutBounce = function (pos) {
+        if ((pos) < (1 / 2.75)) {
+            return (7.5625 * pos * pos);
+        }
+        if (pos < (2 / 2.75)) {
+            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+        }
+        if (pos < (2.5 / 2.75)) {
+            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+        }
+        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+    };
     NvsR_bar();
     $("#chart_1").click(function(){
         NvsR_bar();
@@ -32,69 +44,62 @@ $(document).ready(function(){
     });
     chart.reflow();
 });
+
 function NvsR_bar(){
-    Math.easeOutBounce = function (pos) {
-        if ((pos) < (1 / 2.75)) {
-            return (7.5625 * pos * pos);
-        }
-        if (pos < (2 / 2.75)) {
-            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-        }
-        if (pos < (2.5 / 2.75)) {
-            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-        }
-        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-    };
+    
     var charts;
 
     var options = {
+        //Properties of the chart
         chart: {
             renderTo: 'for_chart1',
-            type: 'column', 
-            //marginRight: 130,
-            //marginBottom: 25
+            type: 'column',
         },
+        //Add title to the chart
         title: {
             text: 'Neighbourhood vs. Request Count',
             x: -20 //center
         },
-        // subtitle: {
-        //     text: '',
-        //     x: -20
-        // },
+        //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+        //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Request Count'
             },
+        //An array of objects representing plot lines on the X axis
              plotLines: [{
                 value: 0,
                 width: 1,
                 color: '#808080'
             }],
-           // categories:[]
+           
         },
+        //Add color to each column
            plotOptions: {
             series: {
-            colorByPoint: true,
-            animation: {
-                duration: 2000,
-                easing: 'easeOutBounce'
+                colorByPoint: true,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce'
+                }
             }
         },
-
+       // Options for the tooltip that appears when the user hovers over a series or point.
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
                     this.x +': '+ this.y;
             }
         },
+         // The legend is a box containing a symbol and name for each series item or point item in the chart. 
+       // Each series (or points in case of pie charts) is represented by a symbol and its name in the legend.
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -104,42 +109,39 @@ function NvsR_bar(){
             borderWidth: 0
         },
        // series: []
+        // The actual series to append to the chart.
            series:[
           {
             name: "Count",
            data: []
           }]
     }
-
+    //Get the json file
     $.getJSON("charts1.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
-           // yData = options.yAxis.categories; //Array to store data for y column
-            yData1 = options.series[0].data;
+        
+            yData1 = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+            //Names of neighbourhood
             xDataObj = json[0];
-           // yDataObj = json[1];
+           //request Count for each neighbourhood
             yDataObj1 = json[1];
-
+            //Push the data present in xDataObj to xData
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
             
-            // for(var key in yDataObj){
-            //     yData.push((yDataObj[key]));
-            // }
+            //Push the data present in yDataObj to yData
             for(var key in yDataObj1){
                 yData1.push(parseFloat(yDataObj1[key]));
             }
+        //Function to create charts
         chart = new Highcharts.Chart(options);
-    });
+    });         
 }
 
 function NvsR_pie() {
     var charts;
+    //Properties of the chart
     var options = {
         chart: {
             renderTo: 'for_chart2',
@@ -147,9 +149,9 @@ function NvsR_pie() {
             plotBorderWidth: null,
             plotShadow: false,
             type: 'pie'
-            //marginRight: 130,
-            //marginBottom: 25
+            
         },
+         //Add title to the chart
         title: {
             text: ' Neighbourhood vs. Request Count',
             x: -30, //center
@@ -158,6 +160,7 @@ function NvsR_pie() {
                 fontWeight: 'bold'
             }
         },
+         //Add subtitle to the chart
         subtitle: {
             text: 'Pie Chart for Request',
             x: -20,
@@ -166,33 +169,38 @@ function NvsR_pie() {
                 fontWeight: 'bold'
             }
         },
+        //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+         //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Request Count'
             },
-             //plotLines: [{
-            //     value: 0,
-            //     width: 1,
-            //     color: '#808080'
-            // }]
+           
         },
         tooltip: {
+              //The HTML of the point's line in the tooltip.
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
+                //Allow this series' points to be selected by clicking on the markers, bars or pie slices
                 allowPointSelect: true,
+                //Set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked.
                 cursor: 'pointer',
+
                 dataLabels: {
+                      //Enable or disable the data labels
                     enabled: true,
+                     //A format string for the data label. Available variables are the same as for formatter. Defaults to {y}
                     format: '<b>{point.name}</b>',
+                     // Styles for the label
                     style: {
                         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     }
@@ -205,104 +213,95 @@ function NvsR_pie() {
            data: []
           }]
     }
-
+    
     $.getJSON("charts1.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
-           // yData = options.series[0].data; //Array to store data for y column
-            dataArrayFinal = options.series[0].data;
+         
+            dataArrayFinal = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+            //Names of neighbourhood
             xDataObj = json[0];
+            //request Count for each neighbourhood
             yDataObj = json[1];
+            //length of xDataObj which contains neighbourhood name
             length = xDataObj.length;
+            //Create an empty array
             var name = Array();
             var data = Array();
-            //console.log(length);
+            //Copy the data in name and data array
             for(i=0;i<length;i++) { 
             name[i] = xDataObj[i]; 
             data[i] = yDataObj[i];  
             }
             for(j=0;j<length;j++) { 
+            //Create new temp array and add name and data to that 
              var temp = new Array(name[j],data[j]); 
             dataArrayFinal[j] = temp;     
             }
-
+            //Push the neighbourhood names in the xdata array
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
-            
-            // for(var key in yDataObj){
-            //     yData.push(parseFloat(yDataObj[key]));
-            // }
+         //Function to create charts                   
         chart = new Highcharts.Chart(options);
 
     });
 }
 
 function NvsC_bar() {
- Math.easeOutBounce = function (pos) {
-        if ((pos) < (1 / 2.75)) {
-            return (7.5625 * pos * pos);
-        }
-        if (pos < (2 / 2.75)) {
-            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-        }
-        if (pos < (2.5 / 2.75)) {
-            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-        }
-        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-    };
     var charts;
+    //Properties of the chart
     var options = {
         chart: {
             renderTo: 'for_chart3',
+            //Type of chart i.e column
             type: 'column',
-            //marginRight: 130,
-            //marginBottom: 25
+            
         },
+        //Add title to the chart
         title: {
             text: 'Neighbourhood vs. Complaint Count',
             x: -20 //center
         },
-        // subtitle: {
-        //     text: '',
-        //     x: -20
-        // },
+        //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+        //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Complaint Count'
             },
+        // An array of objects representing plot lines on the X axis
              plotLines: [{
                 value: 0,
                 width: 1,
                 color: '#808080'
             }]
         },
+        //Add color to each column
           plotOptions: {
             series: {
-            colorByPoint: true,
-            animation: {
-                duration: 2000,
-                easing: 'easeOutBounce'
+                colorByPoint: true,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce'
+                }
+
             }
-       },
-       
+        },
+       // Options for the tooltip that appears when the user hovers over a series or point.
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
                     this.x +': '+ this.y;
             }
         },
+       // The legend is a box containing a symbol and name for each series item or point item in the chart. 
+       // Each series (or points in case of pie charts) is represented by a symbol and its name in the legend.
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -312,32 +311,37 @@ function NvsC_bar() {
             borderWidth: 0
         },
        // series: []
+      // The actual series to append to the chart.
            series:[{
            name: "Complaint Count",
            data: []
           }]
     }
-    
+    //Get the json file
     $.getJSON("charts.php", function(json) {
+            
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+           //Names of neighbourhood
             xDataObj = json[0];
+            //Complaint Count for each neighbourhood
             yDataObj = json[1];
-
+            //Push the data present in xDataObj to xData
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
-            
+            //Push the data present in yDataObj to yData
             for(var key in yDataObj){
                 yData.push(parseFloat(yDataObj[key]));
             }
+         //Function to create charts
         chart = new Highcharts.Chart(options);
     });
 }
 
 function NvsC_pie() {
     var charts;
+    //Properties of the chart
     var options = {
         chart: {
             renderTo: 'for_chart4',
@@ -345,9 +349,9 @@ function NvsC_pie() {
             plotBorderWidth: null,
             plotShadow: false,
             type: 'pie'
-            //marginRight: 130,
-            //marginBottom: 25
+            
         },
+        //Add title to the chart
         title: {
             text: ' Neighbourhood vs. Complaint Count',
             x: -30, //center
@@ -356,6 +360,7 @@ function NvsC_pie() {
                 fontWeight: 'bold'
             }
         },
+       //Add subtitle to the chart
         subtitle: {
             text: 'Pie Chart for Complaints',
             x: -20,
@@ -364,33 +369,37 @@ function NvsC_pie() {
                 fontWeight: 'bold'
             }
         },
+        //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+           //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Complaint Count'
             },
-             //plotLines: [{
-            //     value: 0,
-            //     width: 1,
-            //     color: '#808080'
-            // }]
+            
         },
         tooltip: {
+            //The HTML of the point's line in the tooltip.
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
+                //Allow this series' points to be selected by clicking on the markers, bars or pie slices
                 allowPointSelect: true,
+                //Set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked.
                 cursor: 'pointer',
                 dataLabels: {
+                    //Enable or disable the data labels
                     enabled: true,
+                    //A format string for the data label. Available variables are the same as for formatter. Defaults to {y}
                     format: '<b>{point.name}</b>',
+                   // Styles for the label
                     style: {
                         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     }
@@ -398,6 +407,7 @@ function NvsC_pie() {
             }
         },
                // series: []
+               // The actual series to append to the chart.
            series:[{
            name: "Complaint Count",
            data: []
@@ -405,58 +415,49 @@ function NvsC_pie() {
     }
     
     $.getJSON("charts.php", function(json) {
-       
-            dataArrayFinal = options.series[0].data;
+        
+            dataArrayFinal = options.series[0].data;//Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+           //Names of neighbourhood
             xDataObj = json[0];
+            //complaint Count for each neighbourhood
             yDataObj = json[1];
+            //length of xDataObj which contains neighbourhood names
             length = xDataObj.length;
+            //Create an empty array
             var name = Array();
             var data = Array();
-            //console.log(length);
+            //Copy the data in name and data array
             for(i=0;i<length;i++) { 
             name[i] = xDataObj[i]; 
             data[i] = yDataObj[i];  
             }
             for(j=0;j<length;j++) { 
+            //Create new temp array and add name and data to that 
              var temp = new Array(name[j],data[j]); 
             dataArrayFinal[j] = temp;     
             }
-
+           //Push the neighbourhood names in the xdata array
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
             
-            // for(var key in yDataObj){
-            //     yData.push(parseFloat(yDataObj[key]));
-            // }
+        //Function to create charts
         chart = new Highcharts.Chart(options);
 
     });
 }
 
 function NvsS_bar() {
-     Math.easeOutBounce = function (pos) {
-    if ((pos) < (1 / 2.75)) {
-        return (7.5625 * pos * pos);
-    }
-    if (pos < (2 / 2.75)) {
-        return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-    }
-    if (pos < (2.5 / 2.75)) {
-        return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-    }
-    return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-};
     var charts;
+    //Properties of the chart
     var options = {
         chart: {
             renderTo: 'for_chart5',
             type: 'column',
-            //marginRight: 130,
-            //marginBottom: 25
+            
         },
+        //Add title to the chart
         title: {
             text: 'Neighbourhood vs Snow and Ice Sidewalk Maintenance',
             x: -20,//center
@@ -465,6 +466,7 @@ function NvsS_bar() {
                 fontWeight: 'bold'
             }
         },
+        //Add subtitle to the chart
         subtitle: {
             text: 'Average time in days to close the request',
             x: -20,
@@ -473,39 +475,46 @@ function NvsS_bar() {
                 fontWeight: 'bold'
             }
         },
+         //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+        //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Average days'
             },
+             //An array of objects representing plot lines on the X axis
              plotLines: [{
                 value: 0,
                 width: 1,
                 color: '#808080'
             }]
         },
+        //Add color to each column
           plotOptions: {
-             series: {
+            series: {
                 colorByPoint: true,
                 animation: {
                     duration: 2000,
                     easing: 'easeOutBounce'
                 }
+
             }
         },
-       
+     // Options for the tooltip that appears when the user hovers over a series or point.
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
                     this.x +': '+ this.y;
             }
         },
+         // The legend is a box containing a symbol and name for each series item or point item in the chart. 
+       // Each series (or points in case of pie charts) is represented by a symbol and its name in the legend.
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -514,61 +523,54 @@ function NvsS_bar() {
             y: 100,
             borderWidth: 0
         },
-       // series: []
+        // series: []
+         // The actual series to append to the chart.
            series:[{
            name: "Average days",
            data: []
           }]
     }
-    
+      //Get the json file
     $.getJSON("chart3.php", function(json) {
         
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+            //Names of neighbourhood
             xDataObj = json[0];
+            //Graffiti and vandalism request and average time count required to close the request for each neighbourhood
             yDataObj = json[1];
-
+            //Push the data present in xDataObj to xData
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
-            
+            //Push the data present in yDataObj to yData
             for(var key in yDataObj){
                 yData.push(parseFloat(yDataObj[key]));
             }
+            //Function to create charts
         chart = new Highcharts.Chart(options);
     });
 }
 
 function NvsG_bar() {
     var charts;
-     Math.easeOutBounce = function (pos) {
-            if ((pos) < (1 / 2.75)) {
-                return (7.5625 * pos * pos);
-            }
-            if (pos < (2 / 2.75)) {
-                return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-            }
-            if (pos < (2.5 / 2.75)) {
-                return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-            }
-            return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-        };
+    //Properties of the chart
     var options = {
         chart: {
             renderTo: 'for_chart6',
             type: 'column',
-            //marginRight: 130,
-            //marginBottom: 25
+            
         },
+        //Add title to the chart
         title: {
-            text: 'Neighbourhood vs Graffiti and Vandalism Requests',
+            text: 'Neighbourhood Graffiti and Vandalism Requests',
             x: -20,//center
               style: {
                 color: '#FF0011',
                 fontWeight: 'bold'
             }
         },
+        //Add subtitle to the chart
         subtitle: {
             text: 'Average time in days to close the request',
             x: -20,
@@ -577,39 +579,46 @@ function NvsG_bar() {
                 fontWeight: 'bold'
             }
         },
+        //The X axis or category axis
         xAxis: {
              title: {
                 text: 'Neighbourhood'
             },
             categories: []
         },
+         //The Y axis or value axis
          yAxis: {
             
              title: {
                 text: 'Average days'
             },
+             //An array of objects representing plot lines on the X axis
              plotLines: [{
                 value: 0,
                 width: 1,
                 color: '#808080'
             }]
         },
+         //Add color to each column
           plotOptions: {
-             series: {
+            series: {
                 colorByPoint: true,
                 animation: {
                     duration: 2000,
                     easing: 'easeOutBounce'
                 }
+
             }
         },
-        
+        // Options for the tooltip that appears when the user hovers over a series or point.
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
                     this.x +': '+ this.y;
             }
         },
+         // The legend is a box containing a symbol and name for each series item or point item in the chart. 
+       // Each series (or points in case of pie charts) is represented by a symbol and its name in the legend.
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -619,27 +628,30 @@ function NvsG_bar() {
             borderWidth: 0
         },
        // series: []
+         // The actual series to append to the chart.
            series:[{
            name: "Average days",
            data: []
           }]
     }
-    
+      //Get the json file
     $.getJSON("chart2.php", function(json) {
         
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
-
+            //Names of neighbourhood
             xDataObj = json[0];
+            //Graffiti and vandalism request and average time count required to close the request for each neighbourhood
             yDataObj = json[1];
-
+            //Push the data present in xDataObj to xData
             for(var key in xDataObj){
                  xData.push(xDataObj[key]);
             }
-            
+            //Push the data present in yDataObj to yData
             for(var key in yDataObj){
                 yData.push(parseFloat(yDataObj[key]));
             }
+        //Function to create charts
         chart = new Highcharts.Chart(options);
     });
 }
