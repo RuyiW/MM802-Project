@@ -138,10 +138,10 @@
 	</body>
 
 	<!-- scripts for map and table -->
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
 	<script type="text/javascript" src="js/algorithm_loadMap.js"> </script>
 

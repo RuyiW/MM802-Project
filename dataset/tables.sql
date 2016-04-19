@@ -4,7 +4,8 @@
 -- ===========================================================
 
 -- following two tables are the two main tables in our database
-	--request table stores all the request data
+-- request table stores all the request data
+
 CREATE TABLE IF NOT EXISTS 311_Explorer (
 	ticket_number bigint(10) UNSIGNED PRIMARY KEY, 
 	date_created VARCHAR(20),
@@ -168,8 +169,32 @@ CREATE TABLE IF NOT EXISTS temp_311(
 	transit_ref_number INT(10)
 );
 
--- result table for storing selected result of filter
+-- 2 result tables for storing selected result of filter
 CREATE TABLE IF NOT EXISTS checked_311_result (
+	ticket_number bigint(10), 
+	date_created VARCHAR(20),
+	date_closed VARCHAR(20),
+	311_request_status VARCHAR(5) NOT NULL,
+	311_status_detail VARCHAR(20),
+	service_category VARCHAR(20),
+	service_details VARCHAR(30),
+	business_unit VARCHAR(50),
+	311_neighbourhood VARCHAR(40),
+	community_league VARCHAR(60),
+	311_ward VARCHAR(7),
+	address VARCHAR(60),
+	311_latitude FLOAT(20, 15),
+	311_longtitude FLOAT(20, 15),
+	311_location_x FLOAT(20, 15),
+	311_location_y FLOAT(20, 15),
+	ticket_source VARCHAR(15),
+	calendar_year YEAR(4),
+	311_count INT(1),
+	posse_number VARCHAR(13),
+	transit_ref_number INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS submitted_checked_311 (
 	ticket_number bigint(10), 
 	date_created VARCHAR(20),
 	date_closed VARCHAR(20),
@@ -283,8 +308,26 @@ CREATE TABLE IF NOT EXISTS temp_bylaw (
 	bylaw_location_x FLOAT(20, 15),
 	bylaw_location_y FLOAT(20, 15)
 );
--- result table for storing selected result of filter
+-- 2 result tables for storing selected result of filter
 CREATE TABLE IF NOT EXISTS checked_bylaw_result (
+	complaint_number INT(3),
+	bylaw_year YEAR(4),
+	month_number INT(2),
+	month VARCHAR(10),
+	report_period VARCHAR(15),
+	bylaw_neighbourhood VARCHAR(40),
+	bylaw_neighbourhood_id INT(4),
+	complaint VARCHAR(20) NOT NULL,
+	initiated_by VARCHAR(15),
+	bylaw_status VARCHAR(20),
+	bylaw_count INT(3),
+	bylaw_latitude FLOAT(20, 15),
+	bylaw_longtitude FLOAT(20, 15),
+	bylaw_location_x FLOAT(20, 15),
+	bylaw_location_y FLOAT(20, 15)
+);
+
+CREATE TABLE IF NOT EXISTS submitted_checked_bylaw (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
 	month_number INT(2),
