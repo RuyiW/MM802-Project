@@ -35,7 +35,7 @@
 				<li><a href='../main_new.php'>HOME</a></li>
 				<li><a href='../knn_new.php'>ALGORITHM</a></li>
 				<li><a href='../map_page_new.php'>MAP</a></li>
-				<li><a href='chart_page.php'>CHARTS</a></li>
+				<li><a href='chart_page_new.php'>CHARTS</a></li>
 			</ul>
 		</div>
 		<div class = "right_content">
