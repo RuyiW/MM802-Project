@@ -266,5 +266,5 @@ for ($j = 1; $j < 101 ; $j++) {
 }
 //Close the HTML body table
 echo "</table></body></html>";
-echo $count;
+//echo $count;
 ?>

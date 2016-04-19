@@ -33,6 +33,18 @@ $(document).ready(function(){
     chart.reflow();
 });
 function NvsR_bar(){
+    Math.easeOutBounce = function (pos) {
+        if ((pos) < (1 / 2.75)) {
+            return (7.5625 * pos * pos);
+        }
+        if (pos < (2 / 2.75)) {
+            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+        }
+        if (pos < (2.5 / 2.75)) {
+            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+        }
+        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+    };
     var charts;
 
     var options = {
@@ -70,7 +82,10 @@ function NvsR_bar(){
         },
            plotOptions: {
             series: {
-                colorByPoint: true
+            colorByPoint: true,
+            animation: {
+                duration: 2000,
+                easing: 'easeOutBounce'
             }
         },
 
@@ -228,6 +243,18 @@ function NvsR_pie() {
 }
 
 function NvsC_bar() {
+ Math.easeOutBounce = function (pos) {
+        if ((pos) < (1 / 2.75)) {
+            return (7.5625 * pos * pos);
+        }
+        if (pos < (2 / 2.75)) {
+            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+        }
+        if (pos < (2.5 / 2.75)) {
+            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+        }
+        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+    };
     var charts;
     var options = {
         chart: {
@@ -263,19 +290,13 @@ function NvsC_bar() {
         },
           plotOptions: {
             series: {
-                colorByPoint: true
+            colorByPoint: true,
+            animation: {
+                duration: 2000,
+                easing: 'easeOutBounce'
             }
-        },
-        // yAxis: {
-        //     title: {
-        //         text: 'Amount'
-        //     },
-        //     plotLines: [{
-        //         value: 0,
-        //         width: 1,
-        //         color: '#808080'
-        //     }]
-        // },
+       },
+       
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
@@ -298,10 +319,6 @@ function NvsC_bar() {
     }
     
     $.getJSON("charts.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
 
@@ -388,11 +405,7 @@ function NvsC_pie() {
     }
     
     $.getJSON("charts.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
-           // yData = options.series[0].data; //Array to store data for y column
+       
             dataArrayFinal = options.series[0].data;
             xData = options.xAxis.categories; //Array to store data for x column
 
@@ -424,6 +437,18 @@ function NvsC_pie() {
 }
 
 function NvsS_bar() {
+     Math.easeOutBounce = function (pos) {
+    if ((pos) < (1 / 2.75)) {
+        return (7.5625 * pos * pos);
+    }
+    if (pos < (2 / 2.75)) {
+        return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+    }
+    if (pos < (2.5 / 2.75)) {
+        return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+    }
+    return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+};
     var charts;
     var options = {
         chart: {
@@ -466,20 +491,15 @@ function NvsS_bar() {
             }]
         },
           plotOptions: {
-            series: {
-                colorByPoint: true
+             series: {
+                colorByPoint: true,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce'
+                }
             }
         },
-        // yAxis: {
-        //     title: {
-        //         text: 'Amount'
-        //     },
-        //     plotLines: [{
-        //         value: 0,
-        //         width: 1,
-        //         color: '#808080'
-        //     }]
-        // },
+       
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
@@ -502,10 +522,7 @@ function NvsS_bar() {
     }
     
     $.getJSON("chart3.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
+        
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
 
@@ -525,6 +542,18 @@ function NvsS_bar() {
 
 function NvsG_bar() {
     var charts;
+     Math.easeOutBounce = function (pos) {
+            if ((pos) < (1 / 2.75)) {
+                return (7.5625 * pos * pos);
+            }
+            if (pos < (2 / 2.75)) {
+                return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
+            }
+            if (pos < (2.5 / 2.75)) {
+                return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
+            }
+            return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
+        };
     var options = {
         chart: {
             renderTo: 'for_chart6',
@@ -566,20 +595,15 @@ function NvsG_bar() {
             }]
         },
           plotOptions: {
-            series: {
-                colorByPoint: true
+             series: {
+                colorByPoint: true,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce'
+                }
             }
         },
-        // yAxis: {
-        //     title: {
-        //         text: 'Amount'
-        //     },
-        //     plotLines: [{
-        //         value: 0,
-        //         width: 1,
-        //         color: '#808080'
-        //     }]
-        // },
+        
         tooltip: {
             formatter: function() {
                     return '<b>'+ this.series.name +'</b><br/>'+
@@ -602,10 +626,7 @@ function NvsG_bar() {
     }
     
     $.getJSON("chart2.php", function(json) {
-        // options.xAxis.categories = json[0];//['Bylaw Neighbourhood'];
-        // options.yAxis.categories = json[1];//['Bylaw Neighbourhood'];
-        // options.series[0] = json[0];
-        // options.series[1] = json[1];
+        
             yData = options.series[0].data; //Array to store data for y column
             xData = options.xAxis.categories; //Array to store data for x column
 
