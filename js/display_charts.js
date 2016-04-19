@@ -1,72 +1,34 @@
-// function display_chart(ele){
-
-//     if(ele.id == 'chart_1'){
-//         console.log("in chart 1");
-//         NvsR_bar();
-//         // $('#for_chart1').load('display1.php');
-//     }
-//     else if(ele.id == 'chart_2'){
-//         NvsR_pie();
-//         // $('#for_chart2').load('display.php');
-//     }
-//     else if(ele.id == 'chart_3'){
-//         NvsC_bar();
-//         // $('#for_chart2').load('display.php');
-//     }
-//     else if(ele.id == 'chart_4'){
-//         NvsC_pie();
-//         // $('#for_chart2').load('display.php');
-//     }
-//     else if(ele.id == 'chart_5'){
-//         NvsC_bar();
-//         // $('#for_chart2').load('display.php');
-//     }
-//     else if(ele.id == 'chart_6'){
-//         NvsC_bar();
-//         // $('#for_chart2').load('display.php');
-//     }
-// }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// This script creats highcharts and display it while clicking corresponding tabs
+// Charts creating function is a copy of display.php, display1.php, display2.php, display3.php, piechart.php and piechart1.php
+// in "charts" folder
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function(){
     NvsR_bar();
     $("#chart_1").click(function(){
-        // chart.reflow();
         NvsR_bar();
     });
     $("#chart_1_bar").click(function(){
-        // chart.reflow();
         NvsR_bar();
-        
     });
     $("#chart_1_pie").click(function(){
-        // chart.reflow();
         NvsR_pie();
-        
     });
     $("#chart_2").click(function(){
-        // chart.reflow();
         NvsC_bar();
-        
     });
     $("#chart_2_bar").click(function(){
-        // chart.reflow();
         NvsC_bar();
-        
     });
     $("#chart_2_pie").click(function(){
-        // chart.reflow();
         NvsC_pie();
-        
     });
     $("#chart_3").click(function(){
-        // chart.reflow();
         NvsS_bar();
-        
     });
     $("#chart_4").click(function(){
-        // chart.reflow();
         NvsG_bar();
-        
     });
     chart.reflow();
 });

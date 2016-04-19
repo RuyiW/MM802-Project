@@ -1,6 +1,10 @@
-
+<!-- 
+	===========================================================
+	This page is the main page of our website. 
+	It is a welcome page.
+	===========================================================
+ -->
 <?php session_start(); 
-	//include_once './dataset/read_data.php';
 	$host="localhost";
 	$db_user="root";
 	$db_pass="";
@@ -17,11 +21,13 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>311 Web Explore</title>
+		<title>Relation Finder</title>
+		<!-- page style -->
 		<link rel="stylesheet" type="text/css" href="./css/style.css" media="all">
 	</head>
 	<body background="./img/edmonton.jpg">
 		<div class = "transparency_filter"></div>
+		<!-- nevigation section -->
 		<div class = "menu">
 			<ul>
 				<li><a href='main_new.php'>HOME</a></li>
@@ -34,6 +40,7 @@
 			<h1>Welcome</h1>
 			
 		</div>
+		<!-- footer -->
 		<div class = "bottom_bar" style="height:6em;">
 			<a href="http://www.edmonton.ca/"><img src="./img/logo.png"></a>
 			<p>Copyright: MM811-course project &copy; 2016 All rights Reseverd by Queenie Luc & Sweta Bedmutha & Ruyi Wang</p>
@@ -46,25 +53,28 @@
 			</ul>
 		</div>
 	</body>
+
+	<!-- scripts for table and map -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
+	<script type="text/javascript" src="js/loadMap.js"> </script>
+
+	<!-- scripts of jquerys -->
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 	<script src = "./js/jquery-ui.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- using d3 for filtering the dataset-->
+
+	<!-- others (might not used in this page but in other page. keep them in case) -->
 	<script language="JavaScript" type="text/javascript" src="js/min_max_checklist.js"></script>
-	<!-- <script type="text/javascript" src="js/check_all.js"></script> -->
 	<script type="text/javascript" src="js/filter_buttons.js"></script>
 	<script type="text/javascript" src="js/renew_checklist.js"></script>
-	<script type="text/javascript" src="js/loadMap.js"> </script>
 	<script type="text/javascript" src="js/tableResults.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
-
-
-
 
 <?php 
+	//close connection to database
 	$conn->close();
 ?>
 </html>

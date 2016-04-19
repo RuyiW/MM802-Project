@@ -1,4 +1,10 @@
+-- ===========================================================
+-- This is the table file that creates tables in database.
+-- It needs to be called when initiallizing the database.
+-- ===========================================================
 
+-- following two tables are the two main tables in our database
+	--request table stores all the request data
 CREATE TABLE IF NOT EXISTS 311_Explorer (
 	ticket_number bigint(10) UNSIGNED PRIMARY KEY, 
 	date_created VARCHAR(20),
@@ -22,7 +28,7 @@ CREATE TABLE IF NOT EXISTS 311_Explorer (
 	posse_number VARCHAR(13),
 	transit_ref_number INT(10)
 );
-
+	-- complaints table stores all the complaint data
 CREATE TABLE IF NOT EXISTS Bylaw (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
@@ -41,26 +47,7 @@ CREATE TABLE IF NOT EXISTS Bylaw (
 	bylaw_location_y FLOAT(20, 15)
 );
 
--- CREATE TABLE IF NOT EXISTS Neighbourhood_Centroid (
--- 	neighbourhood_id INT(4),
--- 	neighbourhood VARCHAR(40),
--- 	latitude FLOAT(20, 15),
--- 	longtitude FLOAT(20, 15),
--- 	location_x FLOAT(20, 15),
--- 	location_y FLOAT(20, 15)
--- );
-
--- CREATE TABLE IF NOT EXISTS Ward_Boundaries (
--- 	ward VARCHAR(7),
--- 	area_km2 FLOAT(20, 15)
--- );
-
--- CREATE TABLE IF NOT EXISTS Neighbourhood_Boundaries (
--- 	neighbourhood VARCHAR(40),
--- 	neighbourhood_id INT(4),
--- 	area_km2 FLOAT(20, 15)
--- );
-
+-- following 4 tables are used for store selection records for requests filter section
 CREATE TABLE IF NOT EXISTS 311_ward (
 	ticket_number bigint(10), 
 	date_created VARCHAR(20),
@@ -156,6 +143,7 @@ CREATE TABLE IF NOT EXISTS 311_request_status (
 	transit_ref_number INT(10)
 );
 
+-- temp table for storing filter selection temporary
 CREATE TABLE IF NOT EXISTS temp_311(
 	ticket_number bigint(10), 
 	date_created VARCHAR(20),
@@ -180,6 +168,7 @@ CREATE TABLE IF NOT EXISTS temp_311(
 	transit_ref_number INT(10)
 );
 
+-- result table for storing selected result of filter
 CREATE TABLE IF NOT EXISTS checked_311_result (
 	ticket_number bigint(10), 
 	date_created VARCHAR(20),
@@ -204,6 +193,7 @@ CREATE TABLE IF NOT EXISTS checked_311_result (
 	transit_ref_number INT(10)
 );
 
+-- following 4 tables are used for store selection records for complaints filter section
 CREATE TABLE IF NOT EXISTS month (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
@@ -275,7 +265,7 @@ CREATE TABLE IF NOT EXISTS bylaw_status (
 	bylaw_location_x FLOAT(20, 15),
 	bylaw_location_y FLOAT(20, 15)
 );
-
+-- temp table for storing filter selection temporary
 CREATE TABLE IF NOT EXISTS temp_bylaw (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
@@ -293,7 +283,7 @@ CREATE TABLE IF NOT EXISTS temp_bylaw (
 	bylaw_location_x FLOAT(20, 15),
 	bylaw_location_y FLOAT(20, 15)
 );
-
+-- result table for storing selected result of filter
 CREATE TABLE IF NOT EXISTS checked_bylaw_result (
 	complaint_number INT(3),
 	bylaw_year YEAR(4),
@@ -312,6 +302,8 @@ CREATE TABLE IF NOT EXISTS checked_bylaw_result (
 	bylaw_location_y FLOAT(20, 15)
 );
 
+
+-- following 3 tables are used for storing k nearest neighbour results
 CREATE TABLE IF NOT EXISTS match_resultdays (
 	complaint_number INT(3),
 	matched_ticket_number bigint(10),

@@ -1,36 +1,27 @@
-
-/*
-$(document).ready(function(){
-	$("#min_max").click(function(){
-		if($(this).html() == "-"){
-			$(this).html("+");
-		}
-		else{
-			$(this).html("-");
-		}
-		$("#checklist_content").slideToggle();
-	});
-});
-*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// This script is for filter animations.
+// Initially, all the checklist contents are minimized (hiden).
+// While user cliked on one of the min/max button, the page calls function activateMaxMin(...) to:
+// first, switch min max button icon picture
+// second, remove/ add max class
+// last, minimize/maximize the content
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function activateMaxMin(elemButton,elemMax,elemBox)
 {
 
   var isclass = elemButton.attr('class');
-    if (isclass == "max") 
-
+    if (isclass == "max") //if the class is already maximized
     {
-        elemMax.attr("src","./img/plus-78.png");
-        elemButton.removeClass('max');
-		elemBox.hide("slow");
+        elemMax.attr("src","./img/plus-78.png");//change icon
+        elemButton.removeClass('max'); //remove the max class
+		elemBox.hide("slow");// minimize the content (slowly)
     }
-    else{
-        elemButton.addClass('max');
-        elemMax.attr("src","./img/minus-78.png");
-        elemBox.show("slow");
+    else{//the class is minimized
+        elemButton.addClass('max'); //add the max class
+        elemMax.attr("src","./img/minus-78.png"); // change icon
+        elemBox.show("slow"); //maximize the content (slowly)
     }
-    //elemBox.slideToggle();
-
 }
 $(document).ready(function(){
 	$("#checklist_content").hide();

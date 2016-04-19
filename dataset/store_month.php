@@ -1,3 +1,9 @@
+<!-- 
+	===========================================================
+	This is the file used for store selected data into 
+	complaint month table.
+	===========================================================
+ -->
 <?php 
 	$host="localhost";
 	$db_user="root";
@@ -11,272 +17,131 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-
+// array of tables names that needs to join
 $table_array = Array("month", "bylaw_year", "complaint", "bylaw_status");
+//clear temp table
 $delete_sql = "DELETE FROM temp_bylaw";
 if (mysqli_query($conn, $delete_sql)) {
+	// keep for debugging
 	//echo "DELETED temp_bylaw";
 	//echo "\n";
 } else {
-	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-	//echo "\n";
+	// keep for debugging
+	echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
 }
+//copy data from checked result to temp table
 $copy_sql = "INSERT INTO temp_bylaw SELECT * FROM Bylaw;";
 if (mysqli_query($conn, $copy_sql)) {
+	// keep for debugging
 	//echo "The previous record copyed successfully";
 	//echo "\n";
 } else {
-	//echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
-	//echo "\n";
+	// keep for debugging
+	echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
 }
 
-//echo "before get";
+// get selected data
 $month = $_GET['month'];
-// $checked = $_GET['checked'];
 $month = str_replace('%20', ' ', $month);
-//echo "in data.php";
-//echo $ward;
 
-// if($checked == '1'){
-	$data_sql = "SELECT * FROM Bylaw WHERE month = '$month'"; //select data that matches
-	$data_result = $conn->query($data_sql);//get returned result
+$data_sql = "SELECT * FROM Bylaw WHERE month = '$month'"; //select data that matches
+$data_result = $conn->query($data_sql);//get returned result
 
-	if ($data_result->num_rows > 0) {
-		//echo $data_result;
-		while($row = $data_result->fetch_assoc()) {
-			
-			if($row["month"] != null){
+if ($data_result->num_rows > 0) {
+	while($row = $data_result->fetch_assoc()) {
+		
+		if($row["month"] != null){
 
-				//echo $row["311_ward"];
-				//$the_value = $row["ward"];
-				$the_complaint_number = $row["complaint_number"];
-				$the_bylaw_year = $row["bylaw_year"];
-				$the_month_number = $row["month_number"];
-				$the_month = $row["month"];
-				$the_report_period = $row["report_period"];
-				$the_bylaw_neighbourhood = $row["bylaw_neighbourhood"];
-				$the_bylaw_neighbourhood_id = $row["bylaw_neighbourhood_id"];
-				$the_complaint = $row["complaint"];
-				$the_initiated_by = $row["initiated_by"];
-				$the_bylaw_status = $row["bylaw_status"];
-				$the_bylaw_count = $row["bylaw_count"];
-				$the_bylaw_latitude = $row["bylaw_latitude"];
-				$the_bylaw_longtitude = $row["bylaw_longtitude"];
-				$the_bylaw_location_x = $row["bylaw_location_x"];
-				$the_bylaw_location_y = $row["bylaw_location_y"];
-				$insert_sql = "INSERT INTO month (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, 
-					bylaw_neighbourhood_id, complaint, initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y) 
-					VALUES ( '$the_complaint_number', '$the_bylaw_year', '$the_month_number', '$the_month', '$the_report_period', '$the_bylaw_neighbourhood', 
-						'$the_bylaw_neighbourhood_id', '$the_complaint', '$the_initiated_by', '$the_bylaw_status', '$the_bylaw_count', 
-						'$the_bylaw_latitude', '$the_bylaw_longtitude', '$the_bylaw_location_x', '$the_bylaw_location_y')";
-				if (mysqli_query($conn, $insert_sql)) {
-			    	//echo "New record created successfully";
-			    	//echo "\n";
-				} else {
-			    	//echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
-			    	//echo "\n";
-				}
+			$the_complaint_number = $row["complaint_number"];
+			$the_bylaw_year = $row["bylaw_year"];
+			$the_month_number = $row["month_number"];
+			$the_month = $row["month"];
+			$the_report_period = $row["report_period"];
+			$the_bylaw_neighbourhood = $row["bylaw_neighbourhood"];
+			$the_bylaw_neighbourhood_id = $row["bylaw_neighbourhood_id"];
+			$the_complaint = $row["complaint"];
+			$the_initiated_by = $row["initiated_by"];
+			$the_bylaw_status = $row["bylaw_status"];
+			$the_bylaw_count = $row["bylaw_count"];
+			$the_bylaw_latitude = $row["bylaw_latitude"];
+			$the_bylaw_longtitude = $row["bylaw_longtitude"];
+			$the_bylaw_location_x = $row["bylaw_location_x"];
+			$the_bylaw_location_y = $row["bylaw_location_y"];
+			//insert data into table
+			$insert_sql = "INSERT INTO month (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, 
+				bylaw_neighbourhood_id, complaint, initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y) 
+				VALUES ( '$the_complaint_number', '$the_bylaw_year', '$the_month_number', '$the_month', '$the_report_period', '$the_bylaw_neighbourhood', 
+					'$the_bylaw_neighbourhood_id', '$the_complaint', '$the_initiated_by', '$the_bylaw_status', '$the_bylaw_count', 
+					'$the_bylaw_latitude', '$the_bylaw_longtitude', '$the_bylaw_location_x', '$the_bylaw_location_y')";
+			if (mysqli_query($conn, $insert_sql)) {
+				// keep for debugging
+		    	//echo "New record created successfully";
+		    	//echo "\n";
+			} else {
+				// keep for debugging
+		    	echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
+		    	echo "\n";
 			}
 		}
 	}
-// }
-// else{
-// 	$delete_sql = "DELETE FROM month WHERE month = '$month'"; //select data that matches
-// 	if (mysqli_query($conn, $delete_sql)) {
-//     	//echo "The record deleted successfully";
-//     	//echo "\n";
-// 	} else {
-//     	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-//     	//echo "\n";
-// 	}
+}
 
-// 	$delete_sql = "DELETE FROM checked_bylaw_result WHERE month = '$month'"; //select data that matches
-// 	if (mysqli_query($conn, $delete_sql)) {
-//     	//echo "The record deleted successfully";
-//     	//echo "\n";
-// 	} else {
-//     	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-//     	//echo "\n";
-// 	}
-
-// }
-
-
-
-
-
-
-
-//check and join
-
-
-
-// $check_previous_result = "SELECT COUNT(*) FROM checked_bylaw_result;";
-// $previous_result = $conn->query($check_previous_result);//get returned result
-// $previous_count = $previous_result->fetch_assoc();
-// //echo $previous_count['COUNT(*)'];
-// //echo $table_array[0];
-// if ($previous_count['COUNT(*)'] == 0) {
-// 	// if($checked == '1'){
-// 		$copy_sql = "INSERT INTO checked_bylaw_result SELECT * FROM " . $table_array[0] . ";";
-// 		if (mysqli_query($conn, $copy_sql)) {
-// 			//echo "The record copyed successfully";
-// 			//echo "\n";
-// 		} else {
-// 			//echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
-// 			//echo "\n";
-// 		}
-// 	// }
-// 	// else{
-// 	// 	$copy_sql = "INSERT INTO checked_bylaw_result SELECT * FROM temp_bylaw;";
-// 	// 	if (mysqli_query($conn, $copy_sql)) {
-// 	// 		//echo "The record copyed successfully";
-// 	// 		//echo "\n";
-// 	// 	} else {
-// 	// 		//echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
-// 	// 		//echo "\n";
-// 	// 	}
-// 	// }
-// }
-// else{
-// 	// if($checked == '1'){
-// 		$join_count_sql = "SELECT COUNT(*) FROM checked_bylaw_result INNER JOIN " . $table_array[0] . " ON checked_bylaw_result.complaint_number = " . $table_array[0] .".complaint_number";
-// 		$join_count_result = $conn->query($join_count_sql);//get returned result
-// 		$join_count = $join_count_result->fetch_assoc();
-// 		//echo "before JOIN";
-// 		//echo $join_count['COUNT(*)'];
-// 		if ($join_count['COUNT(*)'] > 0) {
-// 			//echo "in the JOIN";
-// 			$join_sql = "SELECT * FROM checked_bylaw_result INNER JOIN " . $table_array[0] . " ON checked_bylaw_result.complaint_number = " . $table_array[0] .".complaint_number";
-// 			$join_result = $conn->query($join_sql);//get returned result
-// 			//empty the checked_bylaw_result
-// 			$delete_sql = "DELETE FROM checked_bylaw_result";
-// 			if (mysqli_query($conn, $delete_sql)) {
-// 		    	//echo "DELETED checked_bylaw_result";
-// 		    	//echo "\n";
-// 			} else {
-// 		    	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-// 		    	//echo "\n";
-// 			}
-// 			//echo $data_result;
-// 			//echo "is here before join";
-			
-// 			while($row = $join_result->fetch_assoc()) {
-
-// 				// $the_array = Array();
-// 				// while ($the_array = mysql_fetch_object($join_result)) {
-// 				// 	if (sizeof($the_array) > 0) {
-// 				// 	//echo $data_result;
-// 				// 	//while($row = $_result->fetch_assoc()) {
-		
-// 				if($row["month"] != null){
-
-// 					//echo $row["311_ward"];
-// 					//$the_value = $row["ward"];
-// 					$the_complaint_number = $row["complaint_number"];
-// 					$the_bylaw_year = $row["bylaw_year"];
-// 					$the_month_number = $row["month_number"];
-// 					$the_month = $row["month"];
-// 					$the_report_period = $row["report_period"];
-// 					$the_bylaw_neighbourhood = $row["bylaw_neighbourhood"];
-// 					$the_bylaw_neighbourhood_id = $row["bylaw_neighbourhood_id"];
-// 					$the_complaint = $row["complaint"];
-// 					$the_initiated_by = $row["initiated_by"];
-// 					$the_bylaw_status = $row["bylaw_status"];
-// 					$the_bylaw_count = $row["bylaw_count"];
-// 					$the_bylaw_latitude = $row["bylaw_latitude"];
-// 					$the_bylaw_longtitude = $row["bylaw_longtitude"];
-// 					$the_bylaw_location_x = $row["bylaw_location_x"];
-// 					$the_bylaw_location_y = $row["bylaw_location_y"];
-// 					$insert_sql = "INSERT INTO checked_bylaw_result (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, 
-// 						bylaw_neighbourhood_id, complaint, initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y) 
-// 						VALUES ( '$the_complaint_number', '$the_bylaw_year', '$the_month_number', '$the_month', '$the_report_period', '$the_bylaw_neighbourhood', 
-// 							'$the_bylaw_neighbourhood_id', '$the_complaint', '$the_initiated_by', '$the_bylaw_status', '$the_bylaw_count', 
-// 							'$the_bylaw_latitude', '$the_bylaw_longtitude', '$the_bylaw_location_x', '$the_bylaw_location_y')";
-// 					if (mysqli_query($conn, $insert_sql)) {
-// 				    	//echo "New record created successfully";
-// 				    	//echo "\n";
-// 					} else {
-// 				    	//echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
-// 				    	//echo "\n";
-// 					}
-// 				}
-// 			}
-// 		}
-// 		else{
-// 			//empty the checked_bylaw_result
-// 			$delete_sql = "DELETE FROM checked_bylaw_result";
-// 			if (mysqli_query($conn, $delete_sql)) {
-// 		    	//echo "DELETED checked_bylaw_result";
-// 		    	//echo "\n";
-// 			} else {
-// 		    	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-// 		    	//echo "\n";
-// 			}
-// 		}
-// 	// }
-// }
 
 //empty the checked_311_result
 $delete_sql = "DELETE FROM checked_311_result";
 if (mysqli_query($conn, $delete_sql)) {
+	// keep for debugging
 	//echo "DELETED checked_311_result";
 	//echo "\n";
 } else {
-	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-	//echo "\n";
+	// keep for debugging
+	echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
 }
 //put everything from current table to result table
 $copy_sql = "INSERT INTO checked_311_result SELECT * FROM " . $table_array[0] . ";";
 if (mysqli_query($conn, $copy_sql)) {
+	// keep for debugging
 	//echo "The record copyed successfully";
 	//echo "\n";
 } else {
-	//echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
-	//echo "\n";
+	// keep for debugging
+	echo "Error: " . $copy_sql . "<br>" . mysqli_error($conn);
+	echo "\n";
 }
-for($i = 1; $i < sizeof($table_array); $i++){
 
+// for each table that storing selection result
+for($i = 1; $i < sizeof($table_array); $i++){
+	//check if there is any data in the table
 	$check_sql = "SELECT COUNT(*) FROM " . $table_array[$i] .";";
 	$check_result = $conn->query($check_sql);//get returned result
 	$the_count = $check_result->fetch_assoc();
-	//echo $the_count['COUNT(*)'];
-	if ($the_count['COUNT(*)'] > 0) {
-		//echo "NOT empty";
-		//echo $table_array[$i];
+	if ($the_count['COUNT(*)'] > 0) {//the table is not empty, can join
+		//check if there is any intersection between these two tables
+		//if there is no intersection, just skip this table and check next
 		$join_count_sql = "SELECT COUNT(*) FROM checked_bylaw_result INNER JOIN " . $table_array[$i] . " ON checked_bylaw_result.complaint_number = " . $table_array[$i] .".complaint_number";
 		$join_count_result = $conn->query($join_count_sql);//get returned result
 		$join_count = $join_count_result->fetch_assoc();
-		//echo "before JOIN";
-		//echo $join_count['COUNT(*)'];
 		if ($join_count['COUNT(*)'] > 0) {
-			//echo "in the JOIN";
 			$join_sql = "SELECT * FROM checked_bylaw_result INNER JOIN " . $table_array[$i] . " ON checked_bylaw_result.complaint_number = " . $table_array[$i] .".complaint_number";
 			$join_result = $conn->query($join_sql);//get returned result
 			//empty the checked_bylaw_result
 			$delete_sql = "DELETE FROM checked_bylaw_result";
 			if (mysqli_query($conn, $delete_sql)) {
+				// keep for debugging
 		    	//echo "DELETED checked_bylaw_result";
 		    	//echo "\n";
 			} else {
-		    	//echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
-		    	//echo "\n";
+				// keep for debugging
+		    	echo "Error: " . $delete_sql . "<br>" . mysqli_error($conn);
+		    	echo "\n";
 			}
-			//echo $data_result;
-			//echo "is here before join";
-			
-			while($row = $join_result->fetch_assoc()) {
 
-				// $the_array = Array();
-				// while ($the_array = mysql_fetch_object($join_result)) {
-				// 	if (sizeof($the_array) > 0) {
-				// 	//echo $data_result;
-				// 	//while($row = $_result->fetch_assoc()) {
-		
+			while($row = $join_result->fetch_assoc()) {//if not reach the end
+
 				if($row["month"] != null){
-
-					//echo $row["311_ward"];
-					//$the_value = $row["ward"];
 					$the_complaint_number = $row["complaint_number"];
 					$the_bylaw_year = $row["bylaw_year"];
 					$the_month_number = $row["month_number"];
@@ -292,22 +157,26 @@ for($i = 1; $i < sizeof($table_array); $i++){
 					$the_bylaw_longtitude = $row["bylaw_longtitude"];
 					$the_bylaw_location_x = $row["bylaw_location_x"];
 					$the_bylaw_location_y = $row["bylaw_location_y"];
+					// insert the instersected data into result table
 					$insert_sql = "INSERT INTO checked_bylaw_result (complaint_number, bylaw_year, month_number, month, report_period, bylaw_neighbourhood, 
 						bylaw_neighbourhood_id, complaint, initiated_by, bylaw_status, bylaw_count, bylaw_latitude, bylaw_longtitude, bylaw_location_x, bylaw_location_y) 
 						VALUES ( '$the_complaint_number', '$the_bylaw_year', '$the_month_number', '$the_month', '$the_report_period', '$the_bylaw_neighbourhood', 
 							'$the_bylaw_neighbourhood_id', '$the_complaint', '$the_initiated_by', '$the_bylaw_status', '$the_bylaw_count', 
 							'$the_bylaw_latitude', '$the_bylaw_longtitude', '$the_bylaw_location_x', '$the_bylaw_location_y')";
 					if (mysqli_query($conn, $insert_sql)) {
+						// keep for debugging
 				    	//echo "New record created successfully";
 				    	//echo "\n";
 					} else {
-				    	//echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
-				    	//echo "\n";
+						// keep for debugging
+				    	echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
+				    	echo "\n";
 					}
 				}
 			}
 		}
 	}
 }
-
+//close connection to database
+$conn->close();
 ?>
