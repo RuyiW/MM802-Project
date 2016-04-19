@@ -145,10 +145,15 @@ function NvsR_pie() {
     var options = {
         chart: {
             renderTo: 'for_chart2',
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
+            // plotBackgroundColor: null,
+            // plotBorderWidth: null,
+            // plotShadow: false,
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 30,
+                beta: 0
+            }
             
         },
          //Add title to the chart
@@ -194,7 +199,7 @@ function NvsR_pie() {
                 allowPointSelect: true,
                 //Set the cursor to "pointer" if you have click events attached to the series, to signal to the user that the points and lines can be clicked.
                 cursor: 'pointer',
-
+                depth: 60,
                 dataLabels: {
                       //Enable or disable the data labels
                     enabled: true,

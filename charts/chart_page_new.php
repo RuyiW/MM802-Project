@@ -123,9 +123,11 @@
 
 	<!-- scripts for charts -->
 	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/highcharts-3d.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
     <script type="text/javascript" src="../js/display_charts.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 
 	<!-- scripts of jquerys -->
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
