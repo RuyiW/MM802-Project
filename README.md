@@ -1,5 +1,5 @@
 # MM802-Project
-MM811-course project about data mining
+MM802-course project about data mining
 Sweta Bedmutha, Queenie Luc, Ruyi Wang
 
 Files under MM802-Project folder:
